@@ -39,14 +39,4 @@ public class MainController {
     public List<User> test() {
         return userService.getAllUsernames();
     }
-
-    @RequestMapping("/update")
-    @ResponseBody
-    public int t() {
-        User u = new User();
-        u.setId(22);
-        u.setNickname("phoebe");
-        u.setPassword("123456");
-        return userService.update(u);
-    }
 }

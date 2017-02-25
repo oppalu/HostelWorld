@@ -7,5 +7,11 @@
       <introspection-scope>j2ee:</introspection-scope>
       <resolve-scope>j2ee:</resolve-scope>
     </data-source>
+    <data-source name="sessionFactory/Hibernate" uuid="a3fbaa4e-aa20-4e37-b126-6c970e6b710d">
+      <user-name>root</user-name>
+      <user-password>df98dfcbdf9cdf9bdf9d</user-password>
+      <introspection-scope>j2ee:</introspection-scope>
+      <resolve-scope>j2ee:</resolve-scope>
+    </data-source>
   </component>
 </project>
