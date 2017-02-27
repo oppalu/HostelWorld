@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="1997471892">
+  <component name="DataSourceManagerImpl" format="xml" hash="956279865">
     <data-source source="LOCAL" name="MySQL - j2ee@localhost" uuid="3e57fc0f-e385-4d31-8aae-8d7b06cc741f">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -30,6 +30,14 @@
         <property name="characterSetResults" value="utf8" />
         <property name="yearIsDateType" value="false" />
       </driver-properties>
+      <libraries>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/mysql-connector-license.txt</url>
+        </library>
+        <library>
+          <url>file://$APPLICATION_CONFIG_DIR$/jdbc-drivers/mysql-connector-java-5.1.35-bin.jar</url>
+        </library>
+      </libraries>
     </data-source>
   </component>
 </project>

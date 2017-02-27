@@ -18,17 +18,14 @@ public class BaseDaoImpl implements BaseDao {
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Override
     public Session getSession() {
         return sessionFactory.getCurrentSession();
     }
 
-    @Override
     public Session getNewSession() {
         return sessionFactory.openSession();
     }
 
-    @Override
     public int save(Object o) {
         try {
             Session session = getNewSession();
@@ -43,7 +40,6 @@ public class BaseDaoImpl implements BaseDao {
         }
     }
 
-    @Override
     public int delete(Object o) {
         try {
             Session session = getNewSession();
@@ -58,7 +54,6 @@ public class BaseDaoImpl implements BaseDao {
         }
     }
 
-    @Override
     public int delete(Class<?> c, String id) {
         try {
             Session session = getNewSession();
@@ -74,7 +69,6 @@ public class BaseDaoImpl implements BaseDao {
         }
     }
 
-    @Override
     public int update(Object o) {
         try {
             Session session = getNewSession();
@@ -89,20 +83,17 @@ public class BaseDaoImpl implements BaseDao {
         }
     }
 
-    @Override
     public Object find(Class<?> c, String id) {
         Session session = getSession();
         return session.get(c, id);
     }
 
-    @Override
     public List findAll(Class<?> c) {
         String hql = "from " + c.getName();
         Session session = getSession();
         return session.createQuery(hql).list();
     }
 
-    @Override
     public int getTotalCount(Class<?> c) {
         Session session = getNewSession();
         String hql = "select count(*) from " + c.getName();
