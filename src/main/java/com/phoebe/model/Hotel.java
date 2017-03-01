@@ -44,12 +44,6 @@ public class Hotel {
         return password;
     }
 
-    @Basic
-    @Column(name = "password", nullable = false, length = 255)
-    public String getPassword() {
-        return password;
-    }
-
     public void setPassword(String password) {
         this.password = password;
     }
