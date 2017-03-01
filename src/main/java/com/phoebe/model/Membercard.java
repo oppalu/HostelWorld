@@ -18,6 +18,12 @@ public class Membercard {
     private int level;
     private int point;
     private String bankAccount;
+    private String memberid;
+    private Double totalpoint;
+
+    public void setPoint(double point) {
+        this.point = point;
+    }
 
     @Id
     @Column(name = "id", nullable = false, length = 45)
@@ -70,7 +76,7 @@ public class Membercard {
     }
 
     @Basic
-    @Column(name = "point", nullable = false)
+    @Column(name = "point", nullable = false, precision = 0)
     public int getPoint() {
         return point;
     }
@@ -122,8 +128,6 @@ public class Membercard {
         return result;
     }
 
-    private String memberid;
-
     @Basic
     @Column(name = "memberid", nullable = false, length = 45)
     public String getMemberid() {
@@ -132,5 +136,15 @@ public class Membercard {
 
     public void setMemberid(String memberid) {
         this.memberid = memberid;
+    }
+
+    @Basic
+    @Column(name = "totalpoint", nullable = true, precision = 0)
+    public Double getTotalpoint() {
+        return totalpoint;
+    }
+
+    public void setTotalpoint(Double totalpoint) {
+        this.totalpoint = totalpoint;
     }
 }

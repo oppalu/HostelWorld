@@ -106,4 +106,16 @@ public class Plan {
     public void setRoomtype(String roomtype) {
         this.roomtype = roomtype;
     }
+
+    private String state;
+
+    @Basic
+    @Column(name = "state", nullable = false, length = 20)
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
 }

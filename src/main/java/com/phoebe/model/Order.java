@@ -46,7 +46,7 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "user1", nullable = false, length = 45)
+    @Column(name = "user1", nullable = true, length = 45)
     public String getUser1() {
         return user1;
     }
@@ -56,7 +56,7 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "idcard1", nullable = false, length = 255)
+    @Column(name = "idcard1", nullable = true, length = 255)
     public String getIdcard1() {
         return idcard1;
     }
@@ -234,5 +234,17 @@ public class Order {
 
     public void setMembercard(String membercard) {
         this.membercard = membercard;
+    }
+
+    private String memberid;
+
+    @Basic
+    @Column(name = "memberid", nullable = true, length = 45)
+    public String getMemberid() {
+        return memberid;
+    }
+
+    public void setMemberid(String memberid) {
+        this.memberid = memberid;
     }
 }

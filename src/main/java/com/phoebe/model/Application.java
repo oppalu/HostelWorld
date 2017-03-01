@@ -74,6 +74,18 @@ public class Application {
         return state;
     }
 
+    @Basic
+    @Column(name = "state", nullable = false, length = 20)
+    public String getState() {
+        return state;
+    }
+
+    @Basic
+    @Column(name = "state", nullable = false, length = 20)
+    public String getState() {
+        return state;
+    }
+
     public void setState(String state) {
         this.state = state;
     }
@@ -88,7 +100,7 @@ public class Application {
         this.type = type;
     }
 
-    @Override
+        @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -105,8 +117,7 @@ public class Application {
 
         return true;
     }
-
-    @Override
+@Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (hotelname != null ? hotelname.hashCode() : 0);
@@ -116,9 +127,7 @@ public class Application {
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
         return result;
-    }
-
-    private String hotelid;
+    }private String hotelid;
 
     @Basic
     @Column(name = "hotelid", nullable = false, length = 45)

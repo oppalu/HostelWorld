@@ -17,6 +17,7 @@ public class Hotel {
     private String location;
     private String telephone;
     private String state;
+private String bankid;
 
     @Id
     @Column(name = "id", nullable = false, length = 45)
@@ -88,7 +89,7 @@ public class Hotel {
         this.state = state;
     }
 
-    @Override
+        @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -105,8 +106,7 @@ public class Hotel {
 
         return true;
     }
-
-    @Override
+@Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
@@ -116,7 +116,7 @@ public class Hotel {
         result = 31 * result + (telephone != null ? telephone.hashCode() : 0);
         result = 31 * result + (state != null ? state.hashCode() : 0);
         return result;
-    }    private String bankid;
+    }
 
     @Basic
     @Column(name = "bankid", nullable = false, length = 255)

@@ -21,25 +21,6 @@ CREATE TABLE `bankaccount`(
   PRIMARY KEY(`account`)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8;
 
-# 预订单,编号B开头,state为预定/入住/取消
-CREATE TABLE `booking`(
-  `id` VARCHAR(45) NOT NULL ,
-  `hotelid` VARCHAR(45) NOT NULL ,
-  `roomid` VARCHAR(45) NOT NULL ,
-  `state` VARCHAR(20) NOT NULL ,
-  `createtime` DATETIME NOT NULL ,
-  `begintime` DATE NOT NULL ,
-  `endtime` DATE NOT NULL ,
-  `name` VARCHAR(45) NOT NULL ,
-  `phone` VARCHAR(255) NOT NULL ,
-  `memberid` VARCHAR(45) NOT NULL ,
-  `price` DOUBLE NOT NULL ,
-  PRIMARY KEY(`id`),
-  FOREIGN KEY (`hotelid`) REFERENCES hotel(`id`),
-  FOREIGN KEY (`roomid`) REFERENCES room(`id`),
-  FOREIGN KEY (`memberid`) REFERENCES member(`id`)
-) ENGINE = INNODB DEFAULT CHARSET = utf8;
-
 # 编号以H开头,state表示是否通过审批/修改
 CREATE TABLE `hotel`(
   `id` VARCHAR(45) NOT NULL ,
