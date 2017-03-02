@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>酒店信息</title>
+    <title>添加房间</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -32,7 +32,7 @@
     <aside class="main-sidebar">
         <section class="sidebar">
 
-           <div class="user-panel">
+            <div class="user-panel">
                 <div class="pull-left image">
                     <img src="../../img/avatar.png" class="img-circle" alt="User Image">
                 </div>
@@ -57,7 +57,7 @@
                 <li class="header"></li>
 
                 <li class="treeview">
-                    <a href="#">
+                    <a href="hotelinfo.html">
                         <i class="glyphicon glyphicon-file"></i>
                         <span>酒店信息</span>
                         <span class="pull-right-container">
@@ -75,7 +75,7 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="addroom.html"><i class="fa fa-circle-o"></i> 添加房间</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 添加房间</a></li>
                         <li><a href="roominfo.html"><i class="fa fa-circle-o"></i> 房间状态</a></li>
                     </ul>
                 </li>
@@ -128,71 +128,82 @@
     </aside>
 
     <div class="content-wrapper">
-        <section class="content-header"><h1>酒店基本信息</h1></section>
+        <section class="content-header"><h1>添加房间</h1></section>
 
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店图片</label>
-                            <div class="col-sm-2 pull-left image">
-                                <img class="img-circle" id="image" name="image" width="70%" height="70%" style="diplay:none" />
-                            </div>
-                            <br>
-                            <div class="col-sm-4">
-                                <input type="file" id="file" name="file" id="file" onchange="setImagePreview()">
-                            </div>
-                        </div>
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#type" data-toggle="tab">添加房间类型</a></li>
+                            <li><a href="#room" data-toggle="tab">添加房间</a></li>
+                        </ul>
 
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店名称</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="酒店名称">
-                            </div>
-                        </div>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="type">
+                                <div style="width: 50%" class="col-md-offset-2">
+                                    <form method="post" action="#" class="form-horizontal">
+                                        <div class="form-group">
+                                            <label class="col-sm-offset-2 col-sm-4 control-label">房间类型名称</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" name="typename">
+                                            </div>
+                                        </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">所在城市</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="city" name="city" placeholder="城市">
-                            </div>
-                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-offset-2 col-sm-4 control-label">房间大小</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" name="size">
+                                            </div>
+                                        </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">具体地址</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="location" name="location" placeholder="地址">
-                            </div>
-                        </div>
+                                        <div class="form-group">
+                                            <label class="col-sm-offset-2 col-sm-4 control-label">床位数</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" name="bednum">
+                                            </div>
+                                        </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店电话</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="tel" name="tel" placeholder="酒店电话">
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-6 col-sm-4">
+                                                <button type="submit" class="btn btn-primary">确认添加</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">银行账户</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="bank" name="bank" placeholder="银行账户">
-                            </div>
-                        </div>
+                            <div class="tab-pane" id="room">
+                                <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="col-sm-offset-2 col-sm-2 control-label">房间名称</label>
+                                        <div class="col-sm-3">
+                                            <input type="text" class="form-control" id="name" name="name" placeholder="房间号">
+                                        </div>
+                                    </div>
 
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">开业时间</label>
-                            <div class="col-sm-3">
-                                <label class="control-label">2017-03-01</label>
-                            </div>
-                        </div>
+                                    <div class="form-group">
+                                        <label class="col-sm-offset-2 col-sm-2 control-label">房间类型</label>
+                                        <div class="col-sm-8">
+                                            <select id="roomtype" name="roomtype">
+                                                <option value="商务间">商务间</option>
+                                                <option value="标准间">标准间</option>
+                                                <option value="大床房">大床房</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-8">
-                                <button type="submit" class="btn btn-danger">修改</button>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-4 col-sm-8">
+                                            <button type="submit" class="btn btn-primary">确认添加</button>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                    </form>
+                        <!--tab-content-->
+                    </div>
+                    <!--nav-tabs-custom-->
                 </div>
                 <!--col-->
             </div>
@@ -203,14 +214,6 @@
 <script src="../../js/jquery-2.2.3.min.js"></script>
 <script src="../../js/bootstrap.js"></script>
 <script src="../../js/app.js"></script>
-<script type="text/javascript">
-    function setImagePreview() {
-        var docObj = document.getElementById("file");
-        var preview = document.getElementById("image");
-        preview.src = window.URL.createObjectURL(docObj.files[0]);
-    }
-</script>
-
 
 </body>
 </html>

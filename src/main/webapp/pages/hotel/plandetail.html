@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>酒店信息</title>
+    <title>计划详情</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -32,7 +32,7 @@
     <aside class="main-sidebar">
         <section class="sidebar">
 
-           <div class="user-panel">
+            <div class="user-panel">
                 <div class="pull-left image">
                     <img src="../../img/avatar.png" class="img-circle" alt="User Image">
                 </div>
@@ -57,7 +57,7 @@
                 <li class="header"></li>
 
                 <li class="treeview">
-                    <a href="#">
+                    <a href="hotelinfo.html">
                         <i class="glyphicon glyphicon-file"></i>
                         <span>酒店信息</span>
                         <span class="pull-right-container">
@@ -128,75 +128,51 @@
     </aside>
 
     <div class="content-wrapper">
-        <section class="content-header"><h1>酒店基本信息</h1></section>
+        <section class="content-header"><h1>计划详情</h1></section>
 
-        <section class="content">
+        <section class="invoice">
             <div class="row">
                 <div class="col-xs-12">
-                    <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店图片</label>
-                            <div class="col-sm-2 pull-left image">
-                                <img class="img-circle" id="image" name="image" width="70%" height="70%" style="diplay:none" />
-                            </div>
-                            <br>
-                            <div class="col-sm-4">
-                                <input type="file" id="file" name="file" id="file" onchange="setImagePreview()">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店名称</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="酒店名称">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">所在城市</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="city" name="city" placeholder="城市">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">具体地址</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="location" name="location" placeholder="地址">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店电话</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="tel" name="tel" placeholder="酒店电话">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">银行账户</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="bank" name="bank" placeholder="银行账户">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">开业时间</label>
-                            <div class="col-sm-3">
-                                <label class="control-label">2017-03-01</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-8">
-                                <button type="submit" class="btn btn-danger">修改</button>
-                            </div>
-                        </div>
-                    </form>
+                    <h2 class="page-header">
+                        计划编号P100001<span class="small label label-primary">审核中</span>
+                        <small class="pull-right">生成日期:2017-03-01</small>
+                    </h2>
                 </div>
-                <!--col-->
             </div>
-            <!--row-->
+
+            <div class="row invoice-info">
+                <table class="table table-hover">
+                    <tr>
+                        <th>房间类型</th>
+                        <th>价格</th>
+                        <th>生效日期</th>
+                        <th>失效日期</th>
+                        <th>状态</th>
+                    </tr>
+                    <tr>
+                        <td>标准间</td>
+                        <td>200</td>
+                        <td>2017-03-12</td>
+                        <td>2017-03-13</td>
+                        <td><span class="label label-warning">审核中</span></td>
+                    </tr>
+                    <tr>
+                        <td>标准间</td>
+                        <td>200</td>
+                        <td>2017-03-12</td>
+                        <td>2017-03-13</td>
+                        <td><span class="label label-success">审核通过</span></td>
+                    </tr>
+                    <tr>
+                        <td>标准间</td>
+                        <td>200</td>
+                        <td>2017-03-12</td>
+                        <td>2017-03-13</td>
+                        <td><span class="label label-danger">审核失败</span></td>
+                    </tr>
+                </table>
+            </div>
+
         </section>
     </div>
 </div>

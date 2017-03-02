@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>酒店信息</title>
+    <title>订单详情</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -32,7 +32,7 @@
     <aside class="main-sidebar">
         <section class="sidebar">
 
-           <div class="user-panel">
+            <div class="user-panel">
                 <div class="pull-left image">
                     <img src="../../img/avatar.png" class="img-circle" alt="User Image">
                 </div>
@@ -57,7 +57,7 @@
                 <li class="header"></li>
 
                 <li class="treeview">
-                    <a href="#">
+                    <a href="hotelinfo.html">
                         <i class="glyphicon glyphicon-file"></i>
                         <span>酒店信息</span>
                         <span class="pull-right-container">
@@ -128,89 +128,98 @@
     </aside>
 
     <div class="content-wrapper">
-        <section class="content-header"><h1>酒店基本信息</h1></section>
+        <section class="content-header"><h1>订单详情</h1></section>
 
-        <section class="content">
+        <section class="invoice">
             <div class="row">
                 <div class="col-xs-12">
-                    <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店图片</label>
-                            <div class="col-sm-2 pull-left image">
-                                <img class="img-circle" id="image" name="image" width="70%" height="70%" style="diplay:none" />
-                            </div>
-                            <br>
-                            <div class="col-sm-4">
-                                <input type="file" id="file" name="file" id="file" onchange="setImagePreview()">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店名称</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="酒店名称">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">所在城市</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="city" name="city" placeholder="城市">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">具体地址</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="location" name="location" placeholder="地址">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店电话</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="tel" name="tel" placeholder="酒店电话">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">银行账户</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="bank" name="bank" placeholder="银行账户">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">开业时间</label>
-                            <div class="col-sm-3">
-                                <label class="control-label">2017-03-01</label>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-8">
-                                <button type="submit" class="btn btn-danger">修改</button>
-                            </div>
-                        </div>
-                    </form>
+                    <h2 class="page-header">
+                        订单号O100001<span class="small label label-primary">预定中</span>
+                        <small class="pull-right">订单生成日期:2017-03-01</small>
+                    </h2>
                 </div>
-                <!--col-->
             </div>
-            <!--row-->
+
+            <div class="row invoice-info">
+                <div class="col-sm-4 invoice-col">
+                    <strong>南京松山湖宾馆</strong><br>
+                    <br>
+                    <address>
+                        南京仙林大学城羊山北路1号（南京工业职业技术学院南门内)<br>
+                        <br>
+                        酒店电话:02585864000
+                    </address>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                    <strong>房型:</strong>&nbsp;行政标准间<br>
+                    <br>
+                    <strong>床型:</strong>&nbsp;双床<br>
+                    <br>
+                </div>
+                <!-- /.col -->
+                <div class="col-sm-4 invoice-col">
+                    <strong>联系人:</strong>&nbsp;Jessica<br>
+                    <br>
+                    <strong>联系方式:</strong>&nbsp;13401271096<br>
+                    <br>
+                    <strong>入住日期:</strong>&nbsp;2017-03-10<br>
+                    <br>
+                    <strong>离店日期:</strong>&nbsp;2017-03-11<br>
+                    <br>
+                </div>
+                <!-- /.col -->
+            </div>
+            <!-- /.row -->
+            <hr>
+            <div class="row">
+                <div class="col-xs-6">
+                    <p class="lead">入住信息:</p>
+                    <p  style="margin-top: 5px;">
+                        <strong>入住人1:</strong>&nbsp;Jessica<br>
+                        <br>
+                    </p>
+                    <p  style="margin-top: 10px;">
+                        <strong>入住人2:</strong>&nbsp;Krystal<br>
+                        <br>
+                    </p>
+                </div>
+                <!-- /.col -->
+                <div class="col-xs-6">
+                    <div class="table-responsive">
+                        <table class="table">
+                            <tr>
+                                <th style="width:50%">总金额</th>
+                                <td>250.30</td>
+                            </tr>
+                            <tr>
+                                <th>会员编号</th>
+                                <td>V123456</td>
+                            </tr>
+                            <tr>
+                                <th>优惠:</th>
+                                <td>5.30</td>
+                            </tr>
+                            <tr>
+                                <th>实付金额</th>
+                                <td>245</td>
+                            </tr>
+                            <tr>
+                                <th>付款方式</th>
+                                <td>会员卡</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <!-- /.col -->
+            </div>
+
         </section>
     </div>
 </div>
 <script src="../../js/jquery-2.2.3.min.js"></script>
 <script src="../../js/bootstrap.js"></script>
 <script src="../../js/app.js"></script>
-<script type="text/javascript">
-    function setImagePreview() {
-        var docObj = document.getElementById("file");
-        var preview = document.getElementById("image");
-        preview.src = window.URL.createObjectURL(docObj.files[0]);
-    }
-</script>
-
 
 </body>
 </html>
