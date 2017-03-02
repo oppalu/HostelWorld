@@ -6,11 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by phoebegl on 2017/2/27.
+ * Created by phoebegl on 2017/3/2.
  */
 @Entity
 public class Application {
     private String id;
+    private String hotelid;
     private String hotelname;
     private String city;
     private String location;
@@ -26,6 +27,16 @@ public class Application {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "hotelid", nullable = false, length = 45)
+    public String getHotelid() {
+        return hotelid;
+    }
+
+    public void setHotelid(String hotelid) {
+        this.hotelid = hotelid;
     }
 
     @Basic
@@ -74,18 +85,6 @@ public class Application {
         return state;
     }
 
-    @Basic
-    @Column(name = "state", nullable = false, length = 20)
-    public String getState() {
-        return state;
-    }
-
-    @Basic
-    @Column(name = "state", nullable = false, length = 20)
-    public String getState() {
-        return state;
-    }
-
     public void setState(String state) {
         this.state = state;
     }
@@ -100,7 +99,7 @@ public class Application {
         this.type = type;
     }
 
-        @Override
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -108,6 +107,7 @@ public class Application {
         Application that = (Application) o;
 
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (hotelid != null ? !hotelid.equals(that.hotelid) : that.hotelid != null) return false;
         if (hotelname != null ? !hotelname.equals(that.hotelname) : that.hotelname != null) return false;
         if (city != null ? !city.equals(that.city) : that.city != null) return false;
         if (location != null ? !location.equals(that.location) : that.location != null) return false;
@@ -117,9 +117,11 @@ public class Application {
 
         return true;
     }
-@Override
+
+    @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (hotelid != null ? hotelid.hashCode() : 0);
         result = 31 * result + (hotelname != null ? hotelname.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (location != null ? location.hashCode() : 0);
@@ -127,15 +129,5 @@ public class Application {
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (type != null ? type.hashCode() : 0);
         return result;
-    }private String hotelid;
-
-    @Basic
-    @Column(name = "hotelid", nullable = false, length = 45)
-    public String getHotelid() {
-        return hotelid;
-    }
-
-    public void setHotelid(String hotelid) {
-        this.hotelid = hotelid;
     }
 }

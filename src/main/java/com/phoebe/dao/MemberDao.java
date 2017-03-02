@@ -1,9 +1,5 @@
 package com.phoebe.dao;
 
-import com.phoebe.model.Bankaccount;
-import com.phoebe.model.Member;
-import com.phoebe.model.Membercard;
-
 import java.util.List;
 
 /**

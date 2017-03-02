@@ -8,11 +8,14 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
- * Created by phoebegl on 2017/2/27.
+ * Created by phoebegl on 2017/3/2.
  */
 @Entity
 public class Order {
     private String id;
+    private String hotelid;
+    private String type;
+    private String roomname;
     private String status;
     private String user1;
     private String idcard1;
@@ -23,7 +26,10 @@ public class Order {
     private Date begintime;
     private Date endtime;
     private double price;
+    private Double discount;
     private String paytype;
+    private String memberid;
+    private Double realprice;
 
     @Id
     @Column(name = "id", nullable = false, length = 45)
@@ -33,6 +39,36 @@ public class Order {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "hotelid", nullable = false, length = 45)
+    public String getHotelid() {
+        return hotelid;
+    }
+
+    public void setHotelid(String hotelid) {
+        this.hotelid = hotelid;
+    }
+
+    @Basic
+    @Column(name = "type", nullable = false, length = 45)
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    @Basic
+    @Column(name = "roomname", nullable = false, length = 45)
+    public String getRoomname() {
+        return roomname;
+    }
+
+    public void setRoomname(String roomname) {
+        this.roomname = roomname;
     }
 
     @Basic
@@ -136,13 +172,43 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "paytype", nullable = false, length = 20)
+    @Column(name = "discount", nullable = true, precision = 0)
+    public Double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(Double discount) {
+        this.discount = discount;
+    }
+
+    @Basic
+    @Column(name = "paytype", nullable = true, length = 20)
     public String getPaytype() {
         return paytype;
     }
 
     public void setPaytype(String paytype) {
         this.paytype = paytype;
+    }
+
+    @Basic
+    @Column(name = "memberid", nullable = true, length = 45)
+    public String getMemberid() {
+        return memberid;
+    }
+
+    public void setMemberid(String memberid) {
+        this.memberid = memberid;
+    }
+
+    @Basic
+    @Column(name = "realprice", nullable = true, precision = 0)
+    public Double getRealprice() {
+        return realprice;
+    }
+
+    public void setRealprice(Double realprice) {
+        this.realprice = realprice;
     }
 
     @Override
@@ -154,6 +220,9 @@ public class Order {
 
         if (Double.compare(order.price, price) != 0) return false;
         if (id != null ? !id.equals(order.id) : order.id != null) return false;
+        if (hotelid != null ? !hotelid.equals(order.hotelid) : order.hotelid != null) return false;
+        if (type != null ? !type.equals(order.type) : order.type != null) return false;
+        if (roomname != null ? !roomname.equals(order.roomname) : order.roomname != null) return false;
         if (status != null ? !status.equals(order.status) : order.status != null) return false;
         if (user1 != null ? !user1.equals(order.user1) : order.user1 != null) return false;
         if (idcard1 != null ? !idcard1.equals(order.idcard1) : order.idcard1 != null) return false;
@@ -163,7 +232,10 @@ public class Order {
         if (createtime != null ? !createtime.equals(order.createtime) : order.createtime != null) return false;
         if (begintime != null ? !begintime.equals(order.begintime) : order.begintime != null) return false;
         if (endtime != null ? !endtime.equals(order.endtime) : order.endtime != null) return false;
+        if (discount != null ? !discount.equals(order.discount) : order.discount != null) return false;
         if (paytype != null ? !paytype.equals(order.paytype) : order.paytype != null) return false;
+        if (memberid != null ? !memberid.equals(order.memberid) : order.memberid != null) return false;
+        if (realprice != null ? !realprice.equals(order.realprice) : order.realprice != null) return false;
 
         return true;
     }
@@ -173,6 +245,9 @@ public class Order {
         int result;
         long temp;
         result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (hotelid != null ? hotelid.hashCode() : 0);
+        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + (roomname != null ? roomname.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (user1 != null ? user1.hashCode() : 0);
         result = 31 * result + (idcard1 != null ? idcard1.hashCode() : 0);
@@ -184,67 +259,10 @@ public class Order {
         result = 31 * result + (endtime != null ? endtime.hashCode() : 0);
         temp = Double.doubleToLongBits(price);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (discount != null ? discount.hashCode() : 0);
         result = 31 * result + (paytype != null ? paytype.hashCode() : 0);
+        result = 31 * result + (memberid != null ? memberid.hashCode() : 0);
+        result = 31 * result + (realprice != null ? realprice.hashCode() : 0);
         return result;
-    }
-
-    private String hotelid;
-
-    @Basic
-    @Column(name = "hotelid", nullable = false, length = 45)
-    public String getHotelid() {
-        return hotelid;
-    }
-
-    public void setHotelid(String hotelid) {
-        this.hotelid = hotelid;
-    }
-
-    private String type;
-
-    @Basic
-    @Column(name = "type", nullable = false, length = 45)
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    private String roomid;
-
-    @Basic
-    @Column(name = "roomid", nullable = false, length = 45)
-    public String getRoomid() {
-        return roomid;
-    }
-
-    public void setRoomid(String roomid) {
-        this.roomid = roomid;
-    }
-
-    private String membercard;
-
-    @Basic
-    @Column(name = "membercard", nullable = true, length = 45)
-    public String getMembercard() {
-        return membercard;
-    }
-
-    public void setMembercard(String membercard) {
-        this.membercard = membercard;
-    }
-
-    private String memberid;
-
-    @Basic
-    @Column(name = "memberid", nullable = true, length = 45)
-    public String getMemberid() {
-        return memberid;
-    }
-
-    public void setMemberid(String memberid) {
-        this.memberid = memberid;
     }
 }

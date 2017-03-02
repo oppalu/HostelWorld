@@ -7,23 +7,19 @@ import javax.persistence.Id;
 import java.sql.Date;
 
 /**
- * Created by phoebegl on 2017/2/27.
+ * Created by phoebegl on 2017/3/2.
  */
 @Entity
 public class Membercard {
     private String id;
+    private String memberid;
     private double balance;
     private String state;
     private Date statetime;
     private int level;
-    private int point;
-    private String bankAccount;
-    private String memberid;
+    private double point;
     private Double totalpoint;
-
-    public void setPoint(double point) {
-        this.point = point;
-    }
+    private String bankAccount;
 
     @Id
     @Column(name = "id", nullable = false, length = 45)
@@ -33,6 +29,16 @@ public class Membercard {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    @Basic
+    @Column(name = "memberid", nullable = false, length = 45)
+    public String getMemberid() {
+        return memberid;
+    }
+
+    public void setMemberid(String memberid) {
+        this.memberid = memberid;
     }
 
     @Basic
@@ -77,12 +83,22 @@ public class Membercard {
 
     @Basic
     @Column(name = "point", nullable = false, precision = 0)
-    public int getPoint() {
+    public double getPoint() {
         return point;
     }
 
-    public void setPoint(int point) {
+    public void setPoint(double point) {
         this.point = point;
+    }
+
+    @Basic
+    @Column(name = "totalpoint", nullable = true, precision = 0)
+    public Double getTotalpoint() {
+        return totalpoint;
+    }
+
+    public void setTotalpoint(Double totalpoint) {
+        this.totalpoint = totalpoint;
     }
 
     @Basic
@@ -104,10 +120,12 @@ public class Membercard {
 
         if (Double.compare(that.balance, balance) != 0) return false;
         if (level != that.level) return false;
-        if (point != that.point) return false;
+        if (Double.compare(that.point, point) != 0) return false;
         if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        if (memberid != null ? !memberid.equals(that.memberid) : that.memberid != null) return false;
         if (state != null ? !state.equals(that.state) : that.state != null) return false;
         if (statetime != null ? !statetime.equals(that.statetime) : that.statetime != null) return false;
+        if (totalpoint != null ? !totalpoint.equals(that.totalpoint) : that.totalpoint != null) return false;
         if (bankAccount != null ? !bankAccount.equals(that.bankAccount) : that.bankAccount != null) return false;
 
         return true;
@@ -118,33 +136,16 @@ public class Membercard {
         int result;
         long temp;
         result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (memberid != null ? memberid.hashCode() : 0);
         temp = Double.doubleToLongBits(balance);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (statetime != null ? statetime.hashCode() : 0);
         result = 31 * result + level;
-        result = 31 * result + point;
+        temp = Double.doubleToLongBits(point);
+        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (totalpoint != null ? totalpoint.hashCode() : 0);
         result = 31 * result + (bankAccount != null ? bankAccount.hashCode() : 0);
         return result;
-    }
-
-    @Basic
-    @Column(name = "memberid", nullable = false, length = 45)
-    public String getMemberid() {
-        return memberid;
-    }
-
-    public void setMemberid(String memberid) {
-        this.memberid = memberid;
-    }
-
-    @Basic
-    @Column(name = "totalpoint", nullable = true, precision = 0)
-    public Double getTotalpoint() {
-        return totalpoint;
-    }
-
-    public void setTotalpoint(Double totalpoint) {
-        this.totalpoint = totalpoint;
     }
 }

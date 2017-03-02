@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Date;
 
 /**
- * Created by phoebegl on 2017/2/27.
+ * Created by phoebegl on 2017/3/2.
  */
 @Entity
 public class Member {
@@ -18,6 +18,7 @@ public class Member {
     private String phone;
     private String sex;
     private Date birthday;
+    private String avatar;
 
     @Id
     @Column(name = "id", nullable = false, length = 45)
@@ -89,6 +90,16 @@ public class Member {
         this.birthday = birthday;
     }
 
+    @Basic
+    @Column(name = "avatar", nullable = true, length = 255)
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,6 +114,7 @@ public class Member {
         if (phone != null ? !phone.equals(member.phone) : member.phone != null) return false;
         if (sex != null ? !sex.equals(member.sex) : member.sex != null) return false;
         if (birthday != null ? !birthday.equals(member.birthday) : member.birthday != null) return false;
+        if (avatar != null ? !avatar.equals(member.avatar) : member.avatar != null) return false;
 
         return true;
     }
@@ -116,6 +128,7 @@ public class Member {
         result = 31 * result + (phone != null ? phone.hashCode() : 0);
         result = 31 * result + (sex != null ? sex.hashCode() : 0);
         result = 31 * result + (birthday != null ? birthday.hashCode() : 0);
+        result = 31 * result + (avatar != null ? avatar.hashCode() : 0);
         return result;
     }
 }
