@@ -13,6 +13,7 @@ CREATE TABLE `application`(
 ) ENGINE = INNODB DEFAULT CHARSET = utf8;
 
 # 银行账户表,各个宾馆和总公司也各有一个账户，先存到总公司的，然后总经理审批之后到每个宾馆的账户中
+# 总公司的账目是存会员卡付的钱的,结算完分掉
 CREATE TABLE `bankaccount`(
   `account` VARCHAR(255) NOT NULL ,
   `name` VARCHAR(45) NOT NULL ,
@@ -69,7 +70,7 @@ CREATE TABLE `membercard`(
   FOREIGN KEY (`memberid`) REFERENCES member(`id`)
 ) ENGINE = INNODB DEFAULT CHARSET = utf8;
 
-# 编号O开头,status:预定/入住/退房/取消
+# 编号O开头,status:预定/入住/退房/取消/已结算
 CREATE TABLE `order`(
   `id` VARCHAR(45) NOT NULL ,
   `hotelid` VARCHAR(45) NOT NULL ,
