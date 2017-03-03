@@ -4,20 +4,21 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
- * Created by phoebegl on 2017/3/2.
+ * Created by phoebegl on 2017/3/3.
  */
 @Entity
-public class Plan {
+public class Plan implements Serializable {
     private String id;
     private String hotelid;
     private Date begintime;
     private Date endtime;
     private Date createtime;
     private String roomtype;
-    private double price;
+    private String price;
     private String state;
 
     @Id
@@ -71,7 +72,7 @@ public class Plan {
     }
 
     @Basic
-    @Column(name = "roomtype", nullable = false, length = 45)
+    @Column(name = "roomtype", nullable = false, length = 255)
     public String getRoomtype() {
         return roomtype;
     }
@@ -81,12 +82,12 @@ public class Plan {
     }
 
     @Basic
-    @Column(name = "price", nullable = false, precision = 0)
-    public double getPrice() {
+    @Column(name = "price", nullable = false, length = 255)
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 
@@ -107,13 +108,13 @@ public class Plan {
 
         Plan plan = (Plan) o;
 
-        if (Double.compare(plan.price, price) != 0) return false;
         if (id != null ? !id.equals(plan.id) : plan.id != null) return false;
         if (hotelid != null ? !hotelid.equals(plan.hotelid) : plan.hotelid != null) return false;
         if (begintime != null ? !begintime.equals(plan.begintime) : plan.begintime != null) return false;
         if (endtime != null ? !endtime.equals(plan.endtime) : plan.endtime != null) return false;
         if (createtime != null ? !createtime.equals(plan.createtime) : plan.createtime != null) return false;
         if (roomtype != null ? !roomtype.equals(plan.roomtype) : plan.roomtype != null) return false;
+        if (price != null ? !price.equals(plan.price) : plan.price != null) return false;
         if (state != null ? !state.equals(plan.state) : plan.state != null) return false;
 
         return true;
@@ -121,16 +122,13 @@ public class Plan {
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        result = id != null ? id.hashCode() : 0;
+        int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (hotelid != null ? hotelid.hashCode() : 0);
         result = 31 * result + (begintime != null ? begintime.hashCode() : 0);
         result = 31 * result + (endtime != null ? endtime.hashCode() : 0);
         result = 31 * result + (createtime != null ? createtime.hashCode() : 0);
         result = 31 * result + (roomtype != null ? roomtype.hashCode() : 0);
-        temp = Double.doubleToLongBits(price);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
+        result = 31 * result + (price != null ? price.hashCode() : 0);
         result = 31 * result + (state != null ? state.hashCode() : 0);
         return result;
     }

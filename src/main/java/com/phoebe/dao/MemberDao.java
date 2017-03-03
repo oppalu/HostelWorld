@@ -1,5 +1,7 @@
 package com.phoebe.dao;
 
+import com.phoebe.model.Member;
+
 import java.util.List;
 
 /**
@@ -10,25 +12,12 @@ public interface MemberDao {
 
     int addMember(Member m);
 
-    int deleteMember(String id);
-
     int updateMember(Member m);
 
     Member findMember(String id);
 
+    Member findMemberByName(String name);
+
     List<Member> findAllMembers();
 
-    int addMemberCard(Membercard card);
-
-    int updateMemberCard(Membercard card);
-
-    Membercard findCard(String id);
-
-    int addBankAccount(Bankaccount b);
-
-    int deleteBankAccount(String id);
-
-    int updateBankAccount(Bankaccount b);
-
-    Bankaccount findBankAccount(String ownerid);
 }

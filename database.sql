@@ -1,3 +1,8 @@
+# application的A开头,hotel的H开头,
+# member的U开头,card的V开头
+# order的O开头,plan的P开头,room的R开头
+# manager的7位数字,roomtype的递增
+
 # 修改申请表,编号A开头,state（是否看过），type（修改还是注册）
 CREATE TABLE `application`(
   `id` VARCHAR(45) NOT NULL ,

@@ -4,12 +4,13 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
- * Created by phoebegl on 2017/3/2.
+ * Created by phoebegl on 2017/3/3.
  */
 @Entity
-public class Application {
+public class Application implements Serializable {
     private String id;
     private String hotelid;
     private String hotelname;

@@ -4,15 +4,16 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.sql.Date;
 
 /**
- * Created by phoebegl on 2017/3/2.
+ * Created by phoebegl on 2017/3/3.
  */
 @Entity
-public class Room {
+public class Room implements Serializable {
     private String id;
-    private String type;
+    private int type;
     private String name;
     private int status;
     private Date orderstart;
@@ -29,12 +30,12 @@ public class Room {
     }
 
     @Basic
-    @Column(name = "type", nullable = false, length = 45)
-    public String getType() {
+    @Column(name = "type", nullable = false)
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
@@ -85,9 +86,9 @@ public class Room {
 
         Room room = (Room) o;
 
+        if (type != room.type) return false;
         if (status != room.status) return false;
         if (id != null ? !id.equals(room.id) : room.id != null) return false;
-        if (type != null ? !type.equals(room.type) : room.type != null) return false;
         if (name != null ? !name.equals(room.name) : room.name != null) return false;
         if (orderstart != null ? !orderstart.equals(room.orderstart) : room.orderstart != null) return false;
         if (orderend != null ? !orderend.equals(room.orderend) : room.orderend != null) return false;
@@ -98,7 +99,7 @@ public class Room {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + type;
         result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + status;
         result = 31 * result + (orderstart != null ? orderstart.hashCode() : 0);

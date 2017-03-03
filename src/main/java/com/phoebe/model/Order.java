@@ -4,17 +4,18 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
- * Created by phoebegl on 2017/3/2.
+ * Created by phoebegl on 2017/3/3.
  */
 @Entity
-public class Order {
+public class Order implements Serializable {
     private String id;
     private String hotelid;
-    private String type;
+    private int type;
     private String roomname;
     private String status;
     private String user1;
@@ -28,7 +29,7 @@ public class Order {
     private double price;
     private Double discount;
     private String paytype;
-    private String memberid;
+    private String membercard;
     private Double realprice;
 
     @Id
@@ -52,12 +53,12 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "type", nullable = false, length = 45)
-    public String getType() {
+    @Column(name = "type", nullable = false)
+    public int getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(int type) {
         this.type = type;
     }
 
@@ -82,7 +83,7 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "user1", nullable = true, length = 45)
+    @Column(name = "user1", nullable = false, length = 45)
     public String getUser1() {
         return user1;
     }
@@ -92,7 +93,7 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "idcard1", nullable = true, length = 255)
+    @Column(name = "idcard1", nullable = false, length = 255)
     public String getIdcard1() {
         return idcard1;
     }
@@ -192,13 +193,13 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "memberid", nullable = true, length = 45)
-    public String getMemberid() {
-        return memberid;
+    @Column(name = "membercard", nullable = true, length = 45)
+    public String getMembercard() {
+        return membercard;
     }
 
-    public void setMemberid(String memberid) {
-        this.memberid = memberid;
+    public void setMembercard(String membercard) {
+        this.membercard = membercard;
     }
 
     @Basic
@@ -218,10 +219,10 @@ public class Order {
 
         Order order = (Order) o;
 
+        if (type != order.type) return false;
         if (Double.compare(order.price, price) != 0) return false;
         if (id != null ? !id.equals(order.id) : order.id != null) return false;
         if (hotelid != null ? !hotelid.equals(order.hotelid) : order.hotelid != null) return false;
-        if (type != null ? !type.equals(order.type) : order.type != null) return false;
         if (roomname != null ? !roomname.equals(order.roomname) : order.roomname != null) return false;
         if (status != null ? !status.equals(order.status) : order.status != null) return false;
         if (user1 != null ? !user1.equals(order.user1) : order.user1 != null) return false;
@@ -234,7 +235,7 @@ public class Order {
         if (endtime != null ? !endtime.equals(order.endtime) : order.endtime != null) return false;
         if (discount != null ? !discount.equals(order.discount) : order.discount != null) return false;
         if (paytype != null ? !paytype.equals(order.paytype) : order.paytype != null) return false;
-        if (memberid != null ? !memberid.equals(order.memberid) : order.memberid != null) return false;
+        if (membercard != null ? !membercard.equals(order.membercard) : order.membercard != null) return false;
         if (realprice != null ? !realprice.equals(order.realprice) : order.realprice != null) return false;
 
         return true;
@@ -246,7 +247,7 @@ public class Order {
         long temp;
         result = id != null ? id.hashCode() : 0;
         result = 31 * result + (hotelid != null ? hotelid.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
+        result = 31 * result + type;
         result = 31 * result + (roomname != null ? roomname.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (user1 != null ? user1.hashCode() : 0);
@@ -261,7 +262,7 @@ public class Order {
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         result = 31 * result + (discount != null ? discount.hashCode() : 0);
         result = 31 * result + (paytype != null ? paytype.hashCode() : 0);
-        result = 31 * result + (memberid != null ? memberid.hashCode() : 0);
+        result = 31 * result + (membercard != null ? membercard.hashCode() : 0);
         result = 31 * result + (realprice != null ? realprice.hashCode() : 0);
         return result;
     }

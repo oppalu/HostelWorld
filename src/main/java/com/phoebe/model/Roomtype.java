@@ -4,13 +4,14 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
- * Created by phoebegl on 2017/3/2.
+ * Created by phoebegl on 2017/3/3.
  */
 @Entity
-public class Roomtype {
-    private String id;
+public class Roomtype implements Serializable {
+    private int id;
     private String hotelid;
     private String name;
     private double size;
@@ -18,12 +19,12 @@ public class Roomtype {
     private double price;
 
     @Id
-    @Column(name = "id", nullable = false, length = 45)
-    public String getId() {
+    @Column(name = "id", nullable = false)
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -84,10 +85,10 @@ public class Roomtype {
 
         Roomtype roomtype = (Roomtype) o;
 
+        if (id != roomtype.id) return false;
         if (Double.compare(roomtype.size, size) != 0) return false;
         if (bednum != roomtype.bednum) return false;
         if (Double.compare(roomtype.price, price) != 0) return false;
-        if (id != null ? !id.equals(roomtype.id) : roomtype.id != null) return false;
         if (hotelid != null ? !hotelid.equals(roomtype.hotelid) : roomtype.hotelid != null) return false;
         if (name != null ? !name.equals(roomtype.name) : roomtype.name != null) return false;
 
@@ -98,7 +99,7 @@ public class Roomtype {
     public int hashCode() {
         int result;
         long temp;
-        result = id != null ? id.hashCode() : 0;
+        result = id;
         result = 31 * result + (hotelid != null ? hotelid.hashCode() : 0);
         result = 31 * result + (name != null ? name.hashCode() : 0);
         temp = Double.doubleToLongBits(size);
