@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Created by phoebegl on 2017/3/3.
+ * 对于会员的信息管理
  */
 @Controller
 public class MemberController {
