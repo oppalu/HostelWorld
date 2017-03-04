@@ -28,4 +28,5 @@ public interface BaseDao {
 
     public int getTotalCount(Class<?> c);
 
+    public String getNum(String type);
 }

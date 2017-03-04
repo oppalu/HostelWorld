@@ -1,12 +1,14 @@
 package com.phoebe.dao.impl;
 
 import com.phoebe.dao.BaseDao;
+import com.phoebe.model.Number;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /**
@@ -101,5 +103,14 @@ public class BaseDaoImpl implements BaseDao {
         session.close();
         return count;
 
+    }
+
+    public String getNum(String type) {
+        Number num = (Number) find(Number.class,type);
+        int current = num.getNum();
+        num.setNum(current+1);
+        update(num);
+        DecimalFormat df = new DecimalFormat("000000");
+        return df.format(current);
     }
 }

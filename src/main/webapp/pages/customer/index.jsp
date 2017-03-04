@@ -23,7 +23,7 @@
         <a><b>Awesome</b>inns</a>
     </div>
 
-    <a href="../hotel/login.html" class="pull-right">酒店后台入口</a>
+    <a href="/login" class="pull-right">酒店后台入口</a>
 
     <div class="login-box-body">
 

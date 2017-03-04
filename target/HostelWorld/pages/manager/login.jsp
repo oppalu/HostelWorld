@@ -1,14 +1,14 @@
 <%--
   Created by IntelliJ IDEA.
   User: phoebegl
-  Date: 2017/3/3
-  Time: 23:17
+  Date: 2017/3/4
+  Time: 22:43
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>登录</title>
+    <title>经理登录</title>
     <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -23,10 +23,9 @@
     </div>
 
     <div class="login-box-body">
-        <p class="login-msg">登录</p>
-        <form method="post" action="/login">
+        <form method="post" action="/manager/login">
             <div class="form-group has-feedback">
-                <input name="username" type="text" class="form-control" placeholder="会员名">
+                <input name="username" type="text" class="form-control" placeholder="工号">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
@@ -34,11 +33,7 @@
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
-                <div class="col-xs-7">
-                    <a href="/register" class="text-center">没有账号?</a>
-                </div>
-
-                <div class="col-xs-5">
+                <div class="col-xs-offset-3 col-xs-6">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
                 </div>
             </div>

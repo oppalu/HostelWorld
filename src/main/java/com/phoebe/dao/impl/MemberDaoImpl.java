@@ -3,6 +3,7 @@ package com.phoebe.dao.impl;
 import com.phoebe.dao.BaseDao;
 import com.phoebe.dao.MemberDao;
 import com.phoebe.model.Member;
+import com.phoebe.model.Number;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -19,6 +20,8 @@ public class MemberDaoImpl implements MemberDao {
     private BaseDao baseDao;
 
     public int addMember(Member m) {
+        String s = "U"+ baseDao.getNum("member");
+        m.setId(s);
         return baseDao.save(m);
     }
 

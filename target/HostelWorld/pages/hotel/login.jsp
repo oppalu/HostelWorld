@@ -1,8 +1,15 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: phoebegl
+  Date: 2017/3/3
+  Time: 23:48
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="utf-8">
-    <title>登录</title>
+    <title>酒店登录</title>
     <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
@@ -13,14 +20,14 @@
 <body background="../../img/index.jpeg" class="hold-transition skin-blue sidebar-mini">
 <div class="login-box">
     <div class="login-logo">
-        <a><b>Awesome</b>inns</a>
+        <a>酒店后台登录</a>
     </div>
 
     <div class="login-box-body">
-        <p class="login-msg">登录</p>
-        <form method="post" action="userinfo.html">
+        <p class="login-msg">酒店工作人员登录</p>
+        <form method="post" action="hotelinfo.html">
             <div class="form-group has-feedback">
-                <input name="username" type="text" class="form-control" placeholder="会员名">
+                <input name="username" type="text" class="form-control" placeholder="酒店编号">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
@@ -29,7 +36,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-7">
-                    <a href="register.html" class="text-center">没有账号?</a>
+                    <a href="register.html" class="text-center">申请开店</a>
                 </div>
 
                 <div class="col-xs-5">

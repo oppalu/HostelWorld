@@ -24,7 +24,7 @@
 
     <div class="login-box-body">
         <p class="login-msg">注册账号</p>
-        <form action="userinfo.html" method="post">
+        <form action="/register" method="post">
             <div class="form-group has-feedback">
                 <input name="nickname" type="text" class="form-control" placeholder="会员名">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -42,11 +42,14 @@
                 <span class="glyphicon glyphicon-phone form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="sex" type="text" class="form-control" placeholder="性别">
+                <select id="sex" name="sex">
+                    <option value="男">男</option>
+                    <option value="女">女</option>
+                </select>
                 <span class="glyphicon glyphicon-heart form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="birth" type="text" class="form-control" placeholder="生日">
+                <input name="birth" type="date" class="form-control" placeholder="生日">
                 <span class="glyphicon glyphicon-calendar form-control-feedback"></span>
             </div>
             <br>
@@ -54,7 +57,7 @@
             <div class="row">
                 <div class="col-xs-6">
                     已有账号?&nbsp;
-                    <a href="login.jsp" class="text-center">[登录]</a>
+                    <a href="/login" class="text-center">[登录]</a>
                 </div>
                 <div class="col-xs-6">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">注册</button>

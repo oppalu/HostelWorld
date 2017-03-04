@@ -35,7 +35,7 @@
             </div>
             <div class="row">
                 <div class="col-xs-7">
-                    <a href="register.jsp" class="text-center">没有账号?</a>
+                    <a href="/register" class="text-center">没有账号?</a>
                 </div>
 
                 <div class="col-xs-5">
