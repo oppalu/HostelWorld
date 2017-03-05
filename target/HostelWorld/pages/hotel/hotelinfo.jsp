@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.phoebe.model.Hotel" %><%--
   Created by IntelliJ IDEA.
   User: phoebegl
   Date: 2017/3/5
@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
     <title>酒店信息</title>
@@ -40,10 +42,12 @@
 
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../../img/avatar.png" class="img-circle" alt="User Image">
+                    <label name="hname">${hotel.id}</label>
                 </div>
                 <div class="pull-left info">
-                    <p>南京松山湖宾馆</p>
+                    <p>
+                        <label name="hname">${hotel.name}</label>
+                    </p>
                 </div>
             </div>
 
@@ -81,8 +85,8 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="addroom.html"><i class="fa fa-circle-o"></i> 添加房间</a></li>
-                        <li><a href="roominfo.html"><i class="fa fa-circle-o"></i> 房间状态</a></li>
+                        <li><a href="/hotel/room"><i class="fa fa-circle-o"></i> 添加房间</a></li>
+                        <li><a href="/hotel/showRooms"><i class="fa fa-circle-o"></i> 房间状态</a></li>
                     </ul>
                 </li>
 
@@ -139,50 +143,47 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
+                    <form method="post" action="/hotel/modify" class="form-horizontal">
+
                         <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店图片</label>
-                            <div class="col-sm-2 pull-left image">
-                                <img class="img-circle" id="image" name="image" width="70%" height="70%" style="diplay:none" />
-                            </div>
-                            <br>
-                            <div class="col-sm-4">
-                                <input type="file" id="file" name="file" id="file" onchange="setImagePreview()">
+                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店编号</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" id="hotelid" name="hotelid" value="${hotel.id}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">酒店名称</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="酒店名称">
+                                <input type="text" class="form-control" id="name" name="name" value="${hotel.name}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">所在城市</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="city" name="city" placeholder="城市">
+                                <input type="text" class="form-control" id="city" name="city" value="${hotel.city}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">具体地址</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="location" name="location" placeholder="地址">
+                                <input type="text" class="form-control" id="location" name="location" value="${hotel.location}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">酒店电话</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="tel" name="tel" placeholder="酒店电话">
+                                <input type="text" class="form-control" id="tel" name="tel" value="${hotel.telephone}">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">银行账户</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="bank" name="bank" placeholder="银行账户">
+                                <input type="text" class="form-control" id="bank" name="bank" value="${hotel.bankid}">
                             </div>
                         </div>
 
@@ -190,6 +191,13 @@
                             <label class="col-sm-offset-2 col-sm-2 control-label">开业时间</label>
                             <div class="col-sm-3">
                                 <label class="control-label">2017-03-01</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-offset-2 col-sm-2 control-label">状态</label>
+                            <div class="col-sm-3">
+                                <label class="control-label">${hotel.state}</label>
                             </div>
                         </div>
 
@@ -209,14 +217,6 @@
 <script src="../../js/jquery-2.2.3.min.js"></script>
 <script src="../../js/bootstrap.js"></script>
 <script src="../../js/app.js"></script>
-<script type="text/javascript">
-    function setImagePreview() {
-        var docObj = document.getElementById("file");
-        var preview = document.getElementById("image");
-        preview.src = window.URL.createObjectURL(docObj.files[0]);
-    }
-</script>
-
 
 </body>
 </html>

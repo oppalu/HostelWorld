@@ -4,18 +4,18 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 import java.sql.Date;
 
 /**
- * Created by phoebegl on 2017/3/3.
+ * Created by phoebegl on 2017/3/5.
  */
 @Entity
-public class Room implements Serializable {
+public class Room {
     private String id;
     private int type;
+    private String typename;
     private String name;
-    private int status;
+    private String status;
     private Date orderstart;
     private Date orderend;
 
@@ -40,6 +40,16 @@ public class Room implements Serializable {
     }
 
     @Basic
+    @Column(name = "typename", nullable = true, length = 45)
+    public String getTypename() {
+        return typename;
+    }
+
+    public void setTypename(String name) {
+        this.typename = name;
+    }
+
+    @Basic
     @Column(name = "name", nullable = false, length = 45)
     public String getName() {
         return name;
@@ -51,11 +61,11 @@ public class Room implements Serializable {
 
     @Basic
     @Column(name = "status", nullable = false)
-    public int getStatus() {
+    public String getStatus() {
         return status;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(String status) {
         this.status = status;
     }
 
@@ -87,7 +97,8 @@ public class Room implements Serializable {
         Room room = (Room) o;
 
         if (type != room.type) return false;
-        if (status != room.status) return false;
+        if (status != null ? !status.equals(room.status) : room.status != null) return false;
+        if (typename != null ? !typename.equals(room.typename) : room.typename != null) return false;
         if (id != null ? !id.equals(room.id) : room.id != null) return false;
         if (name != null ? !name.equals(room.name) : room.name != null) return false;
         if (orderstart != null ? !orderstart.equals(room.orderstart) : room.orderstart != null) return false;
@@ -101,7 +112,8 @@ public class Room implements Serializable {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + type;
         result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + status;
+        result = 31 * result + (typename != null ? typename.hashCode() : 0);
+        result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (orderstart != null ? orderstart.hashCode() : 0);
         result = 31 * result + (orderend != null ? orderend.hashCode() : 0);
         return result;

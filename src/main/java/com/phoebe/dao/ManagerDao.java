@@ -15,4 +15,9 @@ public interface ManagerDao {
     List<Hotel> checkHotels();
 
     Hotel getHotelInfo(String id);
+
+    /*
+    审批结果
+     */
+    int checkHotel(Hotel hotel);
 }

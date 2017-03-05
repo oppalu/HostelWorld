@@ -4,7 +4,6 @@ import com.phoebe.dao.BaseDao;
 import com.phoebe.dao.ManagerDao;
 import com.phoebe.model.Hotel;
 import com.phoebe.model.Manager;
-import com.phoebe.model.Member;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,5 +32,9 @@ public class ManagerDaoImpl implements ManagerDao{
 
     public Hotel getHotelInfo(String id) {
         return (Hotel)baseDao.find(Hotel.class,id);
+    }
+
+    public int checkHotel(Hotel hotel) {
+        return baseDao.update(hotel);
     }
 }

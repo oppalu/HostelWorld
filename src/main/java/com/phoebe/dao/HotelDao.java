@@ -1,6 +1,8 @@
 package com.phoebe.dao;
 
 import com.phoebe.model.Hotel;
+import com.phoebe.model.Room;
+import com.phoebe.model.Roomtype;
 
 import java.util.List;
 
@@ -19,4 +21,22 @@ public interface HotelDao {
     Hotel findHotelByName(String name);
 
     List<Hotel> findHotels();
+
+    int addRoomType(Roomtype roomtype);
+
+    int addRoom(Room room);
+
+    int updateRoom(Room room);
+
+    Room findRoom(String id);
+
+    List<Roomtype> getTypes();
+
+    String getTypename(int id);
+
+    List<Room> getRooms();
+
+    List<Room> getEmptyRooms();
+
+
 }

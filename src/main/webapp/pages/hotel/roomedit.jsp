@@ -1,7 +1,15 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: phoebegl
+  Date: 2017/3/5
+  Time: 20:02
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <title>房间管理</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -34,10 +42,12 @@
 
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../../img/avatar.png" class="img-circle" alt="User Image">
+                    <label name="hname">${hotel.id}</label>
                 </div>
                 <div class="pull-left info">
-                    <p>南京松山湖宾馆</p>
+                    <p>
+                        <label name="hname">${hotel.name}</label>
+                    </p>
                 </div>
             </div>
 
@@ -57,7 +67,7 @@
                 <li class="header"></li>
 
                 <li class="treeview">
-                    <a href="#">
+                    <a href="/hotel/info">
                         <i class="glyphicon glyphicon-file"></i>
                         <span>酒店信息</span>
                         <span class="pull-right-container">
@@ -75,8 +85,8 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="addroom.html"><i class="fa fa-circle-o"></i> 添加房间</a></li>
-                        <li><a href="roominfo.html"><i class="fa fa-circle-o"></i> 房间状态</a></li>
+                        <li><a href="/hotel/room"><i class="fa fa-circle-o"></i> 添加房间</a></li>
+                        <li><a href="/hotel/showRooms"><i class="fa fa-circle-o"></i> 房间状态</a></li>
                     </ul>
                 </li>
 
@@ -133,11 +143,17 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
+                    <form method="post" action="/room/modify"class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-sm-3">
+                                <input type="hidden" id="roomid" name="roomid" value="${room.id}">
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">房间名称</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="房间号">
+                                <input type="text" class="form-control" id="name" name="name" value="${room.name}">
                             </div>
                         </div>
 
@@ -145,9 +161,9 @@
                             <label class="col-sm-offset-2 col-sm-2 control-label">房间类型</label>
                             <div class="col-sm-8">
                                 <select id="roomtype" name="roomtype">
-                                    <option value="商务间">商务间</option>
-                                    <option value="标准间">标准间</option>
-                                    <option value="大床房">大床房</option>
+                                    <c:forEach items="${types}" var="t">
+                                        <option value="${t.id}">${t.name}</option>
+                                    </c:forEach>
                                 </select>
                             </div>
                         </div>

@@ -1,14 +1,16 @@
 <%--
   Created by IntelliJ IDEA.
   User: phoebegl
-  Date: 2017/3/4
-  Time: 22:53
+  Date: 2017/3/5
+  Time: 16:18
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
-    <title>结算</title>
+    <title>酒店信息审批</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -51,13 +53,13 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="modify.html"><i class="fa fa-circle-o"></i> 酒店信息修改</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 酒店信息修改</a></li>
                         <li><a href="plan.html"><i class="fa fa-circle-o"></i> 酒店计划</a></li>
                     </ul>
                 </li>
 
                 <li class="treeview">
-                    <a href="#">
+                    <a href="../manager/balance.jsp">
                         <i class="glyphicon glyphicon-file"></i>
                         <span>结算</span>
                         <span class="pull-right-container">
@@ -85,7 +87,7 @@
     </aside>
 
     <div class="content-wrapper">
-        <section class="content-header"><h1>结算</h1></section>
+        <section class="content-header"><h1>酒店信息审批</h1></section>
 
         <section class="content">
             <div class="row">
@@ -94,29 +96,19 @@
                         <table class="table table-hover">
                             <tr>
                                 <th>酒店名称</th>
-                                <th>结算金额</th>
-                                <th>银行账户</th>
+                                <th>所在城市</th>
+                                <th>酒店地址</th>
+                                <th>酒店电话</th>
                             </tr>
-                            <tr>
-                                <td>如家</td>
-                                <td>20000</td>
-                                <td>4920174819374028175</td>
-                            </tr>
-                            <tr>
-                                <td>如家</td>
-                                <td>20000</td>
-                                <td>4920174819374028175</td>
-                            </tr>
-                            <tr>
-                                <td>如家</td>
-                                <td>20000</td>
-                                <td>4920174819374028175</td>
-                            </tr>
+                            <c:forEach items="${hotels}" var="h">
+                                <tr>
+                                    <td><a href="/manage/${h.id}">${h.name}</a></td>
+                                    <td>${h.city}</td>
+                                    <td>${h.location}</td>
+                                    <td>${h.telephone}</td>
+                                </tr>
+                            </c:forEach>
                         </table>
-                        <div class="box box-footer">
-                            <button class="col-sm-offset-4 col-sm-4 btn btn-primary" href="#">结算</button>
-                        </div>
-
                     </div>
                 </div>
                 <!--col-->
@@ -130,4 +122,5 @@
 <script src="../../js/app.js"></script>
 
 </body>
+
 </html>

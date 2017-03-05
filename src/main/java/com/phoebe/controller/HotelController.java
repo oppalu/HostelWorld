@@ -2,9 +2,10 @@ package com.phoebe.controller;
 
 import com.phoebe.controller.common.HandleError;
 import com.phoebe.model.Hotel;
-import com.phoebe.model.Manager;
+import com.phoebe.model.Room;
+import com.phoebe.model.Roomtype;
 import com.phoebe.service.HotelService;
-import com.phoebe.service.ManagerService;
+import com.sun.javafx.sg.prism.NGShape;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Date;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by phoebegl on 2017/3/3.
@@ -38,18 +39,20 @@ public class HotelController {
     public ModelAndView login(@RequestParam("hname") String username,
                               @RequestParam("hpassword") String password,
                               HttpServletRequest request, HttpServletResponse response) {
-
         if(username.equals("") || password.equals("")) {
             HandleError.handle(request,response,"酒店编号或密码不能为空!");
             return new ModelAndView("/hotel/login");
         }
         Hotel h = hotel.login(username);
+
         if(h!= null && h.getPassword().equals(password)) {
 //            if(h.getState().equals("审核中")) {
 //                HandleError.handle(request,response,"尚未审核通过请等待!");
 //                return new ModelAndView("/hotel/login");
 //            }
-            return new ModelAndView("/hotel/hotelinfo", "hotel", h.getId());
+            HttpSession session = request.getSession();
+            session.setAttribute("hotel",h);
+            return new ModelAndView("/hotel/hotelinfo", "hotel", h);
         }
         else {
             HandleError.handle(request,response,"酒店编号或密码错误!");
@@ -79,7 +82,7 @@ public class HotelController {
         int res = hotel.openHotel(h);
         if(res == 1) {
             HandleError.handle(request, response, "注册成功,请等待审核通过!");
-            return new ModelAndView("/hotel/hotelinfo", "hotel", h.getId());
+            return new ModelAndView("/hotel/hotelinfo", "hotel", h);
         }
         else {
             HandleError.handle(request, response, "注册失败!");
@@ -87,5 +90,34 @@ public class HotelController {
         }
     }
 
+    @RequestMapping(value = "/hotel/info", method = RequestMethod.GET)
+    public ModelAndView hotelinfo(HttpSession session) {
+        Hotel h = (Hotel)session.getAttribute("hotel");
+        return new ModelAndView("/hotel/hotelinfo", "hotel", h);
+    }
+
+    @RequestMapping(value = "/hotel/modify", method = RequestMethod.POST)
+    public ModelAndView modifyInfo(@RequestParam("hotelid") String id,
+                                   @RequestParam("name") String hotelname,
+                                   @RequestParam("city") String city,
+                                   @RequestParam("location") String location,
+                                   @RequestParam("tel") String phone,
+                                   @RequestParam("bank") String bank,
+                                 HttpServletRequest request, HttpServletResponse response) {
+
+        Hotel h = hotel.login(id);
+        h.setName(hotelname);
+        h.setCity(city);
+        h.setLocation(location);
+        h.setTelephone(phone);
+        h.setBankid(bank);
+
+        int res = hotel.updateHotel(h);
+        if(res == 1)
+            HandleError.handle(request, response, "修改成功");
+        else
+            HandleError.handle(request, response, "修改失败");
+        return new ModelAndView("/hotel/hotelinfo", "hotel", h);
+    }
 
 }

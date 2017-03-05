@@ -4,19 +4,17 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 
 /**
- * Created by phoebegl on 2017/3/3.
+ * Created by phoebegl on 2017/3/5.
  */
 @Entity
-public class Bankaccount implements Serializable {
+public class Bankaccount {
     private String account;
     private String name;
     private double balance;
     private String ownerid;
 
-    @Id
     @Column(name = "account", nullable = false, length = 255)
     public String getAccount() {
         return account;
@@ -46,6 +44,7 @@ public class Bankaccount implements Serializable {
         this.balance = balance;
     }
 
+    @Id
     @Basic
     @Column(name = "ownerid", nullable = false, length = 45)
     public String getOwnerid() {

@@ -53,7 +53,7 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="modify.jsp"><i class="fa fa-circle-o"></i> 酒店信息修改</a></li>
+                        <li><a href="/manage/hotels"><i class="fa fa-circle-o"></i> 酒店信息修改</a></li>
                         <li><a href="plan.html"><i class="fa fa-circle-o"></i> 酒店计划</a></li>
                     </ul>
                 </li>
@@ -92,46 +92,40 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">酒店图片</label>
-                            <div class="col-sm-2 pull-left image">
-                                <img class="img-circle" src="../../img/aaa.jpg" id="image" name="image" width="70%" height="70%" style="diplay:none" />
-                            </div>
-                        </div>
+                    <form name="myform" method="post" enctype="multipart/form-data" class="form-horizontal">
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">酒店名称</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="酒店名称" value="${hotel.name}">
+                                <label class="control-label">${hotel.name}</label>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">所在城市</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="city" name="city" placeholder="城市">
+                                <label class="control-label">${hotel.city}</label>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">具体地址</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="location" name="location" placeholder="地址">
+                                <label class="control-label">${hotel.location}</label>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">酒店电话</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="tel" name="tel" placeholder="酒店电话">
+                                <label class="control-label">${hotel.telephone}</label>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">银行账户</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="bank" name="bank" placeholder="银行账户">
+                                <label class="control-label">${hotel.bankid}</label>
                             </div>
                         </div>
 
@@ -144,10 +138,10 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-4 col-sm-2">
-                                <button type="submit" class="btn btn-success">审批通过</button>
+                                <input class="btn btn-success" type="button" value="审批通过" onclick="yesAction()">
                             </div>
                             <div class="col-sm-2">
-                                <button type="submit" class="btn btn-danger">审批不通过</button>
+                                <input class="btn btn-danger" type="button" value="审批不通过" onclick="noAction()">
                             </div>
                         </div>
                     </form>
@@ -161,6 +155,17 @@
 <script src="../../js/jquery-2.2.3.min.js"></script>
 <script src="../../js/bootstrap.js"></script>
 <script src="../../js/app.js"></script>
+
+<script type="text/javascript">
+    function yesAction(){
+        document.myform.action="/stateok/${hotel.id}";
+        document.myform.submit();
+    }
+    function noAction(){
+        document.myform.action="/stateno/${hotel.id}";
+        document.myform.submit();
+    }
+</script>
 
 </body>
 </html>

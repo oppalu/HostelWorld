@@ -3,9 +3,13 @@ package com.phoebe.service.impl;
 import com.phoebe.controller.common.DateFormater;
 import com.phoebe.dao.HotelDao;
 import com.phoebe.model.Hotel;
+import com.phoebe.model.Room;
+import com.phoebe.model.Roomtype;
 import com.phoebe.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by phoebegl on 2017/3/5.
@@ -28,5 +32,43 @@ public class HotelServiceImpl implements HotelService {
 
     public Hotel login(String id) {
         return hotel.findHotel(id);
+    }
+
+    public int updateHotel(Hotel h) {
+        h.setState("审核中");
+        return hotel.updateHotel(h);
+    }
+
+    public int addRoomType(Roomtype roomtype) {
+        return hotel.addRoomType(roomtype);
+    }
+
+    public int addRoom(Room room) {
+        room.setStatus("空闲");
+        return hotel.addRoom(room);
+    }
+
+    public int updateRoom(Room room) {
+        return hotel.updateRoom(room);
+    }
+
+    public Room findRoom(String id) {
+        return hotel.findRoom(id);
+    }
+
+    public List<Roomtype> getTypes() {
+        return hotel.getTypes();
+    }
+
+    public String getTypename(int id) {
+        return hotel.getTypename(id);
+    }
+
+    public List<Room> getRooms() {
+        return hotel.getRooms();
+    }
+
+    public List<Room> getEmptyRooms() {
+        return hotel.getEmptyRooms();
     }
 }

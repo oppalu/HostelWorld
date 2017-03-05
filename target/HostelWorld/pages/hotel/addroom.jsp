@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: phoebegl
+  Date: 2017/3/5
+  Time: 20:01
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -34,10 +43,12 @@
 
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../../img/avatar.png" class="img-circle" alt="User Image">
+                    <label name="hname">${hotel.id}</label>
                 </div>
                 <div class="pull-left info">
-                    <p>南京松山湖宾馆</p>
+                    <p>
+                        <label name="hname">${hotel.name}</label>
+                    </p>
                 </div>
             </div>
 
@@ -57,7 +68,7 @@
                 <li class="header"></li>
 
                 <li class="treeview">
-                    <a href="hotelinfo.html">
+                    <a href="/hotel/info">
                         <i class="glyphicon glyphicon-file"></i>
                         <span>酒店信息</span>
                         <span class="pull-right-container">
@@ -76,7 +87,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="#"><i class="fa fa-circle-o"></i> 添加房间</a></li>
-                        <li><a href="roominfo.html"><i class="fa fa-circle-o"></i> 房间状态</a></li>
+                        <li><a href="/hotel/showRooms"><i class="fa fa-circle-o"></i> 房间状态</a></li>
                     </ul>
                 </li>
 
@@ -142,7 +153,7 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="type">
                                 <div style="width: 50%" class="col-md-offset-2">
-                                    <form method="post" action="#" class="form-horizontal">
+                                    <form method="post" action="/hotel/roomtype" class="form-horizontal">
                                         <div class="form-group">
                                             <label class="col-sm-offset-2 col-sm-4 control-label">房间类型名称</label>
                                             <div class="col-sm-6">
@@ -174,7 +185,7 @@
                             </div>
 
                             <div class="tab-pane" id="room">
-                                <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
+                                <form method="post" action="/hotel/room" class="form-horizontal">
                                     <div class="form-group">
                                         <label class="col-sm-offset-2 col-sm-2 control-label">房间名称</label>
                                         <div class="col-sm-3">
@@ -186,9 +197,9 @@
                                         <label class="col-sm-offset-2 col-sm-2 control-label">房间类型</label>
                                         <div class="col-sm-8">
                                             <select id="roomtype" name="roomtype">
-                                                <option value="商务间">商务间</option>
-                                                <option value="标准间">标准间</option>
-                                                <option value="大床房">大床房</option>
+                                                <c:forEach items="${types}" var="t">
+                                                    <option value="${t.id}">${t.name}</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                     </div>
@@ -216,4 +227,5 @@
 <script src="../../js/app.js"></script>
 
 </body>
+
 </html>

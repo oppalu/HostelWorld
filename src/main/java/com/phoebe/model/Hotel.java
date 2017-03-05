@@ -4,14 +4,13 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.io.Serializable;
 import java.sql.Date;
 
 /**
- * Created by phoebegl on 2017/3/3.
+ * Created by phoebegl on 2017/3/5.
  */
 @Entity
-public class Hotel implements Serializable {
+public class Hotel {
     private String id;
     private String name;
     private String password;
@@ -20,7 +19,6 @@ public class Hotel implements Serializable {
     private String telephone;
     private String state;
     private String bankid;
-    private String avatar;
     private Date opendate;
 
     @Id
@@ -94,23 +92,13 @@ public class Hotel implements Serializable {
     }
 
     @Basic
-    @Column(name = "bankid", nullable = false, length = 255)
+    @Column(name = "bankid", nullable = true, length = 255)
     public String getBankid() {
         return bankid;
     }
 
     public void setBankid(String bankid) {
         this.bankid = bankid;
-    }
-
-    @Basic
-    @Column(name = "avatar", nullable = true, length = 255)
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
     }
 
     @Basic
@@ -138,7 +126,6 @@ public class Hotel implements Serializable {
         if (telephone != null ? !telephone.equals(hotel.telephone) : hotel.telephone != null) return false;
         if (state != null ? !state.equals(hotel.state) : hotel.state != null) return false;
         if (bankid != null ? !bankid.equals(hotel.bankid) : hotel.bankid != null) return false;
-        if (avatar != null ? !avatar.equals(hotel.avatar) : hotel.avatar != null) return false;
         if (opendate != null ? !opendate.equals(hotel.opendate) : hotel.opendate != null) return false;
 
         return true;
@@ -154,7 +141,6 @@ public class Hotel implements Serializable {
         result = 31 * result + (telephone != null ? telephone.hashCode() : 0);
         result = 31 * result + (state != null ? state.hashCode() : 0);
         result = 31 * result + (bankid != null ? bankid.hashCode() : 0);
-        result = 31 * result + (avatar != null ? avatar.hashCode() : 0);
         result = 31 * result + (opendate != null ? opendate.hashCode() : 0);
         return result;
     }

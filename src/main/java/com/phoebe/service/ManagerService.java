@@ -15,4 +15,6 @@ public interface ManagerService {
     List<Hotel> checkHotels();
 
     Hotel getHotelInfo(String id);
+
+    int checkHotel(Hotel hotel);
 }

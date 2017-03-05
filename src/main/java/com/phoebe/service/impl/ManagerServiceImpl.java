@@ -29,4 +29,8 @@ public class ManagerServiceImpl implements ManagerService {
     public Hotel getHotelInfo(String id) {
         return dao.getHotelInfo(id);
     }
+
+    public int checkHotel(Hotel hotel) {
+        return dao.checkHotel(hotel);
+    }
 }

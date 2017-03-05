@@ -1,8 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<%--
+  Created by IntelliJ IDEA.
+  User: phoebegl
+  Date: 2017/3/5
+  Time: 22:49
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <meta charset="utf-8">
-    <title>房间管理</title>
+    <title>计划详情</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -57,7 +62,7 @@
                 <li class="header"></li>
 
                 <li class="treeview">
-                    <a href="#">
+                    <a href="hotelinfo.html">
                         <i class="glyphicon glyphicon-file"></i>
                         <span>酒店信息</span>
                         <span class="pull-right-container">
@@ -128,40 +133,51 @@
     </aside>
 
     <div class="content-wrapper">
-        <section class="content-header"><h1>修改房间信息</h1></section>
+        <section class="content-header"><h1>计划详情</h1></section>
 
-        <section class="content">
+        <section class="invoice">
             <div class="row">
                 <div class="col-xs-12">
-                    <form method="post" action="#" enctype="multipart/form-data" class="form-horizontal">
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">房间名称</label>
-                            <div class="col-sm-3">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="房间号">
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <label class="col-sm-offset-2 col-sm-2 control-label">房间类型</label>
-                            <div class="col-sm-8">
-                                <select id="roomtype" name="roomtype">
-                                    <option value="商务间">商务间</option>
-                                    <option value="标准间">标准间</option>
-                                    <option value="大床房">大床房</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-sm-offset-4 col-sm-8">
-                                <button type="submit" class="btn btn-primary">确认修改</button>
-                            </div>
-                        </div>
-                    </form>
+                    <h2 class="page-header">
+                        计划编号P100001<span class="small label label-primary">审核中</span>
+                        <small class="pull-right">生成日期:2017-03-01</small>
+                    </h2>
                 </div>
-                <!--col-->
             </div>
-            <!--row-->
+
+            <div class="row invoice-info">
+                <table class="table table-hover">
+                    <tr>
+                        <th>房间类型</th>
+                        <th>价格</th>
+                        <th>生效日期</th>
+                        <th>失效日期</th>
+                        <th>状态</th>
+                    </tr>
+                    <tr>
+                        <td>标准间</td>
+                        <td>200</td>
+                        <td>2017-03-12</td>
+                        <td>2017-03-13</td>
+                        <td><span class="label label-warning">审核中</span></td>
+                    </tr>
+                    <tr>
+                        <td>标准间</td>
+                        <td>200</td>
+                        <td>2017-03-12</td>
+                        <td>2017-03-13</td>
+                        <td><span class="label label-success">审核通过</span></td>
+                    </tr>
+                    <tr>
+                        <td>标准间</td>
+                        <td>200</td>
+                        <td>2017-03-12</td>
+                        <td>2017-03-13</td>
+                        <td><span class="label label-danger">审核失败</span></td>
+                    </tr>
+                </table>
+            </div>
+
         </section>
     </div>
 </div>

@@ -1,7 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<%--
+  Created by IntelliJ IDEA.
+  User: phoebegl
+  Date: 2017/3/5
+  Time: 22:09
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <meta charset="utf-8">
     <title>发布计划</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -34,10 +39,12 @@
 
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="../../img/avatar.png" class="img-circle" alt="User Image">
+                    <label name="hname">${hotel.id}</label>
                 </div>
                 <div class="pull-left info">
-                    <p>南京松山湖宾馆</p>
+                    <p>
+                        <label name="hname">${hotel.name}</label>
+                    </p>
                 </div>
             </div>
 
@@ -57,7 +64,7 @@
                 <li class="header"></li>
 
                 <li class="treeview">
-                    <a href="hotelinfo.html">
+                    <a href="/hotel/info">
                         <i class="glyphicon glyphicon-file"></i>
                         <span>酒店信息</span>
                         <span class="pull-right-container">
@@ -75,8 +82,8 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="addroom.html"><i class="fa fa-circle-o"></i> 添加房间</a></li>
-                        <li><a href="roominfo.html"><i class="fa fa-circle-o"></i> 房间状态</a></li>
+                        <li><a href="/hotel/room"><i class="fa fa-circle-o"></i> 添加房间</a></li>
+                        <li><a href="/hotel/showRooms"><i class="fa fa-circle-o"></i> 房间状态</a></li>
                     </ul>
                 </li>
 
@@ -242,14 +249,6 @@
 <script src="../../js/jquery-2.2.3.min.js"></script>
 <script src="../../js/bootstrap.js"></script>
 <script src="../../js/app.js"></script>
-<script type="text/javascript">
-    function setImagePreview() {
-        var docObj = document.getElementById("file");
-        var preview = document.getElementById("image");
-        preview.src = window.URL.createObjectURL(docObj.files[0]);
-    }
-</script>
-
 
 </body>
 </html>
