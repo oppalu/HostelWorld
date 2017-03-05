@@ -51,7 +51,6 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="openhotel.html"><i class="fa fa-circle-o"></i> 开店审批</a></li>
                         <li><a href="modify.html"><i class="fa fa-circle-o"></i> 酒店信息修改</a></li>
                         <li><a href="plan.html"><i class="fa fa-circle-o"></i> 酒店计划</a></li>
                     </ul>

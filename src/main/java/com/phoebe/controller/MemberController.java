@@ -24,11 +24,6 @@ public class MemberController {
     @Autowired
     private MemberService member;
 
-    @RequestMapping("/")
-    public String index() {
-        return "/customer/index";
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
         return "/customer/login";

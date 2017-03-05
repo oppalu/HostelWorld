@@ -23,20 +23,22 @@
         <a>酒店后台登录</a>
     </div>
 
+    <a href="/manage/login" class="pull-right">经理登录</a>
+
     <div class="login-box-body">
         <p class="login-msg">酒店工作人员登录</p>
-        <form method="post" action="hotelinfo.html">
+        <form method="post" action="/hotel/main">
             <div class="form-group has-feedback">
-                <input name="username" type="text" class="form-control" placeholder="酒店编号">
+                <input name="hname" type="text" class="form-control" placeholder="酒店编号">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="password" type="password" class="form-control" placeholder="密码">
+                <input name="hpassword" type="password" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
                 <div class="col-xs-7">
-                    <a href="register.html" class="text-center">申请开店</a>
+                    <a href="/hotel/register" class="text-center">申请开店</a>
                 </div>
 
                 <div class="col-xs-5">

@@ -78,7 +78,6 @@
         <data-type>varchar(20)|0</data-type>
       </column>
       <column id="32" parent="10" name="bankid">
-        <mandatory>1</mandatory>
         <data-type>varchar(255)|0</data-type>
       </column>
       <column id="33" parent="10" name="avatar">

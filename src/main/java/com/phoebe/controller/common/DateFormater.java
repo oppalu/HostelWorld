@@ -20,4 +20,11 @@ public class DateFormater {
         }
         return null;
     }
+
+    public static Date getCurrentDate() {
+        java.sql.Date sqlDate = new java.sql.Date(System.currentTimeMillis());
+        return sqlDate;
+
+    }
+
 }

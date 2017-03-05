@@ -1,7 +1,12 @@
-<!DOCTYPE html>
-<html>
+<%--
+  Created by IntelliJ IDEA.
+  User: phoebegl
+  Date: 2017/3/5
+  Time: 15:34
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
-    <meta charset="utf-8">
     <title>申请开店</title>
     <link rel="stylesheet" href="../../css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
@@ -18,7 +23,7 @@
 
     <div class="login-box-body">
         <p class="login-msg">申请开店</p>
-        <form action="hotelinfo.html" method="post">
+        <form action="/hotel/info" method="post">
             <div class="form-group has-feedback">
                 <input name="name" type="text" class="form-control" placeholder="酒店名称">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -44,7 +49,7 @@
             <div class="row">
                 <div class="col-xs-6">
                     已有账号?&nbsp;
-                    <a href="login.html" class="text-center">[登录]</a>
+                    <a href="/hotel/login" class="text-center">[登录]</a>
                 </div>
                 <div class="col-xs-6">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">提交申请</button>

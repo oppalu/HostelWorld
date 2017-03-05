@@ -1,8 +1,16 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: phoebegl
+  Date: 2017/3/5
+  Time: 16:18
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>开业审批</title>
+    <title>酒店信息审批</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
     <link rel="stylesheet" href="../../css/bootstrap.css">
@@ -45,8 +53,7 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i> 开店审批</a></li>
-                        <li><a href="modify.html"><i class="fa fa-circle-o"></i> 酒店信息修改</a></li>
+                        <li><a href="#"><i class="fa fa-circle-o"></i> 酒店信息修改</a></li>
                         <li><a href="plan.html"><i class="fa fa-circle-o"></i> 酒店计划</a></li>
                     </ul>
                 </li>
@@ -80,7 +87,7 @@
     </aside>
 
     <div class="content-wrapper">
-        <section class="content-header"><h1>开业审批</h1></section>
+        <section class="content-header"><h1>酒店信息审批</h1></section>
 
         <section class="content">
             <div class="row">
@@ -93,24 +100,14 @@
                                 <th>酒店地址</th>
                                 <th>酒店电话</th>
                             </tr>
-                            <tr>
-                                <td><a href="hotelinfo.html"> 如家</a></td>
-                                <td>南京</td>
-                                <td>南京仙林大学城羊山北路1号</td>
-                                <td>025-82828282</td>
-                            </tr>
-                            <tr>
-                                <td><a href="hotelinfo.html"> 如家</a></td>
-                                <td>南京</td>
-                                <td>南京仙林大学城羊山北路1号</td>
-                                <td>025-82828282</td>
-                            </tr>
-                            <tr>
-                                <td><a href="hotelinfo.html"> 如家</a></td>
-                                <td>南京</td>
-                                <td>南京仙林大学城羊山北路1号</td>
-                                <td>025-82828282</td>
-                            </tr>
+                            <c:forEach items="${hotels}" var="h">
+                                <tr>
+                                    <td><a href="/manage/${h.id}">${h.name}</a></td>
+                                    <td>${h.city}</td>
+                                    <td>${h.location}</td>
+                                    <td>${h.telephone}</td>
+                                </tr>
+                            </c:forEach>
                         </table>
                     </div>
                 </div>
@@ -125,4 +122,5 @@
 <script src="../../js/app.js"></script>
 
 </body>
+
 </html>

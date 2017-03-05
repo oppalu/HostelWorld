@@ -23,22 +23,22 @@
     </div>
 
     <div class="login-box-body">
-        <form method="post" action="/manager/login">
+        <form method="post" action="/manage/hotels">
             <div class="form-group has-feedback">
-                <input name="username" type="text" class="form-control" placeholder="工号">
+                <input name="mname" id="mname" type="text" class="form-control" placeholder="工号">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="password" type="password" class="form-control" placeholder="密码">
+                <input name="mpassword" id="mpassword" type="password" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
+                <input type="hidden" id="merror" name="merror">
                 <div class="col-xs-offset-3 col-xs-6">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button>
                 </div>
             </div>
         </form>
-
     </div>
 
 </div>

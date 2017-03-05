@@ -18,12 +18,15 @@
 </head>
 
 <body background="../../img/index.jpeg" class="hold-transition skin-blue sidebar-mini">
+
 <div class="login-box">
     <div class="login-logo">
         <a><b>Awesome</b>inns</a>
     </div>
 
-    <a href="/login" class="pull-right">酒店后台入口</a>
+    <a href="/login" class="pull-right">登录</a>
+    <br>
+    <a href="/hotel/login" class="pull-right">酒店后台入口</a>
 
     <div class="login-box-body">
 

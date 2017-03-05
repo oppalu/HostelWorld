@@ -1,7 +1,15 @@
-<!DOCTYPE html>
+<%--
+  Created by IntelliJ IDEA.
+  User: phoebegl
+  Date: 2017/3/5
+  Time: 16:53
+  To change this template use File | Settings | File Templates.
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
     <title>酒店信息</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
@@ -45,7 +53,7 @@
                         </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="modify.html"><i class="fa fa-circle-o"></i> 酒店信息修改</a></li>
+                        <li><a href="modify.jsp"><i class="fa fa-circle-o"></i> 酒店信息修改</a></li>
                         <li><a href="plan.html"><i class="fa fa-circle-o"></i> 酒店计划</a></li>
                     </ul>
                 </li>
@@ -95,7 +103,7 @@
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">酒店名称</label>
                             <div class="col-sm-3">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="酒店名称">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="酒店名称" value="${hotel.name}">
                             </div>
                         </div>
 
