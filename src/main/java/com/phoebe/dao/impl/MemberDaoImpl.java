@@ -2,7 +2,9 @@ package com.phoebe.dao.impl;
 
 import com.phoebe.dao.BaseDao;
 import com.phoebe.dao.MemberDao;
+import com.phoebe.model.Bankaccount;
 import com.phoebe.model.Member;
+import com.phoebe.model.Membercard;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -41,5 +43,54 @@ public class MemberDaoImpl implements MemberDao {
 
     public List<Member> findAllMembers() {
         return baseDao.findAll(Member.class);
+    }
+
+    public int addBankCard(Bankaccount bankaccount) {
+        int res = baseDao.save(bankaccount);
+        if(res == 1) {
+            Membercard card = findMycard(bankaccount.getOwnerid());
+            card.setBankAccount(bankaccount.getAccount());
+            updateMembercard(card);
+        }
+        return res;
+    }
+
+    public int deleteBankCard(String ownerid) {
+        int res = baseDao.delete(Bankaccount.class,ownerid);
+        if(res == 1) {
+            Membercard card = findMycard(ownerid);
+            card.setBankAccount("");
+            updateMembercard(card);
+        }
+        return res;
+    }
+
+    public int updateBankcard(Bankaccount bankaccount) {
+        return baseDao.update(bankaccount);
+    }
+
+    public Bankaccount findBank(String ownerid) {
+        return (Bankaccount)baseDao.find(Bankaccount.class,ownerid);
+    }
+
+    public int addMembercard(Membercard card) {
+        String s = "V"+ baseDao.getNum("membercard");
+        card.setId(s);
+        return baseDao.save(card);
+    }
+
+    public int updateMembercard(Membercard card) {
+        return baseDao.update(card);
+    }
+
+    public Membercard findMembercard(String id) {
+        return (Membercard)baseDao.find(Membercard.class,id);
+    }
+
+    public Membercard findMycard(String ownerid) {
+        Session session = baseDao.getSession();
+        String hql = "from Membercard where memberid = '"+ownerid+"'";
+        return (Membercard)session.createQuery(hql).uniqueResult();
+
     }
 }

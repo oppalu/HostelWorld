@@ -54,19 +54,19 @@
 <script src="../../js/jquery-2.2.3.min.js"/>
 <script src="../../js/bootstrap.js"/>
 <script src="../../js/app.js"/>
-<%--<script type="text/javascript">--%>
+<script type="text/javascript">
 
-    <%--function hLogin() {--%>
-        <%--var name = document.getElementById("name").value;--%>
-        <%--var pass = document.getElementById("pass").value;--%>
+    function hLogin() {
+        var name = document.getElementById("name").value;
+        var pass = document.getElementById("pass").value;
 
-        <%--if(name == "" || pass == "") {--%>
-            <%--alert("酒店编号或密码不能为空!");--%>
-            <%--return false;--%>
-        <%--}--%>
-    <%--}--%>
+        if(name == "" || pass == "") {
+            alert("s酒店编号或密码不能为空!");
+            return false;
+        }
+    }
 
-<%--</script>--%>
+</script>
 
 </body>
 </html>

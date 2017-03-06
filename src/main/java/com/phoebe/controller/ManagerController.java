@@ -44,6 +44,11 @@ public class ManagerController {
                               @RequestParam("mpassword") String password,
                               HttpServletRequest request, HttpServletResponse response) {
 
+        if(username.equals("") || password.equals("")) {
+            HandleError.handle(request,response,"用户名或密码不能为空!");
+            return new ModelAndView("manage/login");
+        }
+
         Manager m = manager.login(username);
         if(m!= null && m.getPassword().equals(password)) {
             Map<String, Object> map = new HashMap<String, Object>();

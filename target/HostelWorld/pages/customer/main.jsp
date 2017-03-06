@@ -21,54 +21,7 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div style="background-color: #ecf0f5">
 
-    <header class="main-header">
-        <a href="index.html" class="logo">
-            <span class="logo-lg"><b>Awesome</b>inns</span>
-        </a>
-        <nav class="navbar navbar-static-top">
-
-            <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">酒店预订</a></li>
-                </ul>
-            </div>
-
-            <div class="navbar-custom-menu">
-                <ul class="nav navbar-nav">
-                    <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <img src="../../img/avatar.png" class="user-image" alt="User Image">
-                            <span class="hidden-xs">Jessica</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="user-header">
-                                <img src="../../img/avatar.png" class="img-circle" alt="User Image">
-                                <p>Jessica</p>
-                            </li>
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-6 text-center">
-                                        <a href="userorder.html">我的订单</a>
-                                    </div>
-                                    <div class="col-xs-6 text-center">
-                                        <a href="membercard.html">我的会员卡</a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="userinfo.html" class="btn btn-default btn-flat">我的信息</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="login.html" class="btn btn-default btn-flat">退出</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
+    <jsp:include page="common/header.jsp"/>
 
     <section class="content-header"><h1>酒店预订</h1></section>
 

@@ -48,19 +48,19 @@
 <script src="../../js/bootstrap.js"/>
 <script src="../../js/app.js"/>
 
-<%--<script type="text/javascript">--%>
+<script type="text/javascript">
 
-    <%--function checkLogin() {--%>
-        <%--var name = document.getElementById("name").value;--%>
-        <%--var pass = document.getElementById("pass").value;--%>
+    function checkLogin() {
+        var name = document.getElementById("name").value;
+        var pass = document.getElementById("pass").value;
 
-        <%--if(name == "" || pass == "") {--%>
-            <%--alert("工号或密码不能为空!");--%>
-            <%--return false;--%>
-        <%--}--%>
-    <%--}--%>
+        if(name == "" || pass == "") {
+            alert("s工号或密码不能为空!");
+            return false;
+        }
+    }
 
-<%--</script>--%>
+</script>
 
 </body>
 </html>

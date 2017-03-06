@@ -54,7 +54,7 @@
             </div>
             <br>
             <br>
-            <div class="row">
+            <div class="row form-group">
                 <div class="col-xs-6">
                     已有账号?&nbsp;
                     <a href="/member/login" class="text-center">[登录]</a>
@@ -72,19 +72,19 @@
 <script src="../../js/bootstrap.js"/>
 <script src="../../js/app.js"/>
 
-<%--<script type="text/javascript">--%>
+<script type="text/javascript">
 
-    <%--function mRegister() {--%>
-        <%--var nick = document.getElementById("nick").value;--%>
-        <%--var name = document.getElementById("name").value;--%>
-        <%--var pass = document.getElementById("pass").value;--%>
+    function mRegister() {
+        var nick = document.getElementById("nick").value;
+        var name = document.getElementById("name").value;
+        var pass = document.getElementById("pass").value;
 
-        <%--if(name == "" || pass == "" || nick == "") {--%>
-            <%--alert("用户名、姓名与密码不能有空项!");--%>
-            <%--return false;--%>
-        <%--}--%>
-    <%--}--%>
-<%--</script>--%>
+        if(name == "" || pass == "" || nick == "") {
+            alert("s用户名、姓名与密码不能有空项!");
+            return false;
+        }
+    }
+</script>
 
 </body>
 </html>

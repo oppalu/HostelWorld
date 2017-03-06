@@ -48,6 +48,11 @@ public class MemberController {
                               @RequestParam("password") String password,
                               HttpServletRequest request, HttpServletResponse response) {
 
+        if(username.equals("") || password.equals("")) {
+            HandleError.handle(request,response,"用户名或密码不能为空!");
+            return new ModelAndView("customer/login");
+        }
+
         Member m = member.login(username);
 
         if(m!= null && m.getPassword().equals(password)) {
@@ -68,6 +73,10 @@ public class MemberController {
                                  @RequestParam("sex") String sex,
                                  @RequestParam("birth") String birth,
                                  HttpServletRequest request, HttpServletResponse response) {
+        if(username.equals("") || password.equals("") || name.equals("")) {
+            HandleError.handle(request,response,"用户名、姓名或密码不能为空!");
+            return new ModelAndView("customer/register");
+        }
 
         Member m = new Member();
         m.setNickname(username);
@@ -79,6 +88,7 @@ public class MemberController {
 
         int res = member.register(m);
         if(res == 1) {
+            member.addMembercard(m.getId());
             request.getSession().setAttribute("member",m);
             HandleError.handle(request, response, "注册成功!");
             return new ModelAndView("customer/userinfo","member",m);

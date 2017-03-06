@@ -63,21 +63,21 @@
 <script src="../../js/jquery-2.2.3.min.js"/>
 <script src="../../js/bootstrap.js"/>
 <script src="../../js/app.js"/>
-<%--<script type="text/javascript">--%>
+<script type="text/javascript">
 
-    <%--function hLogin() {--%>
-        <%--var city = document.getElementById("city").value;--%>
-        <%--var name = document.getElementById("name").value;--%>
-        <%--var pass = document.getElementById("pass").value;--%>
-        <%--var location = document.getElementById("location").value;--%>
-        <%--var phone = document.getElementById("phone").value;--%>
+    function hLogin() {
+        var city = document.getElementById("city").value;
+        var name = document.getElementById("name").value;
+        var pass = document.getElementById("pass").value;
+        var location = document.getElementById("location").value;
+        var phone = document.getElementById("phone").value;
 
-        <%--if(name == "" || pass == "" || city == "" || location == "" || phone == "") {--%>
-            <%--alert("所填项不能有空项!");--%>
-            <%--return false;--%>
-        <%--}--%>
-    <%--}--%>
-<%--</script>--%>
+        if(name == "" || pass == "" || city == "" || location == "" || phone == "") {
+            alert("s所填项不能有空项!");
+            return false;
+        }
+    }
+</script>
 
 </body>
 </html>

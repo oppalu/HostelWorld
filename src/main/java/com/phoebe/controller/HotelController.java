@@ -44,6 +44,11 @@ public class HotelController {
                               @RequestParam("hpassword") String password,
                               HttpServletRequest request, HttpServletResponse response) {
 
+        if(username.equals("") || password.equals("")) {
+            HandleError.handle(request,response,"酒店编号或密码不能为空!");
+            return new ModelAndView("hotel/login");
+        }
+
         Hotel h = hotel.login(username);
         if(h!= null && h.getPassword().equals(password)) {
             request.getSession().setAttribute("hotel",h);
@@ -63,6 +68,11 @@ public class HotelController {
                                  @RequestParam("location") String location,
                                  @RequestParam("phone") String phone,
                               HttpServletRequest request, HttpServletResponse response) {
+
+        if(hotelname.equals("") || password.equals("") || city.equals("") || location.equals("") || phone.equals("")) {
+            HandleError.handle(request,response,"所填信息不能有空项!");
+            return new ModelAndView("/hotel/register");
+        }
 
         Hotel h = new Hotel();
         h.setName(hotelname);

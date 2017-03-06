@@ -24,7 +24,7 @@
 
     <div class="login-box-body">
         <p class="login-msg">用户登录</p>
-        <form method="post" action="/member/main" onsubmit="return mLog()">
+        <form method="post" action="/member/main" onsubmit="return mLog()" class="form-horizontal">
             <div class="form-group">
                 <input id="m" name="username" type="text" class="form-control" placeholder="会员名">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -33,7 +33,7 @@
                 <input id="mp" name="password" type="password" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
-            <div class="row">
+            <div class="row form-group">
                 <div class="col-xs-7">
                     <a href="/member/register" class="text-center">没有账号?</a>
                 </div>
@@ -57,7 +57,7 @@
         var upass = document.getElementById("mp").value;
 
         if(uname == null || upass == null) {
-            alert("用户名或密码不能为空!");
+            alert("s用户名或密码不能为空!");
             return false;
         }
     }

@@ -83,7 +83,7 @@
             <li class="header"></li>
 
             <li class="treeview">
-                <a href="#">
+                <a href="/member/info">
                     <i class="glyphicon glyphicon-file"></i>
                     <span>个人信息</span>
                     <span class="pull-right-container">
@@ -115,9 +115,9 @@
                         </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="membercard.html"><i class="fa fa-circle-o"></i> 我的会员卡</a></li>
-                    <li><a href="bankcard.html"><i class="fa fa-circle-o"></i> 我的银行卡</a></li>
-                    <li><a href="point.html"><i class="fa fa-circle-o"></i> 我的积分</a></li>
+                    <li><a href="/card/mycard"><i class="fa fa-circle-o"></i> 我的会员卡</a></li>
+                    <li><a href="/card/bank"><i class="fa fa-circle-o"></i> 我的银行卡</a></li>
+                    <li><a href="/card/point"><i class="fa fa-circle-o"></i> 我的积分</a></li>
                 </ul>
             </li>
         </ul>
