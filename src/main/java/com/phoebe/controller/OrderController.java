@@ -12,6 +12,6 @@ public class OrderController {
 
     @RequestMapping("/")
     public String index() {
-        return "/customer/index";
+        return "/index";
     }
 }

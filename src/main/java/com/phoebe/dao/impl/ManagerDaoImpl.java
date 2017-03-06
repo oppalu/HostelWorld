@@ -2,8 +2,7 @@ package com.phoebe.dao.impl;
 
 import com.phoebe.dao.BaseDao;
 import com.phoebe.dao.ManagerDao;
-import com.phoebe.model.Hotel;
-import com.phoebe.model.Manager;
+import com.phoebe.model.*;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -25,7 +24,6 @@ public class ManagerDaoImpl implements ManagerDao{
 
     public List<Hotel> checkHotels() {
         Session session = baseDao.getSession();
-        String state = "审核中";
         String hql = "from Hotel where state = '审核中'";
         return session.createQuery(hql).list();
     }
@@ -36,5 +34,29 @@ public class ManagerDaoImpl implements ManagerDao{
 
     public int checkHotel(Hotel hotel) {
         return baseDao.update(hotel);
+    }
+
+    public List<Plan> checkPlans() {
+        Session session = baseDao.getSession();
+        String hql = "from Plan where state = '审核中'";
+        return session.createQuery(hql).list();
+    }
+
+    public Plan getPlanInfo(String id) {
+        return (Plan)baseDao.find(Plan.class,id);
+    }
+
+    public int checkPlan(Plan p) {
+        return baseDao.update(p);
+    }
+
+    public void planValid(Roomtype room) {
+        baseDao.update(room);
+    }
+
+    public Roomtype findRoomType(String hotelid, String name) {
+        Session session = baseDao.getSession();
+        String hql = "from Roomtype where hotelid = '"+hotelid+"' and name = '"+name+"'";
+        return (Roomtype)session.createQuery(hql).uniqueResult();
     }
 }

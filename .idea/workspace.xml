@@ -2,127 +2,104 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8e9490a-7bb7-4c5f-a62f-03c895731a0e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/RoomController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/addroom.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/plan.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/plandetail.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/roomedit.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/roominfo.jsp" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/addroom.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/hotelinfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/plan.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/plandetail.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/roomedit.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/roominfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/addroom.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/hotelinfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/roomedit.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/roominfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/balance.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/balance.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/each_hotel.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/finance.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/hotelinfo.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/hotelinfo.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/login.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/member.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/modify.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/modify.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/plan.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manager/planinfo.html" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/balance.html" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/balance.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/balance.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/balance.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/each_hotel.html" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/each_hotel.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/finance.html" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/finance.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/hotelinfo.html" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/hotelinfo.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/hotelinfo.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/hotelinfo.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/login.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/member.html" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/member.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/modify.html" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/modify.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/modify.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/modify.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/plan.html" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/plan.html" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manager/planinfo.html" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/planinfo.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/common/String2Arr.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/customer/common/header.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/customer/common/header1.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/customer/main.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/addplan.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/common/header.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/plans.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/common/header.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/plan.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/planinfo.jsp" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Application.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/common/header.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/common/header2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/customer/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/customer/userinfo.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/plan.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Application.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/common/header.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/common/header2.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/customer/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/customer/index.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/plan.jsp" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/model/Application.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/pages/customer/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.ids" afterPath="$PROJECT_DIR$/.idea/dataSources.ids" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/controller/HotelController.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/controller/HotelController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/controller/ManagerController.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/controller/ManagerController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/controller/MemberController.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/controller/MemberController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/controller/OrderController.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/controller/OrderController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/controller/RoomController.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/controller/RoomController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/dao/HotelDao.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/dao/HotelDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/dao/ManagerDao.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/dao/ManagerDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/dao/impl/HotelDaoImpl.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/dao/impl/HotelDaoImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/dao/impl/ManagerDaoImpl.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/dao/impl/ManagerDaoImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/dao/impl/MemberDaoImpl.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/dao/impl/MemberDaoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Application.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Bankaccount.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Bankaccount.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Hotel.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Hotel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Manager.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Manager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Member.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Member.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Membercard.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Membercard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Order.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Order.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Plan.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Plan.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Room.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Room.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Roomtype.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/model/Roomtype.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/service/HotelService.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/service/HotelService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/service/ManagerService.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/service/ManagerService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/service/impl/HotelServiceImpl.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/service/impl/HotelServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/service/impl/ManagerServiceImpl.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/service/impl/ManagerServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/service/impl/MemberServiceImpl.class" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/com/phoebe/service/impl/MemberServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/controller/HotelController.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/controller/HotelController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/controller/ManagerController.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/controller/ManagerController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/controller/MemberController.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/controller/MemberController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/controller/OrderController.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/controller/OrderController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/controller/RoomController.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/controller/RoomController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/dao/HotelDao.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/dao/HotelDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/dao/ManagerDao.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/dao/ManagerDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/dao/impl/HotelDaoImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/dao/impl/HotelDaoImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/dao/impl/ManagerDaoImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/dao/impl/ManagerDaoImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/dao/impl/MemberDaoImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/dao/impl/MemberDaoImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/model/Application.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/model/Application.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/model/Bankaccount.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/model/Bankaccount.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/model/Hotel.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/model/Hotel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/model/Manager.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/model/Manager.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/model/Member.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/model/Member.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/model/Membercard.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/model/Membercard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/model/Order.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/model/Order.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/model/Plan.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/model/Plan.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/model/Room.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/model/Room.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/model/Roomtype.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/model/Roomtype.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/service/HotelService.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/service/HotelService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/service/ManagerService.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/service/ManagerService.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/service/impl/HotelServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/service/impl/HotelServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/service/impl/ManagerServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/service/impl/ManagerServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/phoebe/service/impl/MemberServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/phoebe/service/impl/MemberServiceImpl.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HostelWorld.iml" afterPath="$PROJECT_DIR$/HostelWorld.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/HotelController.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/HotelController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/ManagerController.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/ManagerController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/MemberController.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/MemberController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/OrderController.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/OrderController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/RoomController.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/controller/RoomController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/HotelDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/HotelDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/ManagerDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/ManagerDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/MemberDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/MemberDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/HotelDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/HotelDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/ManagerDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/ManagerDaoImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/MemberDaoImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/MemberDaoImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Application.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Application.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Bankaccount.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Bankaccount.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Hotel.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Hotel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Manager.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Manager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Member.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Member.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Membercard.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Membercard.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Number.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Number.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Order.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Plan.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Plan.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Room.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Room.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Roomtype.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/model/Roomtype.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/service/HotelService.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/service/HotelService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/service/ManagerService.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/service/ManagerService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/service/MemberService.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/service/MemberService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/HotelServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/HotelServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/ManagerServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/ManagerServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/MemberServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/MemberServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/META-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/applicationContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/customer/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/customer/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/customer/register.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/customer/register.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/customer/userinfo.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/customer/userinfo.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/addroom.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/addroom.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/hotelinfo.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/hotelinfo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/META-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/target/HostelWorld/WEB-INF/classes/META-INF/applicationContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/plandetail.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/plandetail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/register.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/register.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/roomedit.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/roomedit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/hotel/roominfo.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/hotel/roominfo.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manage/balance.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/balance.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manage/hotelinfo.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/hotelinfo.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manage/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/pages/manage/modify.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/pages/manage/modify.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/customer/login.jsp" afterPath="$PROJECT_DIR$/target/HostelWorld/pages/customer/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/customer/register.jsp" afterPath="$PROJECT_DIR$/target/HostelWorld/pages/customer/register.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/customer/userinfo.jsp" afterPath="$PROJECT_DIR$/target/HostelWorld/pages/customer/userinfo.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/addroom.jsp" afterPath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/addroom.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/hotelinfo.jsp" afterPath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/hotelinfo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/META-INF/applicationContext.xml" afterPath="$PROJECT_DIR$/target/classes/META-INF/applicationContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/plandetail.jsp" afterPath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/plandetail.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/roomedit.jsp" afterPath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/roomedit.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/roominfo.jsp" afterPath="$PROJECT_DIR$/target/HostelWorld/pages/hotel/roominfo.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manage/hotelinfo.jsp" afterPath="$PROJECT_DIR$/target/HostelWorld/pages/manage/hotelinfo.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manage/login.jsp" afterPath="$PROJECT_DIR$/target/HostelWorld/pages/manage/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/HostelWorld/pages/manage/modify.jsp" afterPath="$PROJECT_DIR$/target/HostelWorld/pages/manage/modify.jsp" />
     </list>
     <ignored path="HostelWorld.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -146,43 +123,56 @@
     <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - j2ee@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - j2ee@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="roomtype" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="HostelWorld" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="HotelController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/controller/HotelController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/controller/MemberController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="280">
+              <caret line="118" column="64" selection-start-line="118" selection-start-column="64" selection-end-line="118" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer/login.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userinfo.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer/userinfo.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="775">
+              <caret line="167" column="9" selection-start-line="155" selection-start-column="8" selection-end-line="167" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -206,57 +196,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/register.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/controller/common/DateFormater.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/customer/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/each_hotel.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/planinfo.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/plan.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/modify.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/member.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/hotelinfo.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/finance.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/each_hotel.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/balance.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/balance.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/hotelinfo.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manager/modify.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manage/balance.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/manage/hotelinfo.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/model/Hotel.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/MemberDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/ManagerDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/MemberDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/ManagerDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/ManagerServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/MemberServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/MemberService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/ManagerService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/controller/MemberController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/BaseDaoImpl.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/phoebe/model/Bankaccount.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/controller/ManagerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/RoomDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/RoomService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/RoomServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/RoomDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/controller/HotelController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/addroom.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/hotelinfo.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/phoebe/model/Room.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/HotelDaoImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/HotelService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/HotelServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/roominfo.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/controller/RoomController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/hotelinfo.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/roomedit.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/roominfo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/addroom.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/plan.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/HotelDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/HotelService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/HotelServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/addplan.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/controller/common/String2Arr.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/plandetail.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/HotelDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/controller/RoomController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/manage/hotelinfo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/manage/modify.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/manage/common/header.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/ManagerDao.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/plans.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/manage/plan.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/manage/planinfo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/ManagerDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/ManagerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/ManagerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/controller/OrderController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/customer/main.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/MemberDaoImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/manage/balance.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/common/header.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/customer/common/header.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/customer/common/header1.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/MemberService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/MemberServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/customer/userinfo.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/controller/MemberController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/controller/ManagerController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/phoebe/controller/HotelController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/customer/register.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/hotel/register.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/manage/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/pages/customer/login.jsp" />
       </list>
     </option>
   </component>
@@ -318,8 +308,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -361,6 +352,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HostelWorld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HostelWorld" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -449,6 +466,10 @@
               <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="customer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -513,74 +534,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="phoebe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HostelWorld" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HostelWorld" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phoebe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="impl" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HostelWorld" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HostelWorld" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="phoebe" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -680,7 +633,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -697,22 +649,22 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/pages/customer" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/pages" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/img" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/pages/common" />
+      <recent name="$PROJECT_DIR$/src/main/webapp" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="com.phoebe.model" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/pages/manager" />
       <recent name="$PROJECT_DIR$/src/main/webapp/pages/hotel" />
       <recent name="$PROJECT_DIR$/src/main/webapp/js" />
       <recent name="$PROJECT_DIR$/src/main/webapp/pages/common" />
       <recent name="$PROJECT_DIR$/src/main/webapp/img" />
-    </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="com.phoebe.model" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/pages/customer" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/img" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/pages/common" />
-      <recent name="$PROJECT_DIR$/src/main/webapp" />
-      <recent name="$PROJECT_DIR$/src/main" />
     </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.MyTomcat">
@@ -1376,15 +1328,17 @@
       <workItem from="1488434693306" duration="29068000" />
       <workItem from="1488605268119" duration="12736000" />
       <workItem from="1488698788212" duration="24887000" />
+      <workItem from="1488730624361" duration="324000" />
+      <workItem from="1488780592052" duration="21080000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="113490000" />
+    <option name="totallyTimeSpent" value="134894000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="709" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="23" width="1280" height="709" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1403,14 +1357,13 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.547812" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5461913" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.54347825" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.45652175" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5235008" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1420,6 +1373,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1433,7 +1387,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1444,7 +1398,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.547812" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5461913" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Thumbnails" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1452,7 +1406,7 @@
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.54347825" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24959612" sideWeight="0.45652175" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32956383" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24959612" sideWeight="0.5235008" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901135" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -1480,156 +1434,13 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.bankaccount">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.bankaccount">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.bankaccount">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.bankaccount">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.bankaccount">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.bankaccount">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/model/Bankaccount.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="46" column="7" selection-start-line="46" selection-start-column="7" selection-end-line="46" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/ManagerServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/addroom.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="218" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="218" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer/register.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-345">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.number">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.number">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.number">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.number">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1637,347 +1448,458 @@
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.number">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.number">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.number">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.number">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.number">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/HotelServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1395">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4936">
-          <caret line="362" column="1" selection-start-line="362" selection-start-column="1" selection-end-line="362" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/dao/ManagerDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/dao/MemberDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/RoomDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="49" column="5" selection-start-line="23" selection-start-column="4" selection-end-line="49" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/dao/RoomDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="31" selection-start-line="12" selection-start-column="4" selection-end-line="22" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/service/RoomService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="31" selection-start-line="12" selection-start-column="4" selection-end-line="22" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/RoomServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="43" column="5" selection-start-line="20" selection-start-column="4" selection-end-line="43" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/roominfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="195" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="195" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/balance.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1275">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/modify.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="109" column="40" selection-start-line="102" selection-start-column="28" selection-end-line="109" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/controller/HotelController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="559">
-          <caret line="90" column="5" selection-start-line="90" selection-start-column="5" selection-end-line="90" selection-end-column="5" />
+        <state relative-caret-position="235">
+          <caret line="77" column="26" selection-start-line="77" selection-start-column="26" selection-end-line="77" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#1913#1914#0" expanded="true" />
+            <element signature="e#1958#1959#0" expanded="true" />
+            <element signature="e#2000#2001#0" expanded="true" />
+            <element signature="e#2044#2045#0" expanded="true" />
+            <element signature="e#2094#2095#0" expanded="true" />
+            <element signature="e#2140#2141#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/model/Room.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/member.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="114" column="59" selection-start-line="114" selection-start-column="59" selection-end-line="114" selection-end-column="59" />
+        <state relative-caret-position="-825">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/roomedit.html">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/controller/common/String2Arr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="155" column="38" selection-start-line="155" selection-start-column="38" selection-end-line="155" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/controller/ManagerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="83" column="49" selection-start-line="83" selection-start-column="36" selection-end-line="83" selection-end-column="49" />
+        <state relative-caret-position="180">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
           <folding>
-            <element signature="e#1476#1492#0" expanded="true" />
-            <element signature="e#1958#1974#0" expanded="true" />
-            <element signature="e#2326#2341#0" expanded="true" />
-            <element signature="e#2779#2795#0" expanded="true" />
-            <element signature="e#3287#3303#0" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/service/HotelService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/HotelServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="415">
-          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-          <folding>
-            <element signature="e#1310#1311#0" expanded="true" />
-            <element signature="e#1351#1352#0" expanded="true" />
-            <element signature="e#1471#1472#0" expanded="true" />
-            <element signature="e#1515#1516#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/MemberServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.roomtype">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/hotelinfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/hotelinfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="75" column="24" selection-start-line="75" selection-start-column="24" selection-end-line="75" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/controller/RoomController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1196#1212#0" expanded="true" />
-            <element signature="e#2422#2438#0" expanded="true" />
-            <element signature="e#3394#3410#0" expanded="true" />
-            <element signature="e#3817#3833#0" expanded="true" />
-            <element signature="e#4325#4341#0" expanded="true" />
-            <element signature="e#5513#5529#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/roominfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2035">
-          <caret line="162" column="61" selection-start-line="162" selection-start-column="61" selection-end-line="162" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.hotel">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/plan.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="535">
-          <caret line="254" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+          <caret line="42" column="32" selection-start-line="42" selection-start-column="32" selection-end-line="42" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/addroom.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="51" column="22" selection-start-line="44" selection-start-column="16" selection-end-line="51" selection-end-column="22" />
+        <state relative-caret-position="-315">
+          <caret line="9" column="63" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/roomedit.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/balance.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="10">
-          <caret line="50" column="22" selection-start-line="43" selection-start-column="16" selection-end-line="50" selection-end-column="22" />
+        <state relative-caret-position="-1415">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/plan.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-570">
-          <caret line="108" column="94" selection-start-line="108" selection-start-column="94" selection-end-line="108" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/HotelDaoImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="439">
-          <caret line="95" column="48" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/dao/HotelDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/plandetail.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/plan.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="535">
-          <caret line="191" column="7" selection-start-line="2" selection-start-column="0" selection-end-line="191" selection-end-column="7" />
+          <caret line="131" column="7" selection-start-line="1" selection-start-column="0" selection-end-line="131" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/planinfo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="153" column="7" selection-start-line="1" selection-start-column="0" selection-end-line="153" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/common/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5">
+          <caret line="39" column="46" selection-start-line="39" selection-start-column="46" selection-end-line="39" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/controller/RoomController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="188" column="56" selection-start-line="181" selection-start-column="8" selection-end-line="188" selection-end-column="56" />
+          <folding>
+            <element signature="e#5142#5158#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/dao/ManagerDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/addplan.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-660">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/plandetail.jsp">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/plans.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="43" column="49" selection-start-line="43" selection-start-column="49" selection-end-line="43" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/plan.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="43" column="61" selection-start-line="43" selection-start-column="61" selection-end-line="43" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/planinfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="45" column="84" selection-start-line="45" selection-start-column="84" selection-end-line="45" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.plan">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/HotelDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="82" column="47" selection-start-line="82" selection-start-column="47" selection-end-line="82" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.roomtype">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/ManagerDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="40" column="53" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
+          <folding>
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1388#1389#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-455">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/controller/OrderController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer/main.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="535">
+          <caret line="144" column="7" selection-start-line="1" selection-start-column="0" selection-end-line="144" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="26" column="21" selection-start-line="26" selection-start-column="21" selection-end-line="26" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/dao/impl/MemberDaoImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/ManagerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="469">
+          <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="925">
+          <caret line="70" column="13" selection-start-line="23" selection-start-column="4" selection-end-line="70" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/modify.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/balance.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="31" column="62" selection-start-line="31" selection-start-column="62" selection-end-line="31" selection-end-column="62" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/common/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="19" column="57" selection-start-line="19" selection-start-column="57" selection-end-line="19" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer/common/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="58" column="55" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer/common/header1.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="58" column="55" selection-start-line="58" selection-start-column="55" selection-end-line="58" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/service/ManagerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/dao/MemberDao.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/service/MemberService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/service/impl/MemberServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding>
+            <element signature="e#621#622#0" expanded="true" />
+            <element signature="e#662#663#0" expanded="true" />
+            <element signature="e#701#702#0" expanded="true" />
+            <element signature="e#743#744#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/hotelinfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="754">
+          <caret line="54" column="30" selection-start-line="49" selection-start-column="24" selection-end-line="54" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/roomedit.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/controller/ManagerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-905">
+          <caret line="68" column="0" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+          <folding>
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#1018#1019#0" expanded="true" />
+            <element signature="e#1629#1645#0" expanded="true" />
+            <element signature="e#2068#2084#0" expanded="true" />
+            <element signature="e#2433#2448#0" expanded="true" />
+            <element signature="e#3080#3096#0" expanded="true" />
+            <element signature="e#3744#3760#0" expanded="true" />
+            <element signature="e#4022#4038#0" expanded="true" />
+            <element signature="e#5510#5526#0" expanded="true" />
+            <element signature="e#6166#6182#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/controller/HotelController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/777b7440/3e57fc0f-e385-4d31-8aae-8d7b06cc741f/j2ee.member">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="4" selection-end-line="86" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="235">
+          <caret line="56" column="0" selection-start-line="56" selection-start-column="4" selection-end-line="68" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/hotel/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="4" selection-end-line="79" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/manage/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="62" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer/userinfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="167" column="9" selection-start-line="155" selection-start-column="8" selection-end-line="167" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/pages/customer/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/phoebe/controller/MemberController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="118" column="64" selection-start-line="118" selection-start-column="64" selection-end-line="118" selection-end-column="64" />
           <folding />
         </state>
       </provider>

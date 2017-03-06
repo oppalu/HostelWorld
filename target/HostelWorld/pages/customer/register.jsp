@@ -24,17 +24,17 @@
 
     <div class="login-box-body">
         <p class="login-msg">注册账号</p>
-        <form action="/register" method="post">
+        <form action="/member/info" method="post" onsubmit="return mRegister()">
             <div class="form-group has-feedback">
-                <input name="nickname" type="text" class="form-control" placeholder="会员名">
+                <input id="nick" name="nickname" type="text" class="form-control" placeholder="会员名">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="username" type="text" class="form-control" placeholder="姓名">
+                <input id="name" name="username" type="text" class="form-control" placeholder="姓名">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="password" type="password" class="form-control" placeholder="密码">
+                <input id="pass" name="password" type="password" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
@@ -57,7 +57,7 @@
             <div class="row">
                 <div class="col-xs-6">
                     已有账号?&nbsp;
-                    <a href="/login" class="text-center">[登录]</a>
+                    <a href="/member/login" class="text-center">[登录]</a>
                 </div>
                 <div class="col-xs-6">
                     <button type="submit" class="btn btn-primary btn-block btn-flat">注册</button>
@@ -71,6 +71,20 @@
 <script src="../../js/jquery-2.2.3.min.js"/>
 <script src="../../js/bootstrap.js"/>
 <script src="../../js/app.js"/>
+
+<%--<script type="text/javascript">--%>
+
+    <%--function mRegister() {--%>
+        <%--var nick = document.getElementById("nick").value;--%>
+        <%--var name = document.getElementById("name").value;--%>
+        <%--var pass = document.getElementById("pass").value;--%>
+
+        <%--if(name == "" || pass == "" || nick == "") {--%>
+            <%--alert("用户名、姓名与密码不能有空项!");--%>
+            <%--return false;--%>
+        <%--}--%>
+    <%--}--%>
+<%--</script>--%>
 
 </body>
 </html>

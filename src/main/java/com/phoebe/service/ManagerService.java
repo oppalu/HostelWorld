@@ -2,6 +2,7 @@ package com.phoebe.service;
 
 import com.phoebe.model.Hotel;
 import com.phoebe.model.Manager;
+import com.phoebe.model.Plan;
 
 import java.util.List;
 
@@ -17,4 +18,12 @@ public interface ManagerService {
     Hotel getHotelInfo(String id);
 
     int checkHotel(Hotel hotel);
+
+    List<Plan> checkPlans();
+
+    Plan getPlanInfo(String id);
+
+    int checkPlan(Plan p);
+
+    void planvalid(String hotelid,List<String> name,List<String> price);
 }

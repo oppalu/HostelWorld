@@ -23,13 +23,14 @@
     </div>
 
     <div class="login-box-body">
-        <form method="post" action="/manage/hotels">
+        <p class="login-msg">经理登录</p>
+        <form method="post" action="/manage/hotels" onsubmit="return checkLogin()">
             <div class="form-group has-feedback">
-                <input name="mname" id="mname" type="text" class="form-control" placeholder="工号">
+                <input name="mname" id="name" type="text" class="form-control" placeholder="工号">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="mpassword" id="mpassword" type="password" class="form-control" placeholder="密码">
+                <input name="mpassword" id="pass" type="password" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
@@ -46,6 +47,20 @@
 <script src="../../js/jquery-2.2.3.min.js"/>
 <script src="../../js/bootstrap.js"/>
 <script src="../../js/app.js"/>
+
+<%--<script type="text/javascript">--%>
+
+    <%--function checkLogin() {--%>
+        <%--var name = document.getElementById("name").value;--%>
+        <%--var pass = document.getElementById("pass").value;--%>
+
+        <%--if(name == "" || pass == "") {--%>
+            <%--alert("工号或密码不能为空!");--%>
+            <%--return false;--%>
+        <%--}--%>
+    <%--}--%>
+
+<%--</script>--%>
 
 </body>
 </html>

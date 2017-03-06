@@ -22,4 +22,12 @@ public class MemberServiceImpl implements MemberService {
     public int register(Member m) {
         return dao.addMember(m);
     }
+
+    public Member findUserById(String id) {
+        return dao.findMember(id);
+    }
+
+    public int updateUser(Member m) {
+        return dao.updateMember(m);
+    }
 }

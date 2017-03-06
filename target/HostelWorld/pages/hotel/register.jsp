@@ -23,25 +23,25 @@
 
     <div class="login-box-body">
         <p class="login-msg">申请开店</p>
-        <form action="/hotel/info" method="post">
+        <form action="/hotel/info" method="post" onsubmit="return hLogin()">
             <div class="form-group has-feedback">
-                <input name="name" type="text" class="form-control" placeholder="酒店名称">
+                <input id="name" name="name" type="text" class="form-control" placeholder="酒店名称">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="password" type="password" class="form-control" placeholder="密码">
+                <input id="pass" name="password" type="password" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="city" type="text" class="form-control" placeholder="所在城市">
+                <input id="city" name="city" type="text" class="form-control" placeholder="所在城市">
                 <span class="glyphicon glyphicon-home form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="location" type="text" class="form-control" placeholder="地址">
+                <input id="location" name="location" type="text" class="form-control" placeholder="地址">
                 <span class="glyphicon glyphicon-map-marker form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="phone" type="text" class="form-control" placeholder="酒店电话">
+                <input id="phone" name="phone" type="text" class="form-control" placeholder="酒店电话">
                 <span class="glyphicon glyphicon-phone form-control-feedback"></span>
             </div>
             <br>
@@ -63,6 +63,21 @@
 <script src="../../js/jquery-2.2.3.min.js"/>
 <script src="../../js/bootstrap.js"/>
 <script src="../../js/app.js"/>
+<%--<script type="text/javascript">--%>
+
+    <%--function hLogin() {--%>
+        <%--var city = document.getElementById("city").value;--%>
+        <%--var name = document.getElementById("name").value;--%>
+        <%--var pass = document.getElementById("pass").value;--%>
+        <%--var location = document.getElementById("location").value;--%>
+        <%--var phone = document.getElementById("phone").value;--%>
+
+        <%--if(name == "" || pass == "" || city == "" || location == "" || phone == "") {--%>
+            <%--alert("所填项不能有空项!");--%>
+            <%--return false;--%>
+        <%--}--%>
+    <%--}--%>
+<%--</script>--%>
 
 </body>
 </html>

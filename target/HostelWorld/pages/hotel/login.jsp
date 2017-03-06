@@ -27,13 +27,13 @@
 
     <div class="login-box-body">
         <p class="login-msg">酒店工作人员登录</p>
-        <form method="post" action="/hotel/main">
+        <form method="post" action="/hotel/main" onsubmit="return hLogin()">
             <div class="form-group has-feedback">
-                <input name="hname" type="text" class="form-control" placeholder="酒店编号">
+                <input id="name" name="hname" type="text" class="form-control" placeholder="酒店编号">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
             <div class="form-group has-feedback">
-                <input name="hpassword" type="password" class="form-control" placeholder="密码">
+                <input id="pass" name="hpassword" type="password" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
@@ -54,6 +54,19 @@
 <script src="../../js/jquery-2.2.3.min.js"/>
 <script src="../../js/bootstrap.js"/>
 <script src="../../js/app.js"/>
+<%--<script type="text/javascript">--%>
+
+    <%--function hLogin() {--%>
+        <%--var name = document.getElementById("name").value;--%>
+        <%--var pass = document.getElementById("pass").value;--%>
+
+        <%--if(name == "" || pass == "") {--%>
+            <%--alert("酒店编号或密码不能为空!");--%>
+            <%--return false;--%>
+        <%--}--%>
+    <%--}--%>
+
+<%--</script>--%>
 
 </body>
 </html>

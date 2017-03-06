@@ -1,6 +1,7 @@
 package com.phoebe.dao;
 
 import com.phoebe.model.Hotel;
+import com.phoebe.model.Plan;
 import com.phoebe.model.Room;
 import com.phoebe.model.Roomtype;
 
@@ -38,5 +39,11 @@ public interface HotelDao {
 
     List<Room> getEmptyRooms();
 
+    int addPlan(Plan plan);
 
+    int updatePlan(Plan plan);
+
+    Plan getPlanInfo(String id);
+
+    List<Plan> getPlans(String hotelid);
 }

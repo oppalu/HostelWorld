@@ -29,7 +29,7 @@
 
             <div class="collapse navbar-collapse pull-right" id="navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="login.html">退出</a></li>
+                    <li class="active"><a href="/manage/logout">退出</a></li>
                 </ul>
             </div>
         </nav>

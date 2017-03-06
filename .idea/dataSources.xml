@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="151301817">
+  <component name="DataSourceManagerImpl" format="xml" hash="479216149">
     <data-source source="LOCAL" name="MySQL - j2ee@localhost" uuid="3e57fc0f-e385-4d31-8aae-8d7b06cc741f">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
@@ -21,7 +21,7 @@
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/src/main/resources/META-INF/applicationContext.xml</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/j2ee?useUnicode=true&amp;characterEncoding=UTF-8</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/j2ee</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="zeroDateTimeBehavior" value="convertToNull" />

@@ -23,19 +23,19 @@
     </div>
 
     <div class="login-box-body">
-        <p class="login-msg">登录</p>
-        <form method="post" action="/login">
-            <div class="form-group has-feedback">
-                <input name="username" type="text" class="form-control" placeholder="会员名">
+        <p class="login-msg">用户登录</p>
+        <form method="post" action="/member/main" onsubmit="return mLog()">
+            <div class="form-group">
+                <input id="m" name="username" type="text" class="form-control" placeholder="会员名">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
             </div>
-            <div class="form-group has-feedback">
-                <input name="password" type="password" class="form-control" placeholder="密码">
+            <div class="form-group">
+                <input id="mp" name="password" type="password" class="form-control" placeholder="密码">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
             </div>
             <div class="row">
                 <div class="col-xs-7">
-                    <a href="/register" class="text-center">没有账号?</a>
+                    <a href="/member/register" class="text-center">没有账号?</a>
                 </div>
 
                 <div class="col-xs-5">
@@ -45,12 +45,24 @@
         </form>
 
     </div>
-
 </div>
 
 <script src="../../js/jquery-2.2.3.min.js"/>
 <script src="../../js/bootstrap.js"/>
 <script src="../../js/app.js"/>
+<script type="text/javascript">
+
+    function mLog() {
+        var uname = document.getElementById("m").value;
+        var upass = document.getElementById("mp").value;
+
+        if(uname == null || upass == null) {
+            alert("用户名或密码不能为空!");
+            return false;
+        }
+    }
+
+</script>
 
 </body>
 </html>

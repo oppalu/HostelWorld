@@ -10,4 +10,8 @@ public interface MemberService {
     Member login(String username);
 
     int register(Member m);
+
+    Member findUserById(String id);
+
+    int updateUser(Member m);
 }

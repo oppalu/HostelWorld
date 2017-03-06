@@ -34,7 +34,7 @@ public class MemberDaoImpl implements MemberDao {
 
     public Member findMemberByName(String name) {
         Session session = baseDao.getSession();
-        String hql = "from Member where nickname ="+name;
+        String hql = "from Member where nickname = '"+name+"'";
         return (Member)session.createQuery(hql).uniqueResult();
 
     }

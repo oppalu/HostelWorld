@@ -3,6 +3,7 @@ package com.phoebe.service.impl;
 import com.phoebe.controller.common.DateFormater;
 import com.phoebe.dao.HotelDao;
 import com.phoebe.model.Hotel;
+import com.phoebe.model.Plan;
 import com.phoebe.model.Room;
 import com.phoebe.model.Roomtype;
 import com.phoebe.service.HotelService;
@@ -70,5 +71,23 @@ public class HotelServiceImpl implements HotelService {
 
     public List<Room> getEmptyRooms() {
         return hotel.getEmptyRooms();
+    }
+
+    public int addPlan(Plan plan) {
+        plan.setCreatetime(DateFormater.getCurrentDate());
+        plan.setState("审核中");
+        return hotel.addPlan(plan);
+    }
+
+    public int updatePlan(Plan plan) {
+        return hotel.updatePlan(plan);
+    }
+
+    public Plan getPlanInfo(String id) {
+        return hotel.getPlanInfo(id);
+    }
+
+    public List<Plan> getPlans(String hotelid) {
+        return hotel.getPlans(hotelid);
     }
 }

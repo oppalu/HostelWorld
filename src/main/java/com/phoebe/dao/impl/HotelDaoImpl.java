@@ -2,11 +2,9 @@ package com.phoebe.dao.impl;
 
 import com.phoebe.dao.BaseDao;
 import com.phoebe.dao.HotelDao;
-import com.phoebe.model.Bankaccount;
-import com.phoebe.model.Hotel;
-import com.phoebe.model.Room;
-import com.phoebe.model.Roomtype;
+import com.phoebe.model.*;
 import org.hibernate.Session;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -94,6 +92,26 @@ public class HotelDaoImpl implements HotelDao {
     public List<Room> getEmptyRooms() {
         Session session = baseDao.getSession();
         String hql = "from Room where status = '空闲'";
+        return session.createQuery(hql).list();
+    }
+
+    public int addPlan(Plan plan) {
+        String s = "P"+baseDao.getNum("plan");
+        plan.setId(s);
+        return baseDao.save(plan);
+    }
+
+    public int updatePlan(Plan plan) {
+        return baseDao.update(plan);
+    }
+
+    public Plan getPlanInfo(String id) {
+        return (Plan)baseDao.find(Plan.class,id);
+    }
+
+    public List<Plan> getPlans(String id) {
+        Session session = baseDao.getSession();
+        String hql = "from Plan where hotelid = \'"+id+"\'";
         return session.createQuery(hql).list();
     }
 }
