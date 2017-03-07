@@ -2,7 +2,6 @@ package com.phoebe.controller;
 
 import com.phoebe.controller.common.DateFormater;
 import com.phoebe.controller.common.HandleError;
-import com.phoebe.model.Hotel;
 import com.phoebe.model.Member;
 import com.phoebe.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,7 +56,7 @@ public class MemberController {
 
         if(m!= null && m.getPassword().equals(password)) {
             request.getSession().setAttribute("member",m);
-            return new ModelAndView("customer/userinfo","member",m);
+            return new ModelAndView("customer/main","member",m);
         }
         else {
             HandleError.handle(request,response,"用户名或密码错误!");
@@ -102,11 +101,12 @@ public class MemberController {
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public ModelAndView getUserInfo(HttpSession session) {
         Member m = (Member)session.getAttribute("member");
+        if(m == null)
+            return new ModelAndView("customer/login");
         return new ModelAndView("customer/userinfo","member",m);
     }
 
     @RequestMapping(value = "/updateinfo",method = RequestMethod.POST)
-
     public ModelAndView updateUserInfo(@RequestParam("nick")String username,
                                        @RequestParam("userid")String id,
                                        @RequestParam("username")String name,

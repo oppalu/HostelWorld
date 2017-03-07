@@ -31,6 +31,8 @@ public class CardController {
     @RequestMapping(value = "/bank", method = RequestMethod.GET)
     public ModelAndView bankcardInfo(HttpSession session) {
         Member m = (Member)session.getAttribute("member");
+        if(m == null)
+            return new ModelAndView("customer/login");
         Bankaccount bankaccount = member.findBank(m.getId());
         return new ModelAndView("customer/bankcard","bank",bankaccount);
     }
@@ -70,12 +72,17 @@ public class CardController {
     @RequestMapping(value = "/mycard", method = RequestMethod.GET)
     public ModelAndView getCard(HttpSession session) {
         Member m = (Member)session.getAttribute("member");
+        if(m == null)
+            return new ModelAndView("customer/login");
         Membercard card = member.findMycard(m.getId());
         return new ModelAndView("customer/membercard","card",card);
     }
 
     @RequestMapping(value = "/{cardid}", method = RequestMethod.GET)
-    public ModelAndView getCardInfo(@PathVariable String cardid) {
+    public ModelAndView getCardInfo(@PathVariable String cardid,HttpSession session) {
+        Member m = (Member)session.getAttribute("member");
+        if(m == null)
+            return new ModelAndView("customer/login");
         Membercard card = member.findMembercard(cardid);
         return new ModelAndView("customer/cardinfo","card",card);
     }
@@ -99,6 +106,8 @@ public class CardController {
     @RequestMapping(value = "/point", method = RequestMethod.GET)
     public ModelAndView getPoint(HttpSession session) {
         Member m = (Member)session.getAttribute("member");
+        if(m == null)
+            return new ModelAndView("customer/login");
         Membercard card = member.findMycard(m.getId());
         return new ModelAndView("customer/point","card",card);
     }

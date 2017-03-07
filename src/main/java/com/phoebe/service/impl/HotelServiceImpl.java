@@ -35,6 +35,10 @@ public class HotelServiceImpl implements HotelService {
         return hotel.findHotel(id);
     }
 
+    public String getHotelName(String id) {
+        return login(id).getName();
+    }
+
     public List<Hotel> findHotels(String city) {
         return hotel.findHotels(city);
     }

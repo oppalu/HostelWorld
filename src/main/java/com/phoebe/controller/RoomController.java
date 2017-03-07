@@ -32,6 +32,9 @@ public class RoomController {
     @RequestMapping(value = "/hotel/room",method = RequestMethod.GET)
     public ModelAndView room(HttpSession session) {
         Hotel h = (Hotel)session.getAttribute("hotel");
+        if(h == null)
+            return new ModelAndView("hotel/login");
+
         List<Roomtype> type = roomService.getTypes(h.getId());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("types",type);
@@ -89,6 +92,8 @@ public class RoomController {
     @RequestMapping(value = "/hotel/showRooms",method = RequestMethod.GET)
     public ModelAndView showRooms(HttpSession session) {
         Hotel h = (Hotel)session.getAttribute("hotel");
+        if(h == null)
+            return new ModelAndView("hotel/login");
         List<Room> rooms = roomService.getRooms(h.getId());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("rooms",rooms);
@@ -100,6 +105,8 @@ public class RoomController {
                                      HttpSession session) {
         Room room = roomService.findRoom(roomid);
         Hotel h = (Hotel)session.getAttribute("hotel");
+        if(h == null)
+            return new ModelAndView("hotel/login");
         List<Roomtype> t = roomService.getTypes(h.getId());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("types",t);
@@ -136,6 +143,8 @@ public class RoomController {
     public ModelAndView getPlan(HttpSession session) {
         Map<String, Object> map = new HashMap<String, Object>();
         Hotel h = (Hotel)session.getAttribute("hotel");
+        if(h == null)
+            return new ModelAndView("hotel/login");
         List<Plan> plan = roomService.getPlans(h.getId());
         map.put("plans",plan);
         return new ModelAndView("hotel/plans",map);
@@ -144,6 +153,8 @@ public class RoomController {
     @RequestMapping(value = "/hotel/addplan",method = RequestMethod.GET)
     public ModelAndView addPlan(HttpSession session) {
         Hotel h = (Hotel)session.getAttribute("hotel");
+        if(h == null)
+            return new ModelAndView("hotel/login");
         List<Roomtype> t = roomService.getTypes(h.getId());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("types",t);
@@ -185,7 +196,10 @@ public class RoomController {
     }
 
     @RequestMapping(value = "/plan/{planid}",method = RequestMethod.GET)
-    public ModelAndView showPlanInfo(@PathVariable String planid) {
+    public ModelAndView showPlanInfo(@PathVariable String planid,HttpSession session) {
+        Hotel h = (Hotel)session.getAttribute("hotel");
+        if(h == null)
+            return new ModelAndView("hotel/login");
         Plan p = roomService.getPlanInfo(planid);
         String type = p.getRoomtype();
         String price = p.getPrice();

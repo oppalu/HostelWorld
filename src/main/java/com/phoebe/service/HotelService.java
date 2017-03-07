@@ -18,6 +18,8 @@ public interface HotelService {
 
     Hotel login(String id);
 
+    String getHotelName(String id);
+
     List<Hotel> findHotels(String city);
 
     List<Hotel> findHotels();

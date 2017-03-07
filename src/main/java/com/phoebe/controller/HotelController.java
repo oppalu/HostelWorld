@@ -96,6 +96,8 @@ public class HotelController {
     @RequestMapping(value = "/info", method = RequestMethod.GET)
     public ModelAndView hotelinfo(HttpSession session) {
         Hotel h = (Hotel)session.getAttribute("hotel");
+        if(h == null)
+            return new ModelAndView("hotel/login");
         return new ModelAndView("hotel/hotelinfo", "hotel", h);
     }
 

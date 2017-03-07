@@ -35,7 +35,7 @@ public interface HotelDao {
 
     List<Roomtype> getTypes(String hotelid);
 
-    public Roomtype getType(int id);
+    Roomtype getType(int id);
 
     List<Room> getRooms(String hotelid);
 

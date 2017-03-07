@@ -17,4 +17,8 @@ public interface OrderService {
     Room OneEmptyRoom(int typeid, String begin,String end);
 
     int addOrder(Order order);
+
+    List<Order> getUserOrders(String membercardid);
+
+    List<Order> getUnusedOrders(String membercardid);
 }

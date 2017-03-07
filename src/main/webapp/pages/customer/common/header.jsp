@@ -44,7 +44,7 @@
                         <li class="user-body">
                             <div class="row">
                                 <div class="col-xs-6 text-center">
-                                    <a href="userorder.html">我的订单</a>
+                                    <a href="/getorders">我的订单</a>
                                 </div>
                                 <div class="col-xs-6 text-center">
                                     <a href="/card/mycard">我的会员卡</a>

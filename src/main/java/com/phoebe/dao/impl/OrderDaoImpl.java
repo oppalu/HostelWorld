@@ -7,8 +7,8 @@ import com.phoebe.model.Room;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +16,7 @@ import java.util.List;
  * Created by phoebegl on 2017/2/27.
  */
 @Repository
+@Transactional
 public class OrderDaoImpl implements OrderDao {
 
     @Autowired
@@ -39,5 +40,17 @@ public class OrderDaoImpl implements OrderDao {
         String s = "O"+ baseDao.getNum("order");
         order.setId(s);
         return baseDao.save(order);
+    }
+
+    public List<Order> getUserOrders(String membercardid) {
+        Session session = baseDao.getSession();
+        String hql = "from Order where membercard = '"+membercardid+"'";
+        return session.createQuery(hql).list();
+    }
+
+    public List<Order> getUnusedOrders(String membercardid) {
+        Session session = baseDao.getSession();
+        String hql = "from Order where membercard = '"+membercardid+"' and status = '预定中'";
+        return session.createQuery(hql).list();
     }
 }

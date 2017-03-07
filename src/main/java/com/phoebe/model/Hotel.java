@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Date;
 
 /**
- * Created by phoebegl on 2017/3/5.
+ * Created by phoebegl on 2017/3/7.
  */
 @Entity
 public class Hotel {

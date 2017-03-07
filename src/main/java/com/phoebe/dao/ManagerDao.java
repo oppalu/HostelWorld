@@ -20,6 +20,8 @@ public interface ManagerDao {
 
     List<Plan> checkPlans();
 
+    List<Plan> getAllPlans();
+
     Plan getPlanInfo(String id);
 
     int checkPlan(Plan p);

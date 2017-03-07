@@ -31,7 +31,7 @@
         <section class="content">
             <div class="row">
                 <div class="col-xs-12">
-                    <form method="post" action="/hotel/modify" class="form-horizontal">
+                    <form method="post" action="/hotel/modify" onsubmit="return checkBank()" class="form-horizontal">
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">酒店编号</label>
@@ -105,6 +105,19 @@
 <script src="../../js/jquery-2.2.3.min.js"></script>
 <script src="../../js/bootstrap.js"></script>
 <script src="../../js/app.js"></script>
+
+<script type="text/javascript">
+
+    function checkBank() {
+        var bank = document.getElementById("bank").value;
+
+        if(bank.length != 19) {
+            alert("银行账户格式有误!");
+            return false;
+        }
+    }
+
+</script>
 
 </body>
 </html>

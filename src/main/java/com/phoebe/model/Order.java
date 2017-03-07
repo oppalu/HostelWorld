@@ -5,10 +5,9 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.sql.Date;
-import java.sql.Timestamp;
 
 /**
- * Created by phoebegl on 2017/3/5.
+ * Created by phoebegl on 2017/3/7.
  */
 @Entity
 public class Order {
@@ -82,7 +81,7 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "user1", nullable = false, length = 45)
+    @Column(name = "user1", nullable = true, length = 45)
     public String getUser1() {
         return user1;
     }
@@ -92,7 +91,7 @@ public class Order {
     }
 
     @Basic
-    @Column(name = "idcard1", nullable = false, length = 255)
+    @Column(name = "idcard1", nullable = true, length = 255)
     public String getIdcard1() {
         return idcard1;
     }

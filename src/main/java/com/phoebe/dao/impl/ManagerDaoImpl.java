@@ -42,6 +42,12 @@ public class ManagerDaoImpl implements ManagerDao{
         return session.createQuery(hql).list();
     }
 
+    public List<Plan> getAllPlans() {
+        Session session = baseDao.getSession();
+        String hql = "from Plan where state = '审核通过'";
+        return session.createQuery(hql).list();
+    }
+
     public Plan getPlanInfo(String id) {
         return (Plan)baseDao.find(Plan.class,id);
     }

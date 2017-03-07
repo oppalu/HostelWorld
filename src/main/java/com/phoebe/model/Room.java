@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.sql.Date;
 
 /**
- * Created by phoebegl on 2017/3/5.
+ * Created by phoebegl on 2017/3/7.
  */
 @Entity
 public class Room {
@@ -45,8 +45,8 @@ public class Room {
         return typename;
     }
 
-    public void setTypename(String name) {
-        this.typename = name;
+    public void setTypename(String typename) {
+        this.typename = typename;
     }
 
     @Basic
@@ -60,7 +60,7 @@ public class Room {
     }
 
     @Basic
-    @Column(name = "status", nullable = false)
+    @Column(name = "status", nullable = false, length = 20)
     public String getStatus() {
         return status;
     }
@@ -97,10 +97,10 @@ public class Room {
         Room room = (Room) o;
 
         if (type != room.type) return false;
-        if (status != null ? !status.equals(room.status) : room.status != null) return false;
-        if (typename != null ? !typename.equals(room.typename) : room.typename != null) return false;
         if (id != null ? !id.equals(room.id) : room.id != null) return false;
+        if (typename != null ? !typename.equals(room.typename) : room.typename != null) return false;
         if (name != null ? !name.equals(room.name) : room.name != null) return false;
+        if (status != null ? !status.equals(room.status) : room.status != null) return false;
         if (orderstart != null ? !orderstart.equals(room.orderstart) : room.orderstart != null) return false;
         if (orderend != null ? !orderend.equals(room.orderend) : room.orderend != null) return false;
 
@@ -111,8 +111,8 @@ public class Room {
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + type;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (typename != null ? typename.hashCode() : 0);
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (status != null ? status.hashCode() : 0);
         result = 31 * result + (orderstart != null ? orderstart.hashCode() : 0);
         result = 31 * result + (orderend != null ? orderend.hashCode() : 0);

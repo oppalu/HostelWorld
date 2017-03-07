@@ -5,7 +5,6 @@ import com.phoebe.controller.common.String2Arr;
 import com.phoebe.model.Hotel;
 import com.phoebe.model.Manager;
 import com.phoebe.model.Plan;
-import com.phoebe.model.Roomtype;
 import com.phoebe.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -36,6 +34,7 @@ public class ManagerController {
 
     @RequestMapping(value = "/logout",method = RequestMethod.GET)
     public String logout(HttpSession session) {
+        session.removeAttribute("manager");
         return "manage/login";
     }
 
@@ -45,7 +44,7 @@ public class ManagerController {
                               HttpServletRequest request, HttpServletResponse response) {
 
         if(username.equals("") || password.equals("")) {
-            HandleError.handle(request,response,"用户名或密码不能为空!");
+            HandleError.handle(request,response,"工号或密码不能为空!");
             return new ModelAndView("manage/login");
         }
 
@@ -53,24 +52,29 @@ public class ManagerController {
         if(m!= null && m.getPassword().equals(password)) {
             Map<String, Object> map = new HashMap<String, Object>();
             map.put("hotels",manager.checkHotels());
+            request.getSession().setAttribute("manager",m);
             return new ModelAndView("manage/modify",map);
-        }
-
-        else {
+        } else {
             HandleError.handle(request,response,"用户名或密码错误!");
             return new ModelAndView("manage/login");
         }
     }
 
     @RequestMapping(value = "/hotels", method = RequestMethod.GET)
-    public ModelAndView getHotels() {
+    public ModelAndView getHotels(HttpSession session) {
+        Manager m = (Manager)session.getAttribute("manager");
+        if(m == null)
+            return new ModelAndView("manage/login");
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("hotels",manager.checkHotels());
         return new ModelAndView("manage/modify",map);
     }
 
     @RequestMapping(value = "/{hotelid}",method = RequestMethod.GET)
-    public ModelAndView showHotelInfo(@PathVariable String hotelid){
+    public ModelAndView showHotelInfo(@PathVariable String hotelid,HttpSession session){
+        Manager m = (Manager)session.getAttribute("manager");
+        if(m == null)
+            return new ModelAndView("manage/login");
 
         Hotel h = manager.getHotelInfo(hotelid);
         Map<String,Object> result = new HashMap<String,Object>();
@@ -108,14 +112,22 @@ public class ManagerController {
     }
 
     @RequestMapping(value = "/plans", method = RequestMethod.GET)
-    public ModelAndView getPlans() {
+    public ModelAndView getPlans(HttpSession session) {
+        Manager m = (Manager)session.getAttribute("manager");
+        if(m == null)
+            return new ModelAndView("manage/login");
+
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("plans",manager.checkPlans());
         return new ModelAndView("manage/plan",map);
     }
 
     @RequestMapping(value = "/plan/{planid}",method = RequestMethod.GET)
-    public ModelAndView showPlanInfo(@PathVariable String planid){
+    public ModelAndView showPlanInfo(@PathVariable String planid,HttpSession session){
+        Manager m = (Manager)session.getAttribute("manager");
+        if(m == null)
+            return new ModelAndView("manage/login");
+
         Plan plan = manager.getPlanInfo(planid);
         String type = plan.getRoomtype();
         String price = plan.getPrice();
@@ -132,15 +144,7 @@ public class ManagerController {
         Plan plan = manager.getPlanInfo(planid);
         plan.setState("审核通过");
         int res = manager.checkPlan(plan);
-        if(res == 1) {
-            HandleError.handle(request, response, "审核成功");
-            //使得plan生效,修改房间价格
-            String hotelid = plan.getHotelid();
-            List<String> types =  String2Arr.transfer(plan.getRoomtype());
-            List<String> price =  String2Arr.transfer(plan.getPrice());
-
-            manager.planvalid(hotelid,types,price);
-        }
+        if(res == 1) HandleError.handle(request, response, "审核成功");
         else HandleError.handle(request, response, "审核失败");
 
         Map<String, Object> map = new HashMap<String, Object>();

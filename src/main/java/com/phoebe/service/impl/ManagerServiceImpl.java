@@ -1,5 +1,7 @@
 package com.phoebe.service.impl;
 
+import com.phoebe.controller.common.DateFormater;
+import com.phoebe.controller.common.String2Arr;
 import com.phoebe.dao.ManagerDao;
 import com.phoebe.model.Hotel;
 import com.phoebe.model.Manager;
@@ -7,6 +9,7 @@ import com.phoebe.model.Plan;
 import com.phoebe.model.Roomtype;
 import com.phoebe.service.ManagerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -48,11 +51,22 @@ public class ManagerServiceImpl implements ManagerService {
         return dao.checkPlan(p);
     }
 
-    public void planvalid(String hotelid, List<String> name, List<String> price) {
-        for(int i = 0;i<name.size();i++) {
-            Roomtype type = dao.findRoomType(hotelid,name.get(i));
-            type.setPrice(Double.parseDouble(price.get(i)));
-            dao.planValid(type);
+    @Scheduled(cron = "0 0 12 * * ?")
+    public void planvalid() {
+        List<Plan> plans = dao.getAllPlans();
+        for(Plan p : plans) {
+            if(p.getBegintime().toString().equals(DateFormater.getCurrentDate().toString())) {
+                //使得plan生效,修改房间价格
+                String hotelid = p.getHotelid();
+                List<String> types =  String2Arr.transfer(p.getRoomtype());
+                List<String> price =  String2Arr.transfer(p.getPrice());
+                for(int i = 0;i<types.size();i++) {
+                    Roomtype type = dao.findRoomType(hotelid,types.get(i));
+                    type.setPrice(Double.parseDouble(price.get(i)));
+                    dao.planValid(type);
+                }
+            }
+
         }
     }
 

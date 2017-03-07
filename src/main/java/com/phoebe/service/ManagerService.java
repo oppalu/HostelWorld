@@ -24,6 +24,4 @@ public interface ManagerService {
     Plan getPlanInfo(String id);
 
     int checkPlan(Plan p);
-
-    void planvalid(String hotelid,List<String> name,List<String> price);
 }

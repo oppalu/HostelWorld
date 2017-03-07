@@ -6,7 +6,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 /**
- * Created by phoebegl on 2017/3/5.
+ * Created by phoebegl on 2017/3/7.
  */
 @Entity
 public class Bankaccount {
@@ -15,6 +15,7 @@ public class Bankaccount {
     private double balance;
     private String ownerid;
 
+    @Basic
     @Column(name = "account", nullable = false, length = 255)
     public String getAccount() {
         return account;
@@ -45,7 +46,6 @@ public class Bankaccount {
     }
 
     @Id
-    @Basic
     @Column(name = "ownerid", nullable = false, length = 45)
     public String getOwnerid() {
         return ownerid;

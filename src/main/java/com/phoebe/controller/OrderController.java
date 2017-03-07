@@ -4,6 +4,7 @@ import com.phoebe.controller.common.DateFormater;
 import com.phoebe.controller.common.HandleError;
 import com.phoebe.model.*;
 import com.phoebe.service.HotelService;
+import com.phoebe.service.MemberService;
 import com.phoebe.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,9 @@ public class OrderController {
 
     @Autowired
     private OrderService order;
+
+    @Autowired
+    private MemberService member;
 
     @RequestMapping("/")
     public String index() {
@@ -93,31 +97,87 @@ public class OrderController {
 
         map.put("room",room);
 
+        if(session.getAttribute("member") == null)
+            return new ModelAndView("customer/login");
         return new ModelAndView("customer/booking",map);
+
+
     }
 
     @RequestMapping(value = "/submitOrder",method = RequestMethod.POST)
     public ModelAndView submitOrder(@RequestParam("hotelid") String hotelid,
                                     @RequestParam("roomid") String roomid,
                                     @RequestParam("phone") String phone,
-                                    HttpSession session) {
-        return null;
-//        String begin = (String)session.getAttribute("datein");
-//        String end = (String)session.getAttribute("dateout");
-//        Member m = (Member)session.getAttribute("member");
-//
-//        Room room = hotel.findRoom(roomid);
-//
-//        Order o = new Order();
-//        o.setHotelid(hotelid);
-//        o.setType(room.getType());
-//        o.setRoomname(room.getName());
-//        o.setStatus("预定中");
-//        o.setPhone(phone);
-//        o.setBegintime(DateFormater.transfer(begin));
-//        o.setEndtime(DateFormater.transfer(end));
-//        o.setPrice();
-//        o.setMembercard(m.);
+                                    HttpServletRequest request, HttpServletResponse response) {
+
+        String begin = (String)request.getSession().getAttribute("datein");
+        String end = (String)request.getSession().getAttribute("dateout");
+        Member m = (Member)request.getSession().getAttribute("member");
+        Room room = hotel.findRoom(roomid);
+        Roomtype type = hotel.getType(room.getType());
+        Membercard card = member.findMycard(m.getId());
+
+        Order o = new Order();
+        o.setHotelid(hotelid);
+        o.setType(room.getType());
+        o.setRoomname(room.getName());
+        o.setStatus("预定中");
+        o.setPhone(phone);
+        o.setBegintime(DateFormater.transfer(begin));
+        o.setEndtime(DateFormater.transfer(end));
+        o.setPrice(type.getPrice());
+        o.setMembercard(card.getId());
+
+        int res = order.addOrder(o);
+        if(res == 1) {
+            room.setStatus("预定中");
+            room.setOrderstart(DateFormater.transfer(begin));
+            room.setOrderend(DateFormater.transfer(end));
+            hotel.updateRoom(room);
+        } else HandleError.handle(request,response,"下单失败!");
+
+        Map<String, Object> map = getorderFunc(request.getSession());
+        return new ModelAndView("customer/userorder",map);
     }
 
+    @RequestMapping(value = "/getorders",method = RequestMethod.GET)
+    public ModelAndView getOrders(HttpSession session) {
+        if(session.getAttribute("member") == null)
+            return new ModelAndView("customer/login");
+
+        Map<String, Object> map = getorderFunc(session);
+        return new ModelAndView("customer/userorder",map);
+
+    }
+
+
+    private Map getorderFunc(HttpSession session) {
+        Member m = (Member)session.getAttribute("member");
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        List<Order> all = order.getUserOrders(member.findMycard(m.getId()).getId());
+        List<Order> orders = order.getUnusedOrders(member.findMycard(m.getId()).getId());
+
+        map.put("all",all);
+        map.put("unuse",orders);
+
+        List<String> allName = new ArrayList<String>();
+        List<String> allType = new ArrayList<String>();
+        List<String> unName = new ArrayList<String>();
+        List<String> unType = new ArrayList<String>();
+
+        for(Order o :all) {
+            allName.add(hotel.getHotelName(o.getHotelid()));
+            allType.add(hotel.getTypename(o.getType()));
+        }
+        for(Order o :orders) {
+            unName.add(hotel.getHotelName(o.getHotelid()));
+            unType.add(hotel.getTypename(o.getType()));
+        }
+        map.put("allname",allName);
+        map.put("alltype",allType);
+        map.put("unname",unName);
+        map.put("untype",unType);
+        return map;
+    }
 }

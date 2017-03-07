@@ -37,4 +37,12 @@ public class OrderServiceImpl implements OrderService {
         o.setCreatetime(DateFormater.getCurrentDate());
         return order.addOrder(o);
     }
+
+    public List<Order> getUserOrders(String membercardid) {
+        return order.getUserOrders(membercardid);
+    }
+
+    public List<Order> getUnusedOrders(String membercardid) {
+        return order.getUnusedOrders(membercardid);
+    }
 }

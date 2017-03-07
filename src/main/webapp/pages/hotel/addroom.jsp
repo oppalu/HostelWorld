@@ -33,12 +33,12 @@
                 <div class="col-xs-12">
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#type" data-toggle="tab">添加房间类型</a></li>
-                            <li><a href="#room" data-toggle="tab">添加房间</a></li>
+                            <li class="active"><a href="#room" data-toggle="tab">添加房间</a></li>
+                            <li><a href="#type" data-toggle="tab">添加房间类型</a></li>
                         </ul>
 
                         <div class="tab-content">
-                            <div class="tab-pane active" id="type">
+                            <div class="tab-pane" id="type">
                                 <div style="width: 50%" class="col-md-offset-2">
                                     <form method="post" action="/hotel/roomtype" class="form-horizontal">
                                         <div class="form-group">
@@ -71,7 +71,7 @@
                                 </div>
                             </div>
 
-                            <div class="tab-pane" id="room">
+                            <div class="tab-pane active" id="room">
                                 <form method="post" action="/hotel/room" class="form-horizontal">
                                     <div class="form-group">
                                         <label class="col-sm-offset-2 col-sm-2 control-label">房间名称</label>
