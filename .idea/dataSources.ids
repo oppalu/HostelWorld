@@ -225,10 +225,12 @@
       <column id="68" parent="15" name="user1">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
+        <default-expression>&apos;&apos;</default-expression>
       </column>
       <column id="69" parent="15" name="idcard1">
         <mandatory>1</mandatory>
         <data-type>varchar(255)|0</data-type>
+        <default-expression>&apos;&apos;</default-expression>
       </column>
       <column id="70" parent="15" name="user2">
         <data-type>varchar(45)|0</data-type>
@@ -242,7 +244,7 @@
       </column>
       <column id="73" parent="15" name="createtime">
         <mandatory>1</mandatory>
-        <data-type>datetime|0</data-type>
+        <data-type>date|0</data-type>
       </column>
       <column id="74" parent="15" name="begintime">
         <mandatory>1</mandatory>

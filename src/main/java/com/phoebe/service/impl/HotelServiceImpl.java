@@ -69,8 +69,12 @@ public class HotelServiceImpl implements HotelService {
         return hotel.getTypes(hotelid);
     }
 
+    public Roomtype getType(int id) {
+        return hotel.getType(id);
+    }
+
     public String getTypename(int id) {
-        return hotel.getTypename(id);
+        return getType(id).getName();
     }
 
     public List<Room> getRooms(String hotelid) {

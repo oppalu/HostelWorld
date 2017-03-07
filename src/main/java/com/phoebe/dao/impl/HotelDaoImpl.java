@@ -54,12 +54,14 @@ public class HotelDaoImpl implements HotelDao {
     }
 
     public List<Hotel> findHotels() {
-        return baseDao.findAll(Hotel.class);
+        Session session = baseDao.getSession();
+        String hql = "from Hotel where state = '审核通过'";
+        return  session.createQuery(hql).list();
     }
 
     public List<Hotel> findHotels(String city) {
         Session session = baseDao.getSession();
-        String hql = "from Hotel where city = '"+city+"'";
+        String hql = "from Hotel where city = '"+city+"' and state = '审核通过'";
         return  session.createQuery(hql).list();
     }
 
@@ -87,11 +89,10 @@ public class HotelDaoImpl implements HotelDao {
         return session.createQuery(hql).list();
     }
 
-    public String getTypename(int id) {
+    public Roomtype getType(int id) {
         Session session = baseDao.getSession();
         String hql = "from Roomtype where id = "+id;
-        Roomtype type = (Roomtype) session.createQuery(hql).uniqueResult();
-        return type.getName();
+        return (Roomtype) session.createQuery(hql).uniqueResult();
     }
 
     public List<Room> getRooms(String hotelid) {

@@ -34,6 +34,8 @@ public interface HotelService {
 
     List<Roomtype> getTypes(String hotelid);
 
+    Roomtype getType(int id);
+
     String getTypename(int id);
 
     List<Room> getRooms(String hotelid);

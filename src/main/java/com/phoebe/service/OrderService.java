@@ -1,5 +1,6 @@
 package com.phoebe.service;
 
+import com.phoebe.model.Order;
 import com.phoebe.model.Room;
 
 import java.util.List;
@@ -12,4 +13,8 @@ public interface OrderService {
     int getEmptyRoomNumber(int typeid, String begin,String end);
 
     List<Room> getEmptyRoom(int typeid, String begin, String end);
+
+    Room OneEmptyRoom(int typeid, String begin,String end);
+
+    int addOrder(Order order);
 }

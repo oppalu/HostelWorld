@@ -2,6 +2,7 @@ package com.phoebe.dao.impl;
 
 import com.phoebe.dao.BaseDao;
 import com.phoebe.dao.OrderDao;
+import com.phoebe.model.Order;
 import com.phoebe.model.Room;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,5 +33,11 @@ public class OrderDaoImpl implements OrderDao {
         result.addAll(session.createQuery(hql).list());
 
         return result;
+    }
+
+    public int addOrder(Order order) {
+        String s = "O"+ baseDao.getNum("order");
+        order.setId(s);
+        return baseDao.save(order);
     }
 }

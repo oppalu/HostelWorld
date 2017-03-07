@@ -1,5 +1,6 @@
 package com.phoebe.dao;
 
+import com.phoebe.model.Order;
 import com.phoebe.model.Room;
 
 import java.sql.Date;
@@ -12,4 +13,7 @@ import java.util.List;
 public interface OrderDao {
 
     List<Room> getEmptyRoom(int typeid, String begin,String end);
+
+    int addOrder(Order order);
+
 }

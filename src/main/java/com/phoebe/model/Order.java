@@ -22,7 +22,7 @@ public class Order {
     private String user2;
     private String idcard2;
     private String phone;
-    private Timestamp createtime;
+    private Date createtime;
     private Date begintime;
     private Date endtime;
     private double price;
@@ -133,11 +133,11 @@ public class Order {
 
     @Basic
     @Column(name = "createtime", nullable = false)
-    public Timestamp getCreatetime() {
+    public Date getCreatetime() {
         return createtime;
     }
 
-    public void setCreatetime(Timestamp createtime) {
+    public void setCreatetime(Date createtime) {
         this.createtime = createtime;
     }
 

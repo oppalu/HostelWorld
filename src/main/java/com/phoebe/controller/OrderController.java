@@ -1,8 +1,8 @@
 package com.phoebe.controller;
 
+import com.phoebe.controller.common.DateFormater;
 import com.phoebe.controller.common.HandleError;
-import com.phoebe.model.Hotel;
-import com.phoebe.model.Roomtype;
+import com.phoebe.model.*;
 import com.phoebe.service.HotelService;
 import com.phoebe.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,6 +76,48 @@ public class OrderController {
         }
         map.put("number",number);
         return new ModelAndView("customer/hoteldetail",map);
+    }
+
+    @RequestMapping(value = "/addOrder/{hotelid}/{type}",method = RequestMethod.GET)
+    public ModelAndView addOrder(@PathVariable String hotelid,
+                                 @PathVariable int type,
+                                 HttpSession session) {
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        Hotel h = hotel.login(hotelid);
+        map.put("hotel",h);
+
+        String begin = (String)session.getAttribute("datein");
+        String end = (String)session.getAttribute("dateout");
+        Room room = order.OneEmptyRoom(type,begin,end);
+
+        map.put("room",room);
+
+        return new ModelAndView("customer/booking",map);
+    }
+
+    @RequestMapping(value = "/submitOrder",method = RequestMethod.POST)
+    public ModelAndView submitOrder(@RequestParam("hotelid") String hotelid,
+                                    @RequestParam("roomid") String roomid,
+                                    @RequestParam("phone") String phone,
+                                    HttpSession session) {
+        return null;
+//        String begin = (String)session.getAttribute("datein");
+//        String end = (String)session.getAttribute("dateout");
+//        Member m = (Member)session.getAttribute("member");
+//
+//        Room room = hotel.findRoom(roomid);
+//
+//        Order o = new Order();
+//        o.setHotelid(hotelid);
+//        o.setType(room.getType());
+//        o.setRoomname(room.getName());
+//        o.setStatus("预定中");
+//        o.setPhone(phone);
+//        o.setBegintime(DateFormater.transfer(begin));
+//        o.setEndtime(DateFormater.transfer(end));
+//        o.setPrice();
+//        o.setMembercard(m.);
     }
 
 }

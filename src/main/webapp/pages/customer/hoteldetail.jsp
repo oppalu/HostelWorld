@@ -67,7 +67,7 @@
                                     <td>${t.bednum}</td>
                                     <td>${t.price}</td>
                                     <td>${number[loop.count-1]}</td>
-                                    <td><a class="btn btn-primary" href="booking.html">预定</a></td>
+                                    <td><a class="btn btn-primary" href="/addOrder/${hotel.id}/${t.id}">预定</a></td>
                                 </tr>
                             </c:forEach>
                         </table>
