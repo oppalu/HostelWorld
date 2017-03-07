@@ -23,10 +23,10 @@
       <table id="12" parent="1" name="member"/>
       <table id="13" parent="1" name="membercard"/>
       <table id="14" parent="1" name="number"/>
-      <table id="15" parent="1" name="order"/>
-      <table id="16" parent="1" name="plan"/>
-      <table id="17" parent="1" name="room"/>
-      <table id="18" parent="1" name="roomtype"/>
+      <table id="15" parent="1" name="plan"/>
+      <table id="16" parent="1" name="room"/>
+      <table id="17" parent="1" name="roomtype"/>
+      <table id="18" parent="1" name="orderinfo"/>
       <column id="19" parent="9" name="account">
         <mandatory>1</mandatory>
         <data-type>varchar(255)|0</data-type>
@@ -210,216 +210,186 @@
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <column id="65" parent="15" name="type">
+      <column id="65" parent="15" name="begintime">
         <mandatory>1</mandatory>
-        <data-type>int(11)|0</data-type>
+        <data-type>date|0</data-type>
       </column>
-      <column id="66" parent="15" name="roomname">
+      <column id="66" parent="15" name="endtime">
         <mandatory>1</mandatory>
-        <data-type>varchar(45)|0</data-type>
+        <data-type>date|0</data-type>
       </column>
-      <column id="67" parent="15" name="status">
+      <column id="67" parent="15" name="createtime">
+        <mandatory>1</mandatory>
+        <data-type>date|0</data-type>
+      </column>
+      <column id="68" parent="15" name="roomtype">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="69" parent="15" name="price">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="70" parent="15" name="state">
         <mandatory>1</mandatory>
         <data-type>varchar(20)|0</data-type>
       </column>
-      <column id="68" parent="15" name="user1">
-        <data-type>varchar(45)|0</data-type>
-      </column>
-      <column id="69" parent="15" name="idcard1">
-        <data-type>varchar(255)|0</data-type>
-      </column>
-      <column id="70" parent="15" name="user2">
-        <data-type>varchar(45)|0</data-type>
-      </column>
-      <column id="71" parent="15" name="idcard2">
-        <data-type>varchar(255)|0</data-type>
-      </column>
-      <column id="72" parent="15" name="phone">
-        <mandatory>1</mandatory>
-        <data-type>varchar(255)|0</data-type>
-      </column>
-      <column id="73" parent="15" name="createtime">
-        <mandatory>1</mandatory>
-        <data-type>date|0</data-type>
-      </column>
-      <column id="74" parent="15" name="begintime">
-        <mandatory>1</mandatory>
-        <data-type>date|0</data-type>
-      </column>
-      <column id="75" parent="15" name="endtime">
-        <mandatory>1</mandatory>
-        <data-type>date|0</data-type>
-      </column>
-      <column id="76" parent="15" name="price">
-        <mandatory>1</mandatory>
-        <data-type>double|0</data-type>
-      </column>
-      <column id="77" parent="15" name="discount">
-        <data-type>double|0</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <column id="78" parent="15" name="paytype">
-        <data-type>varchar(20)|0</data-type>
-      </column>
-      <column id="79" parent="15" name="membercard">
-        <data-type>varchar(45)|0</data-type>
-      </column>
-      <column id="80" parent="15" name="realprice">
-        <data-type>double|0</data-type>
-        <default-expression>&apos;0&apos;</default-expression>
-      </column>
-      <index id="81" parent="15" name="hotelid">
+      <index id="71" parent="15" name="hotelid">
         <columns>hotelid</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="82" parent="15" name="membercard">
-        <columns>membercard</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <index id="83" parent="15" name="type">
-        <columns>type</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="84" parent="15" name="PRIMARY">
+      <key id="72" parent="15" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="85" parent="15" name="order_ibfk_1">
-        <columns>hotelid</columns>
-        <ref-key>~.hotel.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <foreign-key id="86" parent="15" name="order_ibfk_2">
+      <column id="73" parent="16" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)|0</data-type>
+      </column>
+      <column id="74" parent="16" name="type">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="75" parent="16" name="typename">
+        <data-type>varchar(45)|0</data-type>
+      </column>
+      <column id="76" parent="16" name="name">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)|0</data-type>
+      </column>
+      <column id="77" parent="16" name="status">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="78" parent="16" name="orderstart">
+        <data-type>date|0</data-type>
+      </column>
+      <column id="79" parent="16" name="orderend">
+        <data-type>date|0</data-type>
+      </column>
+      <index id="80" parent="16" name="type">
+        <columns>type</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="81" parent="16" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="82" parent="16" name="room_ibfk_1">
         <columns>type</columns>
         <ref-key>~.roomtype.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="87" parent="15" name="order_ibfk_3">
-        <columns>membercard</columns>
-        <ref-key>~.membercard.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="88" parent="16" name="id">
-        <mandatory>1</mandatory>
-        <data-type>varchar(45)|0</data-type>
-      </column>
-      <column id="89" parent="16" name="hotelid">
-        <mandatory>1</mandatory>
-        <data-type>varchar(45)|0</data-type>
-      </column>
-      <column id="90" parent="16" name="begintime">
-        <mandatory>1</mandatory>
-        <data-type>date|0</data-type>
-      </column>
-      <column id="91" parent="16" name="endtime">
-        <mandatory>1</mandatory>
-        <data-type>date|0</data-type>
-      </column>
-      <column id="92" parent="16" name="createtime">
-        <mandatory>1</mandatory>
-        <data-type>date|0</data-type>
-      </column>
-      <column id="93" parent="16" name="roomtype">
-        <mandatory>1</mandatory>
-        <data-type>varchar(255)|0</data-type>
-      </column>
-      <column id="94" parent="16" name="price">
-        <mandatory>1</mandatory>
-        <data-type>varchar(255)|0</data-type>
-      </column>
-      <column id="95" parent="16" name="state">
-        <mandatory>1</mandatory>
-        <data-type>varchar(20)|0</data-type>
-      </column>
-      <index id="96" parent="16" name="hotelid">
-        <columns>hotelid</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="97" parent="16" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <column id="98" parent="17" name="id">
-        <mandatory>1</mandatory>
-        <data-type>varchar(45)|0</data-type>
-      </column>
-      <column id="99" parent="17" name="type">
-        <mandatory>1</mandatory>
-        <data-type>int(11)|0</data-type>
-      </column>
-      <column id="100" parent="17" name="typename">
-        <data-type>varchar(45)|0</data-type>
-      </column>
-      <column id="101" parent="17" name="name">
-        <mandatory>1</mandatory>
-        <data-type>varchar(45)|0</data-type>
-      </column>
-      <column id="102" parent="17" name="status">
-        <mandatory>1</mandatory>
-        <data-type>varchar(20)|0</data-type>
-      </column>
-      <column id="103" parent="17" name="orderstart">
-        <data-type>date|0</data-type>
-      </column>
-      <column id="104" parent="17" name="orderend">
-        <data-type>date|0</data-type>
-      </column>
-      <index id="105" parent="17" name="type">
-        <columns>type</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="106" parent="17" name="PRIMARY">
-        <columns>id</columns>
-        <primary>1</primary>
-      </key>
-      <foreign-key id="107" parent="17" name="room_ibfk_1">
-        <columns>type</columns>
-        <ref-key>~.roomtype.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="108" parent="18" name="id">
+      <column id="83" parent="17" name="id">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
         <sequence-identity>1</sequence-identity>
       </column>
-      <column id="109" parent="18" name="hotelid">
+      <column id="84" parent="17" name="hotelid">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <column id="110" parent="18" name="name">
+      <column id="85" parent="17" name="name">
         <mandatory>1</mandatory>
         <data-type>varchar(45)|0</data-type>
       </column>
-      <column id="111" parent="18" name="size">
+      <column id="86" parent="17" name="size">
         <mandatory>1</mandatory>
         <data-type>double|0</data-type>
       </column>
-      <column id="112" parent="18" name="bednum">
+      <column id="87" parent="17" name="bednum">
         <mandatory>1</mandatory>
         <data-type>int(11)|0</data-type>
       </column>
-      <column id="113" parent="18" name="price">
+      <column id="88" parent="17" name="price">
         <mandatory>1</mandatory>
         <data-type>double|0</data-type>
       </column>
-      <index id="114" parent="18" name="hotelid">
+      <index id="89" parent="17" name="hotelid">
         <columns>hotelid</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="115" parent="18" name="PRIMARY">
+      <key id="90" parent="17" name="PRIMARY">
         <columns>id</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="116" parent="18" name="roomtype_ibfk_1">
+      <foreign-key id="91" parent="17" name="roomtype_ibfk_1">
         <columns>hotelid</columns>
         <ref-key>~.hotel.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
+      <column id="92" parent="18" name="id">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)|0</data-type>
+      </column>
+      <column id="93" parent="18" name="hotelid">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)|0</data-type>
+      </column>
+      <column id="94" parent="18" name="type">
+        <mandatory>1</mandatory>
+        <data-type>int(11)|0</data-type>
+      </column>
+      <column id="95" parent="18" name="roomname">
+        <mandatory>1</mandatory>
+        <data-type>varchar(45)|0</data-type>
+      </column>
+      <column id="96" parent="18" name="status">
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="97" parent="18" name="user1">
+        <data-type>varchar(45)|0</data-type>
+      </column>
+      <column id="98" parent="18" name="idcard1">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="99" parent="18" name="user2">
+        <data-type>varchar(45)|0</data-type>
+      </column>
+      <column id="100" parent="18" name="idcard2">
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="101" parent="18" name="phone">
+        <mandatory>1</mandatory>
+        <data-type>varchar(255)|0</data-type>
+      </column>
+      <column id="102" parent="18" name="createtime">
+        <mandatory>1</mandatory>
+        <data-type>date|0</data-type>
+      </column>
+      <column id="103" parent="18" name="begintime">
+        <mandatory>1</mandatory>
+        <data-type>date|0</data-type>
+      </column>
+      <column id="104" parent="18" name="endtime">
+        <mandatory>1</mandatory>
+        <data-type>date|0</data-type>
+      </column>
+      <column id="105" parent="18" name="price">
+        <mandatory>1</mandatory>
+        <data-type>double|0</data-type>
+      </column>
+      <column id="106" parent="18" name="discount">
+        <data-type>double|0</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <column id="107" parent="18" name="paytype">
+        <data-type>varchar(20)|0</data-type>
+      </column>
+      <column id="108" parent="18" name="membercard">
+        <data-type>varchar(45)|0</data-type>
+      </column>
+      <column id="109" parent="18" name="realprice">
+        <data-type>double|0</data-type>
+        <default-expression>&apos;0&apos;</default-expression>
+      </column>
+      <key id="110" parent="18" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
     </database-model>
   </data-source>
   <data-source name="sessionFactory/Hibernate" uuid="a3fbaa4e-aa20-4e37-b126-6c970e6b710d">

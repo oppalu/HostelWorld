@@ -50,7 +50,7 @@
                                     </tr>
                                     <c:forEach items="${unuse}" var="u" varStatus="loop">
                                         <tr>
-                                            <td><a href="orderinfo.html">${u.id}</a></td>
+                                            <td><a href="/orderinfo/${u.id}">${u.id}</a></td>
                                             <td>${unname[loop.count-1]}/${untype[loop.count-1]}</td>
                                             <td>${u.begintime}</td>
                                             <td>${u.endtime}</td>
@@ -60,7 +60,7 @@
                                     </c:forEach>
                                 </table>
                             </div>
-                            <!--账号信息(密码)界面-->
+
                             <div class="tab-pane" id="account">
                                 <table class="table table-hover">
                                     <tr>
@@ -73,7 +73,7 @@
                                     </tr>
                                     <c:forEach items="${all}" var="u" varStatus="loop">
                                         <tr>
-                                            <td><a href="orderinfo.html">${u.id}</a></td>
+                                            <td><a href="/orderinfo/${u.id}">${u.id}</a></td>
                                             <td>${allname[loop.count-1]}/${alltype[loop.count-1]}</td>
                                             <td>${u.begintime}</td>
                                             <td>${u.endtime}</td>

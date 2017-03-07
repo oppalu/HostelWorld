@@ -10,7 +10,7 @@ import java.sql.Date;
  * Created by phoebegl on 2017/3/7.
  */
 @Entity
-public class Order {
+public class Orderinfo {
     private String id;
     private String hotelid;
     private int type;
@@ -215,26 +215,26 @@ public class Order {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Order order = (Order) o;
+        Orderinfo orderinfo = (Orderinfo) o;
 
-        if (type != order.type) return false;
-        if (Double.compare(order.price, price) != 0) return false;
-        if (id != null ? !id.equals(order.id) : order.id != null) return false;
-        if (hotelid != null ? !hotelid.equals(order.hotelid) : order.hotelid != null) return false;
-        if (roomname != null ? !roomname.equals(order.roomname) : order.roomname != null) return false;
-        if (status != null ? !status.equals(order.status) : order.status != null) return false;
-        if (user1 != null ? !user1.equals(order.user1) : order.user1 != null) return false;
-        if (idcard1 != null ? !idcard1.equals(order.idcard1) : order.idcard1 != null) return false;
-        if (user2 != null ? !user2.equals(order.user2) : order.user2 != null) return false;
-        if (idcard2 != null ? !idcard2.equals(order.idcard2) : order.idcard2 != null) return false;
-        if (phone != null ? !phone.equals(order.phone) : order.phone != null) return false;
-        if (createtime != null ? !createtime.equals(order.createtime) : order.createtime != null) return false;
-        if (begintime != null ? !begintime.equals(order.begintime) : order.begintime != null) return false;
-        if (endtime != null ? !endtime.equals(order.endtime) : order.endtime != null) return false;
-        if (discount != null ? !discount.equals(order.discount) : order.discount != null) return false;
-        if (paytype != null ? !paytype.equals(order.paytype) : order.paytype != null) return false;
-        if (membercard != null ? !membercard.equals(order.membercard) : order.membercard != null) return false;
-        if (realprice != null ? !realprice.equals(order.realprice) : order.realprice != null) return false;
+        if (type != orderinfo.type) return false;
+        if (Double.compare(orderinfo.price, price) != 0) return false;
+        if (id != null ? !id.equals(orderinfo.id) : orderinfo.id != null) return false;
+        if (hotelid != null ? !hotelid.equals(orderinfo.hotelid) : orderinfo.hotelid != null) return false;
+        if (roomname != null ? !roomname.equals(orderinfo.roomname) : orderinfo.roomname != null) return false;
+        if (status != null ? !status.equals(orderinfo.status) : orderinfo.status != null) return false;
+        if (user1 != null ? !user1.equals(orderinfo.user1) : orderinfo.user1 != null) return false;
+        if (idcard1 != null ? !idcard1.equals(orderinfo.idcard1) : orderinfo.idcard1 != null) return false;
+        if (user2 != null ? !user2.equals(orderinfo.user2) : orderinfo.user2 != null) return false;
+        if (idcard2 != null ? !idcard2.equals(orderinfo.idcard2) : orderinfo.idcard2 != null) return false;
+        if (phone != null ? !phone.equals(orderinfo.phone) : orderinfo.phone != null) return false;
+        if (createtime != null ? !createtime.equals(orderinfo.createtime) : orderinfo.createtime != null) return false;
+        if (begintime != null ? !begintime.equals(orderinfo.begintime) : orderinfo.begintime != null) return false;
+        if (endtime != null ? !endtime.equals(orderinfo.endtime) : orderinfo.endtime != null) return false;
+        if (discount != null ? !discount.equals(orderinfo.discount) : orderinfo.discount != null) return false;
+        if (paytype != null ? !paytype.equals(orderinfo.paytype) : orderinfo.paytype != null) return false;
+        if (membercard != null ? !membercard.equals(orderinfo.membercard) : orderinfo.membercard != null) return false;
+        if (realprice != null ? !realprice.equals(orderinfo.realprice) : orderinfo.realprice != null) return false;
 
         return true;
     }

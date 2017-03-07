@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <form action="searchresult.html" method="get" class="sidebar-form">
+        <form action="/search" method="post" class="sidebar-form">
             <div class="input-group">
                 <input type="text" id="inputsearch" name="inputsearch" class="form-control" placeholder="查找预订单">
                 <span class="input-group-btn">
@@ -99,8 +99,8 @@
                         </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="bookin.html"><i class="fa fa-circle-o"></i> 预约入住</a></li>
-                    <li><a href="newin.html"><i class="fa fa-circle-o"></i> 到店入住</a></li>
+                    <li><a href="/hotel/bookin"><i class="fa fa-circle-o"></i> 预约入住</a></li>
+                    <li><a href="/newin"><i class="fa fa-circle-o"></i> 到店入住</a></li>
                 </ul>
             </li>
 
@@ -115,7 +115,7 @@
             </li>
 
             <li class="treeview">
-                <a href="analyse.html">
+                <a href="/hotel/analyse">
                     <i class="glyphicon glyphicon-file"></i>
                     <span>统计信息</span>
                     <span class="pull-right-container">

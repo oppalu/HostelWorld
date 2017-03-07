@@ -2,7 +2,7 @@ package com.phoebe.dao.impl;
 
 import com.phoebe.dao.BaseDao;
 import com.phoebe.dao.OrderDao;
-import com.phoebe.model.Order;
+import com.phoebe.model.Orderinfo;
 import com.phoebe.model.Room;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,21 +36,57 @@ public class OrderDaoImpl implements OrderDao {
         return result;
     }
 
-    public int addOrder(Order order) {
+    public int addOrder(Orderinfo order) {
         String s = "O"+ baseDao.getNum("order");
         order.setId(s);
         return baseDao.save(order);
     }
 
-    public List<Order> getUserOrders(String membercardid) {
+    public List<Orderinfo> getUserOrders(String membercardid) {
         Session session = baseDao.getSession();
-        String hql = "from Order where membercard = '"+membercardid+"'";
+        String hql = "from Orderinfo where membercard = '"+membercardid+"'";
         return session.createQuery(hql).list();
     }
 
-    public List<Order> getUnusedOrders(String membercardid) {
+    public List<Orderinfo> getUnusedOrders(String membercardid) {
         Session session = baseDao.getSession();
-        String hql = "from Order where membercard = '"+membercardid+"' and status = '预定中'";
+        String hql = "from Orderinfo where membercard = '"+membercardid+"' and status = '预定中'";
+        return session.createQuery(hql).list();
+    }
+
+    public Orderinfo getOrderInfo(String orderid) {
+        return (Orderinfo) baseDao.find(Orderinfo.class,orderid);
+    }
+
+    public int updateOrder(Orderinfo order) {
+        return baseDao.update(order);
+    }
+
+    public Room findRoom(int type, String name) {
+        Session session = baseDao.getSession();
+        String hql = "from Room where type = "+type+" and name = '"+name+"'";
+        return (Room)session.createQuery(hql).uniqueResult();
+    }
+
+    public List<Orderinfo> getAllOrder() {
+        return baseDao.findAll(Orderinfo.class);
+    }
+
+    public List<Orderinfo> getHotelOrders(String hotelid) {
+        Session session = baseDao.getSession();
+        String hql = "from Orderinfo where hotelid = '"+hotelid+"' and status = '预定中'";
+        return session.createQuery(hql).list();
+    }
+
+    public List<Orderinfo> getHotelAllOrders(String hotelid) {
+        Session session = baseDao.getSession();
+        String hql = "from Orderinfo where hotelid = '"+hotelid+"'";
+        return session.createQuery(hql).list();
+    }
+
+    public List<Orderinfo> SearchOrder(String hotelid,String phone) {
+        Session session = baseDao.getSession();
+        String hql = "from Orderinfo where hotelid = '"+hotelid+"' and phone = '"+phone+"'";
         return session.createQuery(hql).list();
     }
 }

@@ -28,6 +28,15 @@ public class DateFormater {
 
     }
 
+    public static Date getYesterdayDate() {
+        Calendar calendar = Calendar.getInstance();
+        Date date = new Date(System.currentTimeMillis());
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_MONTH, -1);
+        date = new Date(calendar.getTime().getTime());
+        return date;
+    }
+
     public static Date getFutureDate() {
         Calendar calendar = Calendar.getInstance();
         Date date = new Date(System.currentTimeMillis());

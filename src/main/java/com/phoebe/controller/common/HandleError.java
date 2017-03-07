@@ -14,8 +14,8 @@ import java.io.PrintWriter;
 public class HandleError {
 
     public static void handle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, String s) {
-        httpServletResponse.setCharacterEncoding("UTF-8");
         try {
+            httpServletResponse.setContentType("text/html;charset=UTF-8");
             PrintWriter writer = httpServletResponse.getWriter();
             String error = "<script>alert('"+s+"');</script>";
             writer.write(error);

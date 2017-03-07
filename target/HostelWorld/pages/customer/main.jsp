@@ -37,11 +37,11 @@
                     </div>
                     <div class="form-group col-sm-3">
                         <label>入住日期:</label>
-                        <input type="date" class="form-control pull-right" name="datein">
+                        <input type="date" class="form-control pull-right" name="datein" id="datein">
                     </div>
                     <div class="form-group col-sm-3">
                         <label>离店日期:</label>
-                        <input type="date" class="form-control pull-right" name="dateout">
+                        <input type="date" class="form-control pull-right" name="dateout" id="dateout">
                     </div>
                     <div class="form-group col-sm-3">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">查询</button>
