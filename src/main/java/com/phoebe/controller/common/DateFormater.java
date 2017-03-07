@@ -35,6 +35,5 @@ public class DateFormater {
         calendar.add(Calendar.YEAR, 1);
         date = new Date(calendar.getTime().getTime());
         return date;
-
     }
 }

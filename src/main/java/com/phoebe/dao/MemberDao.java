@@ -20,7 +20,7 @@ public interface MemberDao {
 
     Member findMemberByName(String name);
 
-    List<Member> findAllMembers();
+    List<Membercard> findAllMembers();
 
     int addBankCard(Bankaccount bankaccount);
 

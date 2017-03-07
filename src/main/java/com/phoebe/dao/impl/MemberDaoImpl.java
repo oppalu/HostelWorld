@@ -41,8 +41,8 @@ public class MemberDaoImpl implements MemberDao {
 
     }
 
-    public List<Member> findAllMembers() {
-        return baseDao.findAll(Member.class);
+    public List<Membercard> findAllMembers() {
+        return baseDao.findAll(Membercard.class);
     }
 
     public int addBankCard(Bankaccount bankaccount) {

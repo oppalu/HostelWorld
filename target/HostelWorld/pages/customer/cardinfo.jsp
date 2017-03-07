@@ -55,7 +55,7 @@
 
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">余额:</label>
-                            <label class="col-sm-1 control-label">${card.balance}元</label>
+                            <label class="col-sm-2 control-label">${card.balance}元</label>
                         </div>
 
                         <div class="form-group">

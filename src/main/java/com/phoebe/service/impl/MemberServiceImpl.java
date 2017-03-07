@@ -7,7 +7,10 @@ import com.phoebe.model.Member;
 import com.phoebe.model.Membercard;
 import com.phoebe.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * Created by phoebegl on 2017/3/3.
@@ -85,5 +88,19 @@ public class MemberServiceImpl implements MemberService {
         }
         membercard.setBalance(membercard.getBalance()+money);
         return updateMembercard(membercard);
+    }
+
+    @Scheduled(cron = "0 0 12 * * ?")
+    public void manageState() {
+        List<Membercard> members = dao.findAllMembers();
+        for(Membercard m : members) {
+            if(m.getStatetime().toString().equals(DateFormater.getCurrentDate().toString())) {
+                if(m.getState().equals("已暂停"))
+                    m.setState("已停止");
+                if(m.getState().equals("已激活")&&m.getBalance()<1000)
+                    m.setState("已暂停");
+                updateMembercard(m);
+            }
+        }
     }
 }
