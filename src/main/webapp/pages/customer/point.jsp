@@ -34,10 +34,10 @@
 
                     <p style="padding-left:40px">
                         <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">当前积分:</span>
-                        <span id="currentpoint" style="font-family:Microsoft YaHei;color: #ac2925;font-weight:500;font-size:24px;opacity:1">3000</span>
+                        <span id="currentpoint" style="font-family:Microsoft YaHei;color: #ac2925;font-weight:500;font-size:24px;opacity:1">${card.point}</span>
                     </p>
 
-                    <form method="post" action="/card/changePoint" class="form-horizontal">
+                    <form method="post" action="/card/changePoint" onsubmit="return checkpoint()" class="form-horizontal">
                         <div class="form-group">
                             <h4 class="col-sm-offset-2 col-sm-4 control-label">积分功能:100分=1元</h4>
                         </div>
@@ -65,6 +65,16 @@
 <script src="../../js/jquery-2.2.3.min.js"></script>
 <script src="../../js/bootstrap.js"></script>
 <script src="../../js/app.js"></script>
+
+<script type="text/javascript">
+    function checkpoint() {
+        var point = document.getElementById("point").value;
+        if(point > ${card.point}) {
+            alert("输入的积分数大于已有的!");
+            return false;
+        }
+    }
+</script>
 
 </body>
 </html>

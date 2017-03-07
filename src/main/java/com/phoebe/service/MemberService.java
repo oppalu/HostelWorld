@@ -35,5 +35,7 @@ public interface MemberService {
 
     int charge(String memberid,double money);
 
+    int changePoint(String id,double point);
+
     void manageState();
 }

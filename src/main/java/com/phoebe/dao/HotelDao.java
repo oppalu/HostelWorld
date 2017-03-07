@@ -23,6 +23,8 @@ public interface HotelDao {
 
     List<Hotel> findHotels();
 
+    List<Hotel> findHotels(String city);
+
     int addRoomType(Roomtype roomtype);
 
     int addRoom(Room room);
@@ -31,13 +33,11 @@ public interface HotelDao {
 
     Room findRoom(String id);
 
-    List<Roomtype> getTypes();
+    List<Roomtype> getTypes(String hotelid);
 
     String getTypename(int id);
 
-    List<Room> getRooms();
-
-    List<Room> getEmptyRooms();
+    List<Room> getRooms(String hotelid);
 
     int addPlan(Plan plan);
 

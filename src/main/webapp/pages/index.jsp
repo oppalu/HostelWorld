@@ -30,11 +30,11 @@
 
     <div class="login-box-body">
 
-        <form method="post" action="#">
+        <form method="post" action="/main" class="form-horizontal">
             <div class="form-group">
                 <label>城市:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control pull-right" id="city">
+                    <input type="text" class="form-control pull-right" id="city" name="city">
                 </div>
             </div>
 
@@ -44,7 +44,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="date" class="form-control pull-right" id="datein">
+                    <input type="date" class="form-control pull-right" id="datein" name="datein">
                 </div>
             </div>
 
@@ -54,7 +54,7 @@
                     <div class="input-group-addon">
                         <i class="fa fa-calendar"></i>
                     </div>
-                    <input type="date" class="form-control pull-right" id="dateout">
+                    <input type="date" class="form-control pull-right" id="dateout" name="dateout">
                 </div>
             </div>
 

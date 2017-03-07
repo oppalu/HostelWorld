@@ -30,8 +30,9 @@ public class RoomController {
     private HotelService roomService;
 
     @RequestMapping(value = "/hotel/room",method = RequestMethod.GET)
-    public ModelAndView room() {
-        List<Roomtype> type = roomService.getTypes();
+    public ModelAndView room(HttpSession session) {
+        Hotel h = (Hotel)session.getAttribute("hotel");
+        List<Roomtype> type = roomService.getTypes(h.getId());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("types",type);
         return new ModelAndView("hotel/addroom",map);
@@ -56,7 +57,8 @@ public class RoomController {
             HandleError.handle(request, response, "添加成功");
         else
             HandleError.handle(request, response, "添加失败");
-        List<Roomtype> t = roomService.getTypes();
+
+        List<Roomtype> t = roomService.getTypes(h.getId());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("types",t);
         return new ModelAndView("hotel/addroom",map);
@@ -77,25 +79,28 @@ public class RoomController {
         else
             HandleError.handle(request, response, "添加失败");
 
-        List<Roomtype> t = roomService.getTypes();
+        Hotel h = (Hotel) request.getSession().getAttribute("hotel");
+        List<Roomtype> t = roomService.getTypes(h.getId());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("types",t);
         return new ModelAndView("hotel/addroom",map);
     }
 
     @RequestMapping(value = "/hotel/showRooms",method = RequestMethod.GET)
-    public ModelAndView showRooms() {
-        List<Room> rooms = roomService.getRooms();
+    public ModelAndView showRooms(HttpSession session) {
+        Hotel h = (Hotel)session.getAttribute("hotel");
+        List<Room> rooms = roomService.getRooms(h.getId());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("rooms",rooms);
         return new ModelAndView("hotel/roominfo",map);
     }
 
     @RequestMapping(value = "/room/{roomid}",method = RequestMethod.GET)
-    public ModelAndView showRoomInfo(@PathVariable String roomid) {
+    public ModelAndView showRoomInfo(@PathVariable String roomid,
+                                     HttpSession session) {
         Room room = roomService.findRoom(roomid);
-
-        List<Roomtype> t = roomService.getTypes();
+        Hotel h = (Hotel)session.getAttribute("hotel");
+        List<Roomtype> t = roomService.getTypes(h.getId());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("types",t);
         map.put("room",room);
@@ -120,7 +125,8 @@ public class RoomController {
         else
             HandleError.handle(request, response, "修改失败");
 
-        List<Room> rooms = roomService.getRooms();
+        Hotel h = (Hotel) request.getSession().getAttribute("hotel");
+        List<Room> rooms = roomService.getRooms(h.getId());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("rooms",rooms);
         return new ModelAndView("hotel/roominfo",map);
@@ -136,8 +142,9 @@ public class RoomController {
     }
 
     @RequestMapping(value = "/hotel/addplan",method = RequestMethod.GET)
-    public ModelAndView addPlan() {
-        List<Roomtype> t = roomService.getTypes();
+    public ModelAndView addPlan(HttpSession session) {
+        Hotel h = (Hotel)session.getAttribute("hotel");
+        List<Roomtype> t = roomService.getTypes(h.getId());
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("types",t);
         return new ModelAndView("hotel/addplan",map);
@@ -149,7 +156,8 @@ public class RoomController {
                                 HttpServletRequest request, HttpServletResponse response) {
         String type = "";
         String price = "";
-        List<Roomtype> t = roomService.getTypes();
+        Hotel h = (Hotel) request.getSession().getAttribute("hotel");
+        List<Roomtype> t = roomService.getTypes(h.getId());
         for(int i = 1;i<t.size();i++) {
             String temp1 = "type"+String.valueOf(i);
             String temp2 = "price"+String.valueOf(i);
@@ -159,7 +167,6 @@ public class RoomController {
         type += request.getParameter("type"+String.valueOf(t.size()));
         price += request.getParameter("price"+String.valueOf(t.size()));
         Plan plan = new Plan();
-        Hotel h = (Hotel) request.getSession().getAttribute("hotel");
         plan.setHotelid(h.getId());
         plan.setBegintime(DateFormater.transfer(starttime));
         plan.setEndtime(DateFormater.transfer(endtime));

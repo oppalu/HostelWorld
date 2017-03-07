@@ -35,6 +35,14 @@ public class HotelServiceImpl implements HotelService {
         return hotel.findHotel(id);
     }
 
+    public List<Hotel> findHotels(String city) {
+        return hotel.findHotels(city);
+    }
+
+    public List<Hotel> findHotels() {
+        return hotel.findHotels();
+    }
+
     public int updateHotel(Hotel h) {
         h.setState("审核中");
         return hotel.updateHotel(h);
@@ -57,20 +65,16 @@ public class HotelServiceImpl implements HotelService {
         return hotel.findRoom(id);
     }
 
-    public List<Roomtype> getTypes() {
-        return hotel.getTypes();
+    public List<Roomtype> getTypes(String hotelid) {
+        return hotel.getTypes(hotelid);
     }
 
     public String getTypename(int id) {
         return hotel.getTypename(id);
     }
 
-    public List<Room> getRooms() {
-        return hotel.getRooms();
-    }
-
-    public List<Room> getEmptyRooms() {
-        return hotel.getEmptyRooms();
+    public List<Room> getRooms(String hotelid) {
+        return hotel.getRooms(hotelid);
     }
 
     public int addPlan(Plan plan) {

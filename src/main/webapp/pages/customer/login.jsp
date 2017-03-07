@@ -24,7 +24,7 @@
 
     <div class="login-box-body">
         <p class="login-msg">用户登录</p>
-        <form method="post" action="/member/main" onsubmit="return mLog()" class="form-horizontal">
+        <form method="post" action="/member/main" class="form-horizontal">
             <div class="form-group">
                 <input id="m" name="username" type="text" class="form-control" placeholder="会员名">
                 <span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -50,19 +50,6 @@
 <script src="../../js/jquery-2.2.3.min.js"/>
 <script src="../../js/bootstrap.js"/>
 <script src="../../js/app.js"/>
-<script type="text/javascript">
-
-    function mLog() {
-        var uname = document.getElementById("m").value;
-        var upass = document.getElementById("mp").value;
-
-        if(uname == null || upass == null) {
-            alert("s用户名或密码不能为空!");
-            return false;
-        }
-    }
-
-</script>
 
 </body>
 </html>

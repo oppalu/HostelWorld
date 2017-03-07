@@ -97,21 +97,25 @@ public class CardController {
 
 
     @RequestMapping(value = "/point", method = RequestMethod.GET)
-    public String getPoint() {
-        return "customer/point";
+    public ModelAndView getPoint(HttpSession session) {
+        Member m = (Member)session.getAttribute("member");
+        Membercard card = member.findMycard(m.getId());
+        return new ModelAndView("customer/point","card",card);
     }
 
     @RequestMapping(value = "/changePoint",method = RequestMethod.POST)
-    public ModelAndView changePoint(HttpServletRequest request, HttpServletResponse response) {
+    public ModelAndView changePoint(@RequestParam("point") String point,
+                                    HttpServletRequest request, HttpServletResponse response) {
 
         Member m = (Member)request.getSession().getAttribute("member");
-        int res = member.deleteBankCard(m.getId());
+        Membercard card = member.findMycard(m.getId());
+        int res = member.changePoint(card.getId(),Double.parseDouble(point));
         if(res == 1)
-            HandleError.handle(request, response, "删除成功");
+            HandleError.handle(request, response, "兑换成功");
         else
-            HandleError.handle(request, response, "删除失败");
+            HandleError.handle(request, response, "兑换失败");
 
-        return new ModelAndView("customer/bankcard","bank",null);
+        return new ModelAndView("customer/point","card",card);
     }
 
 

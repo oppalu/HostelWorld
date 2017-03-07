@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
     <title>酒店预订</title>
@@ -28,18 +30,18 @@
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
-                <form method="post" action="#">
+                <form method="post" action="/main">
                     <div class="form-group col-sm-3">
                         <label>城市:</label>
-                        <input type="text" class="form-control pull-right" id="city">
+                        <input type="text" class="form-control pull-right" name="city">
                     </div>
                     <div class="form-group col-sm-3">
                         <label>入住日期:</label>
-                        <input type="date" class="form-control pull-right" id="datein">
+                        <input type="date" class="form-control pull-right" name="datein">
                     </div>
                     <div class="form-group col-sm-3">
                         <label>离店日期:</label>
-                        <input type="date" class="form-control pull-right" id="dateout">
+                        <input type="date" class="form-control pull-right" name="dateout">
                     </div>
                     <div class="form-group col-sm-3">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">查询</button>
@@ -49,44 +51,20 @@
             <div class="col-xs-12">
                 <div class="box-body">
                     <ul class="products-list product-list-in-box">
-                        <li class="item">
-                            <div class="product-img">
-                                <img src="../../img/hotel.jpeg" alt="Product Image">
-                            </div>
-                            <div class="product-info">
-                                <a class="product-title" href="hoteldetail.html">如家快捷酒店</a>
-                                <br>
-                                <span class="product-description">南京仙林大学城羊山北路1号（南京工业职业技术学院南门内)</span>
-                                <span class="pull-right product-description">酒店电话:02585864000</span>
-                                </span>
-                            </div>
-                        </li>
-
-                        <li class="item">
-                            <div class="product-img">
-                                <img src="../../img/hotel.jpeg" alt="Product Image">
-                            </div>
-                            <div class="product-info">
-                                <a class="product-title" href="hoteldetail.html">如家快捷酒店</a>
-                                <br>
-                                <span class="product-description">南京仙林大学城羊山北路1号（南京工业职业技术学院南门内)</span>
-                                <span class="pull-right product-description">酒店电话:02585864000</span>
-                                </span>
-                            </div>
-                        </li>
-
-                        <li class="item">
-                            <div class="product-img">
-                                <img src="../../img/hotel.jpeg" alt="Product Image">
-                            </div>
-                            <div class="product-info">
-                                <a class="product-title" href="hoteldetail.html">如家快捷酒店</a>
-                                <br>
-                                <span class="product-description">南京仙林大学城羊山北路1号（南京工业职业技术学院南门内)</span>
-                                <span class="pull-right product-description">酒店电话:02585864000</span>
-                                </span>
-                            </div>
-                        </li>
+                        <c:forEach items="${hotels}" var="h">
+                            <li class="item">
+                                <div class="product-img">
+                                    <img src="../../img/hotel.jpeg" alt="Product Image">
+                                </div>
+                                <div class="product-info">
+                                    <a class="product-title" href="/hotelinfo/${h.id}">${h.name}</a>
+                                    <br>
+                                    <span class="product-description">${h.location}</span>
+                                    <span class="pull-right product-description">酒店电话:${h.telephone}</span>
+                                    </span>
+                                </div>
+                            </li>
+                        </c:forEach>
                     </ul>
                 </div>
             </div>

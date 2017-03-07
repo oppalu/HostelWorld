@@ -8,6 +8,7 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -48,12 +49,18 @@ public class HotelDaoImpl implements HotelDao {
 
     public Hotel findHotelByName(String name) {
         Session session = baseDao.getSession();
-        String hql = "from Hotel where name = "+name;
+        String hql = "from Hotel where name = '"+name+"'";
         return (Hotel) session.createQuery(hql).uniqueResult();
     }
 
     public List<Hotel> findHotels() {
         return baseDao.findAll(Hotel.class);
+    }
+
+    public List<Hotel> findHotels(String city) {
+        Session session = baseDao.getSession();
+        String hql = "from Hotel where city = '"+city+"'";
+        return  session.createQuery(hql).list();
     }
 
     public int addRoomType(Roomtype roomtype) {
@@ -74,8 +81,10 @@ public class HotelDaoImpl implements HotelDao {
         return (Room)baseDao.find(Room.class,id);
     }
 
-    public List<Roomtype> getTypes() {
-        return baseDao.findAll(Roomtype.class);
+    public List<Roomtype> getTypes(String hotelid) {
+        Session session = baseDao.getSession();
+        String hql = "from Roomtype where hotelid = '"+hotelid+"'";
+        return session.createQuery(hql).list();
     }
 
     public String getTypename(int id) {
@@ -85,14 +94,16 @@ public class HotelDaoImpl implements HotelDao {
         return type.getName();
     }
 
-    public List<Room> getRooms() {
-        return baseDao.findAll(Room.class);
-    }
-
-    public List<Room> getEmptyRooms() {
+    public List<Room> getRooms(String hotelid) {
         Session session = baseDao.getSession();
-        String hql = "from Room where status = '空闲'";
-        return session.createQuery(hql).list();
+        List<Roomtype> types = getTypes(hotelid);
+        List<Room> result = new ArrayList<Room>();
+        for(Roomtype type : types) {
+            String hql = "from Room where type = "+type.getId();
+            List<Room> temp = session.createQuery(hql).list();
+            result.addAll(temp);
+        }
+        return result;
     }
 
     public int addPlan(Plan plan) {

@@ -18,6 +18,10 @@ public interface HotelService {
 
     Hotel login(String id);
 
+    List<Hotel> findHotels(String city);
+
+    List<Hotel> findHotels();
+
     int updateHotel(Hotel h);
 
     int addRoomType(Roomtype roomtype);
@@ -28,13 +32,11 @@ public interface HotelService {
 
     Room findRoom(String id);
 
-    List<Roomtype> getTypes();
+    List<Roomtype> getTypes(String hotelid);
 
     String getTypename(int id);
 
-    List<Room> getRooms();
-
-    List<Room> getEmptyRooms();
+    List<Room> getRooms(String hotelid);
 
     int addPlan(Plan plan);
 

@@ -17,7 +17,7 @@
 
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="main.html">酒店预订</a></li>
+                <li class="active"><a href="/main">酒店预订</a></li>
             </ul>
         </div>
 
@@ -47,7 +47,7 @@
                                     <a href="userorder.html">我的订单</a>
                                 </div>
                                 <div class="col-xs-6 text-center">
-                                    <a href="membercard.html">我的会员卡</a>
+                                    <a href="/card/mycard">我的会员卡</a>
                                 </div>
                             </div>
                         </li>
