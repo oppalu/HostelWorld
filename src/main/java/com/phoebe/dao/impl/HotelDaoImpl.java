@@ -1,5 +1,6 @@
 package com.phoebe.dao.impl;
 
+import com.phoebe.controller.common.DateFormater;
 import com.phoebe.dao.BaseDao;
 import com.phoebe.dao.HotelDao;
 import com.phoebe.model.*;
@@ -8,6 +9,8 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -126,4 +129,29 @@ public class HotelDaoImpl implements HotelDao {
         String hql = "from Plan where hotelid = \'"+id+"\'";
         return session.createQuery(hql).list();
     }
+
+    public List<Orderinfo> getFinishOrders(String hotelid) {
+        Session session = baseDao.getSession();
+        String hql = "from Orderinfo where hotelid = \'"+hotelid+"\' and status IN ('已完成','入住中','已结算')";
+        return session.createQuery(hql).list();
+    }
+
+    public int getOrderNum(String hotelid,Date begin, Date end) {
+        Session session = baseDao.getSession();
+        String hql = "from Orderinfo where hotelid = '"+hotelid+"' and createtime between ? and ?";
+        return session.createQuery(hql).setParameter(0, begin).setParameter(1,end).list().size();
+    }
+
+    public int getSuccessNumByMonth(String hotelid,Date begin, Date end) {
+        Session session = baseDao.getSession();
+        String hql = "from Orderinfo where hotelid = '"+hotelid+"' and status in ('已完成','入住中','已结算') and createtime between ? and ?";
+        return session.createQuery(hql).setParameter(0, begin).setParameter(1,end).list().size();
+    }
+
+    public double eachHotel(String hotelid) {
+        Session session = baseDao.getSession();
+        String hql = "select sum(realprice) from Orderinfo where hotelid = \'"+hotelid+"\' and status IN ('已完成','入住中','已结算')";
+        return (Double)session.createQuery(hql).uniqueResult();
+    }
+
 }

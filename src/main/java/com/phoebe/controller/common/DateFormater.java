@@ -45,4 +45,30 @@ public class DateFormater {
         date = new Date(calendar.getTime().getTime());
         return date;
     }
+
+    public static int getMonth() {
+        String[] temp = getCurrentDate().toString().split("-");
+        return Integer.parseInt(temp[1]);
+    }
+
+    public static Date getBegin(int month) {
+        String temp = String.valueOf(month);
+        if(temp.length() == 1)
+            temp = "0"+temp;
+        String s = getCurrentDate().toString().split("-")[0]+"-"+temp+"-01";
+        return transfer(s);
+    }
+
+    public static Date getEnd(int month) {
+        String temp = String.valueOf(month+1);
+        if(temp.length() == 1)
+            temp = "0"+temp;
+        String s = getCurrentDate().toString().split("-")[0]+"-"+temp+"-01";
+        return transfer(s);
+    }
+
+    public static long getIntervals(Date begin,Date end) {
+        long temp = end.getTime() - begin.getTime();
+        return temp/(24 * 60 * 60 * 1000);
+    }
 }

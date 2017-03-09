@@ -34,7 +34,7 @@
             <div class="box-header with-border">
                 <h3 class="box-title">预订单</h3>
             </div>
-            <form role="form" method="post" action="/submitOrder">
+            <form role="form" method="post" action="/member/submitOrder">
                 <div class="box-body">
                     <div class="form-group">
                         <label for="hotel">宾馆名称</label>

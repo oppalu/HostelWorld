@@ -65,4 +65,23 @@ public class ManagerDaoImpl implements ManagerDao{
         String hql = "from Roomtype where hotelid = '"+hotelid+"' and name = '"+name+"'";
         return (Roomtype)session.createQuery(hql).uniqueResult();
     }
+
+    public List getBalance() {
+        Session session = baseDao.getSession();
+        String hql = "select hotelid,name,account,sum(realprice) from orderinfo,bankaccount" +
+                " where hotelid = ownerid and paytype = '会员卡' and status = '已完成'" +
+                "group by hotelid";
+        return session.createSQLQuery(hql).list();
+    }
+
+    public int updateBalanceOrder(String hotelid) {
+        Session session = baseDao.getSession();
+        String hql = "from Orderinfo where hotelid = '"+hotelid+"' and status = '已完成' and paytype = '会员卡' ";
+        List<Orderinfo> list = session.createQuery(hql).list();
+        for(Orderinfo o : list) {
+            o.setStatus("已结算");
+            baseDao.update(o);
+        }
+        return 1;
+    }
 }

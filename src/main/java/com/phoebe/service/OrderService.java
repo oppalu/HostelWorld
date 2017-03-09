@@ -2,7 +2,9 @@ package com.phoebe.service;
 
 import com.phoebe.model.Orderinfo;
 import com.phoebe.model.Room;
+import org.springframework.core.annotation.Order;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -26,13 +28,24 @@ public interface OrderService {
 
     int cancelOrder(String orderid);
 
+    int finishOrder(Orderinfo o);
+
     int updateOrder(Orderinfo orderinfo);
 
     List<Orderinfo> getHotelOrders(String hotelid);
 
     List<Orderinfo> getHotelAllOrders(String hotelid);
 
+    List<Orderinfo> getLiveOrders(String hotelid);
+
     List<Orderinfo> SearchOrder(String hotelid,String phone);
 
     Room findRoom(int type,String name);
+
+    List<Orderinfo> getUserOrders();
+    int getOrderNum(Date begin, Date end);
+    double getUserPay();
+    Object getPayNum(Date begin, Date end);
+    double getProfit();
+    Object getNonMemberPayNum(Date begin, Date end);
 }

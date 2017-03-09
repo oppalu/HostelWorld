@@ -150,21 +150,23 @@ public class HotelController {
         return new ModelAndView("hotel/bookin", map);
     }
 
-    @RequestMapping(value = "/analyse", method = RequestMethod.GET)
-    public ModelAndView analyse(HttpSession session) {
+    @RequestMapping(value = "/leave",method = RequestMethod.GET)
+    public ModelAndView preCheckout(HttpSession session) {
         Hotel h = (Hotel)session.getAttribute("hotel");
-        if (h == null)
+        if(h == null)
             return new ModelAndView("hotel/login");
 
         Map<String, Object> map = new HashMap<String, Object>();
-        List<Orderinfo> res = order.getHotelAllOrders(h.getId());
+        List<Orderinfo> res = order.getLiveOrders(h.getId());
         map.put("list",res);
         List<String> type = new ArrayList<String>();
         for(Orderinfo o :res) {
             type.add(hotel.getTypename(o.getType()));
         }
         map.put("typename",type);
-        return new ModelAndView("hotel/analyse", map);
+
+        return new ModelAndView("hotel/leave",map);
+
     }
 
 }

@@ -1,6 +1,7 @@
 package com.phoebe.service.impl;
 
 import com.phoebe.controller.common.DateFormater;
+import com.phoebe.dao.HotelDao;
 import com.phoebe.dao.OrderDao;
 import com.phoebe.model.Membercard;
 import com.phoebe.model.Orderinfo;
@@ -11,6 +12,7 @@ import org.springframework.core.annotation.Order;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -20,6 +22,8 @@ import java.util.List;
 public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderDao order;
+    @Autowired
+    private HotelDao hotel;
 
     public int getEmptyRoomNumber(int typeid, String begin, String end) {
         return getEmptyRoom(typeid, begin, end).size();
@@ -60,9 +64,20 @@ public class OrderServiceImpl implements OrderService {
             room.setStatus("空闲");
             room.setOrderend(null);
             room.setOrderstart(null);
+            hotel.updateRoom(room);
             return updateOrder(o);
         }
         return 0;
+    }
+
+    public int finishOrder(Orderinfo o) {
+        o.setStatus("已完成");
+        Room room = order.findRoom(o.getType(),o.getRoomname());
+        room.setStatus("空闲");
+        room.setOrderend(null);
+        room.setOrderstart(null);
+        hotel.updateRoom(room);
+        return updateOrder(o);
     }
 
     public int updateOrder(Orderinfo orderinfo) {
@@ -70,11 +85,15 @@ public class OrderServiceImpl implements OrderService {
     }
 
     public List<Orderinfo> getHotelOrders(String hotelid) {
-        return order.getHotelOrders(hotelid);
+        return order.getHotelOrders(hotelid,"预定中");
     }
 
     public List<Orderinfo> getHotelAllOrders(String hotelid) {
-        return order.getHotelAllOrders(hotelid);
+        return order.getHotelOrders(hotelid,"");
+    }
+
+    public List<Orderinfo> getLiveOrders(String hotelid) {
+        return order.getHotelOrders(hotelid,"入住中");
     }
 
     public List<Orderinfo> SearchOrder(String hotelid, String phone) {
@@ -85,7 +104,31 @@ public class OrderServiceImpl implements OrderService {
         return order.findRoom(type, name);
     }
 
-    @Scheduled(cron = "0 0 0 * * ?")
+    public List<Orderinfo> getUserOrders() {
+        return order.getUserOrders();
+    }
+
+    public int getOrderNum(Date begin, Date end) {
+        return order.getOrderNum(begin, end);
+    }
+
+    public double getUserPay() {
+        return order.getUserPay();
+    }
+
+    public Object getPayNum(Date begin, Date end) {
+        return order.getPayNum(begin,end);
+    }
+
+    public double getProfit() {
+        return  order.getProfit();
+    }
+
+    public Object getNonMemberPayNum(Date begin, Date end) {
+        return order.getNonMemberPayNum(begin, end);
+    }
+
+    @Scheduled(cron = "0 0 12 * * ?")
     public void checkOrderStatus() {
         List<Orderinfo> orders = order.getAllOrder();
         for(Orderinfo m : orders) {
@@ -97,6 +140,7 @@ public class OrderServiceImpl implements OrderService {
                     room.setOrderend(null);
                     room.setOrderstart(null);
                     updateOrder(m);
+                    hotel.updateRoom(room);
                 }
             }
         }

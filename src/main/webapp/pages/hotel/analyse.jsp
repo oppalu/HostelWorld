@@ -53,7 +53,7 @@
                                         </tr>
                                         <c:forEach items="${list}" var="l"  varStatus="loop">
                                             <tr>
-                                                <td><a href="/bookin/${l.id}">${l.id}</a></td>
+                                                <td><a href="/showinfo/${l.id}">${l.id}</a></td>
                                                 <td>${typename[loop.count-1]}</td>
                                                 <td>${l.begintime}</td>
                                                 <td>${l.endtime}</td>
@@ -67,7 +67,58 @@
                             </div>
 
                             <div class="tab-pane" id="room">
-                                待完成(参考running bar)
+                                <%--订单情况--%>
+                                <div class="box box-danger">
+                                    <div class="box-body">
+                                        <div class="col-md-6 col-sm-6">
+                                            <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">本店一共有&nbsp;</span>
+                                            <span style="font-family:Microsoft YaHei;font-weight:500;font-size:24px;opacity:1">${allcount}</span>
+                                            <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">份订单,</span>
+                                        </div>
+                                        <!--统计图部分-->
+                                        <div class="col-md-6 col-sm-6">
+                                            <div id="order" style="width: 350px;;height: 350px;"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <div class="box box-warning">
+                                        <div class="box-body">
+                                            <div class="col-md-6 col-sm-6">
+                                                <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">其中成功入住的有&nbsp;</span>
+                                                <span style="font-family:Microsoft YaHei;font-weight:500;font-size:24px;opacity:1">${successcount}</span>
+                                                <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">份订单,</span>
+                                            </div>
+                                            <!--统计图部分-->
+                                            <div class="col-md-6 col-sm-6">
+                                                <div id="success" style="width: 350px;;height: 350px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="box box-success">
+                                        <div class="box-body">
+                                            <div class="col-md-6 col-sm-6">
+                                                <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">本店共盈利&nbsp;</span>
+                                                <span style="font-family:Microsoft YaHei;font-weight:500;font-size:24px;opacity:1">${profit}</span>
+                                                <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">元</span>
+                                                <p style="padding-left:20px">
+                                                    <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">其中会员共消费</span>
+                                                    <span style="font-family:Microsoft YaHei;font-weight:500;font-size:24px;opacity:1">${member}</span>
+                                                    <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">元,</span>
+                                                </p>
+                                                <p style="padding-left:20px">
+                                                    <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">非会员共消费</span>
+                                                    <span style="font-family:Microsoft YaHei;font-weight:500;font-size:24px;opacity:1">${nonmember}</span>
+                                                    <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">元</span>
+                                                </p>
+                                            </div>
+                                            <!--统计图部分-->
+                                            <div class="col-md-6 col-sm-6">
+                                                <div id="money" style="width: 350px;height: 350px;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
                             </div>
                         </div>
                         <!--tab-content-->
@@ -83,6 +134,100 @@
 <script src="../../js/jquery-2.2.3.min.js"></script>
 <script src="../../js/bootstrap.js"></script>
 <script src="../../js/app.js"></script>
+<script src="../../js/echarts.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        Chart();
+    });
+    function Chart() {
+        var myChart1 = echarts.init(document.getElementById('order'));
+        var url = "/hotel/allchart";
+        $.ajax(url, {
+            type: 'GET',
+            success: function (data) {
+                myChart1.setOption({
+                    title : {
+                        text: '今年各月份订单情况',
+                        x:'center'
+                    },
+                    tooltip : {},
+                    legend: {
+                        orient: 'vertical',
+                        left: 'left',
+                        data:['月份']
+                    },
+                    xAxis: {
+                        data: data.month
+                    },
+                    yAxis: {},
+                    series: [{
+                        name: '月份',
+                        type: 'bar',
+                        data: data.count
+                    }]
+                });
+            }
+        });
+
+        var myChart2 = echarts.init(document.getElementById('success'));
+        var url = "/hotel/successchart";
+        $.ajax(url, {
+            type: 'GET',
+            success: function (data) {
+                myChart2.setOption({
+                    title : {
+                        text: '今年各月份入住情况',
+                        x:'center'
+                    },
+                    tooltip : {},
+                    legend: {
+                        orient: 'vertical',
+                        left: 'left',
+                        data:['月份']
+                    },
+                    xAxis: {
+                        data: data.m
+                    },
+                    yAxis: {},
+                    series: [{
+                        name: '月份',
+                        type: 'bar',
+                        data: data.c
+                    }]
+                });
+            }
+        });
+
+        var myChart3 = echarts.init(document.getElementById('money'));
+        myChart3.setOption({
+            title : {
+                text: '会员与非会员消费情况',
+                x:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['会员','非会员']
+            },
+            series : [
+                {
+                    name: '消费情况',
+                    type: 'pie',
+                    radius : '60%',
+                    center: ['50%', '60%'],
+                    data:[
+                        {value:${member}, name:'会员'},
+                        {value:${nonmember}, name:'非会员'}
+                    ]
+                }
+            ]
+        });
+    }
+</script>
 
 </body>
 </html>

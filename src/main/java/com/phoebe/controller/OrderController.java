@@ -19,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.sql.Date;
+import java.text.DecimalFormat;
 import java.util.*;
 
 /**
@@ -39,11 +40,6 @@ public class OrderController {
 
     @RequestMapping("/")
     public String index() {
-        Date t1 = DateFormater.transfer("2017-03-07");
-        Date t2 = DateFormater.getCurrentDate();
-        Date t3 = DateFormater.getYesterdayDate();
-
-        System.out.println("****************"+t1.before(t3));
         return "index";
     }
 
@@ -119,55 +115,6 @@ public class OrderController {
 
     }
 
-    @RequestMapping(value = "/submitOrder",method = RequestMethod.POST)
-    public ModelAndView submitOrder(@RequestParam("hotelid") String hotelid,
-                                    @RequestParam("roomid") String roomid,
-                                    @RequestParam("phone") String phone,
-                                    HttpServletRequest request, HttpServletResponse response) {
-
-        String begin = (String)request.getSession().getAttribute("datein");
-        String end = (String)request.getSession().getAttribute("dateout");
-        Member m = (Member)request.getSession().getAttribute("member");
-        Room room = hotel.findRoom(roomid);
-        Roomtype type = hotel.getType(room.getType());
-        Membercard card = member.findMycard(m.getId());
-
-        Orderinfo o = new Orderinfo();
-        o.setHotelid(hotelid);
-        o.setType(room.getType());
-        o.setRoomname(room.getName());
-        o.setStatus("预定中");
-        o.setPhone(phone);
-        o.setBegintime(DateFormater.transfer(begin));
-        o.setEndtime(DateFormater.transfer(end));
-        o.setPrice(type.getPrice());
-        o.setMembercard(card.getId());
-
-        int res = order.addOrder(o);
-        if(res == 1) {
-            HandleError.handle(request, response, "下单成功!");
-            room.setStatus("预定中");
-            room.setOrderstart(DateFormater.transfer(begin));
-            room.setOrderend(DateFormater.transfer(end));
-            hotel.updateRoom(room);
-        } else {
-            HandleError.handle(request, response, "下单失败!");
-        }
-
-        Map<String, Object> map = getorderFunc(request.getSession());
-        return new ModelAndView("customer/userorder",map);
-    }
-
-    @RequestMapping(value = "/getorders",method = RequestMethod.GET)
-    public ModelAndView getOrders(HttpSession session) {
-        if(session.getAttribute("member") == null)
-            return new ModelAndView("customer/login");
-
-        Map<String, Object> map = getorderFunc(session);
-        return new ModelAndView("customer/userorder",map);
-
-    }
-
     @RequestMapping(value = "/orderinfo/{orderid}",method = RequestMethod.GET)
     public ModelAndView getOrderInfo(@PathVariable String orderid,
                                   HttpSession session) {
@@ -183,21 +130,6 @@ public class OrderController {
         map.put("type",type);
 
         return new ModelAndView("customer/orderinfo",map);
-
-    }
-
-    @RequestMapping(value = "/cancel/{orderid}",method = RequestMethod.GET)
-    public ModelAndView cancelOrder(@PathVariable String orderid,
-                                    HttpServletRequest request, HttpServletResponse response) {
-        if(request.getSession().getAttribute("member") == null)
-            return new ModelAndView("customer/login");
-
-        int res = order.cancelOrder(orderid);
-        if(res == 1) HandleError.handle(request, response, "取消成功!");
-        else HandleError.handle(request, response, "取消失败!");
-
-        Map<String, Object> map = getorderFunc(request.getSession());
-        return new ModelAndView("customer/userorder",map);
 
     }
 
@@ -264,7 +196,8 @@ public class OrderController {
         o.setPhone("");
         o.setBegintime(DateFormater.transfer(datein));
         o.setEndtime(DateFormater.transfer(dateout));
-        o.setPrice(type.getPrice());
+        long day = DateFormater.getIntervals(DateFormater.transfer(datein),DateFormater.transfer(dateout));
+        o.setPrice(type.getPrice()*day);
 
         int res = order.addOrder(o);
         if(res == 1) {
@@ -303,6 +236,12 @@ public class OrderController {
         o.setIdcard2(id2);
         o.setPhone(phone);
         o.setMembercard(vip);
+        if(!o.getMembercard().equals("")) {
+            Membercard card = member.findMembercard(o.getMembercard());
+            o.setDiscount(calculateDiscount(card.getLevel(),o.getPrice()));
+        } else
+            o.setDiscount(0.0);
+        o.setRealprice(o.getPrice()-o.getDiscount());
         int res = order.updateOrder(o);
         if(res == 1) {
             Room room = order.findRoom(o.getType(),o.getRoomname());
@@ -314,6 +253,84 @@ public class OrderController {
         }
 
         return new ModelAndView("hotel/hotelinfo", "hotel", h);
+
+    }
+
+    @RequestMapping(value = "/checkout/{orderid}",method = RequestMethod.GET)
+    public ModelAndView checkout(@PathVariable String orderid, HttpSession session) {
+
+        Hotel h = (Hotel)session.getAttribute("hotel");
+        if(h == null)
+            return new ModelAndView("hotel/login");
+
+        Orderinfo orderinfo = order.getOrderInfo(orderid);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("order",orderinfo);
+        map.put("typename",hotel.getTypename(orderinfo.getType()));
+        return new ModelAndView("hotel/checkout",map);
+
+    }
+
+    @RequestMapping(value = "/checkout",method = RequestMethod.POST)
+    public ModelAndView checkout(@RequestParam("paytype") String paytype,
+                                 @RequestParam("orderid") String id,
+                                HttpServletRequest request, HttpServletResponse response) {
+        Hotel h = (Hotel)request.getSession().getAttribute("hotel");
+        if(h == null)
+            return new ModelAndView("hotel/login");
+
+        Orderinfo o = order.getOrderInfo(id);
+        o.setPaytype(paytype);
+
+        if(paytype.equals("会员卡")) {
+            Membercard card = member.findMembercard(o.getMembercard());
+            if(card.getBalance() < o.getRealprice()) {
+                HandleError.handle(request, response, "余额不足!");
+                Map<String, Object> map = new HashMap<String, Object>();
+                map.put("order",o);
+                map.put("typename",hotel.getTypename(o.getType()));
+                return new ModelAndView("hotel/checkout",map);
+            }
+            card.setBalance(card.getBalance() - o.getRealprice());
+            card.setPoint(card.getPoint()+o.getRealprice());
+            card.setTotalpoint(card.getTotalpoint()+o.getRealprice());
+            System.out.println(card.getTotalpoint().intValue());
+            card.setLevel(card.getTotalpoint().intValue()/500);
+            member.updateMembercard(card);
+        } else {
+            Bankaccount company = member.findBank(h.getId());
+            company.setBalance(company.getBalance()+o.getRealprice());
+            member.updateBankAccount(company);
+        }
+
+        int res = order.finishOrder(o);
+        if(res == 1)
+            HandleError.handle(request, response, "退房成功!");
+        else
+            HandleError.handle(request, response, "退房失败!");
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("order",o);
+        map.put("typename",hotel.getTypename(o.getType()));
+        return new ModelAndView("hotel/checkout",map);
+
+    }
+
+    @RequestMapping(value = "/showinfo/{orderid}",method = RequestMethod.GET)
+    public ModelAndView showOrderInfo(@PathVariable String orderid, HttpSession session) {
+
+        Hotel h = (Hotel)session.getAttribute("hotel");
+        if(h == null)
+            return new ModelAndView("hotel/login");
+
+        Orderinfo o = order.getOrderInfo(orderid);
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("order",o);
+        map.put("hotelinfo",h);
+        Roomtype type = hotel.getType(o.getType());
+        map.put("type",type);
+
+        return new ModelAndView("hotel/orderinfo",map);
 
     }
 
@@ -337,33 +354,16 @@ public class OrderController {
 
     }
 
-    private Map getorderFunc(HttpSession session) {
-        Member m = (Member)session.getAttribute("member");
-
-        Map<String, Object> map = new HashMap<String, Object>();
-        List<Orderinfo> all = order.getUserOrders(member.findMycard(m.getId()).getId());
-        List<Orderinfo> orders = order.getUnusedOrders(member.findMycard(m.getId()).getId());
-
-        map.put("all",all);
-        map.put("unuse",orders);
-
-        List<String> allName = new ArrayList<String>();
-        List<String> allType = new ArrayList<String>();
-        List<String> unName = new ArrayList<String>();
-        List<String> unType = new ArrayList<String>();
-
-        for(Orderinfo o :all) {
-            allName.add(hotel.getHotelName(o.getHotelid()));
-            allType.add(hotel.getTypename(o.getType()));
-        }
-        for(Orderinfo o :orders) {
-            unName.add(hotel.getHotelName(o.getHotelid()));
-            unType.add(hotel.getTypename(o.getType()));
-        }
-        map.put("allname",allName);
-        map.put("alltype",allType);
-        map.put("unname",unName);
-        map.put("untype",unType);
-        return map;
+    private double calculateDiscount(int level,double price) {
+        if(level >=0 && level <=5)
+            return Math.round(price*0.5)/10.0;
+        if(level >=6 && level <=10)
+            return Math.round(price)/10.0;
+        if(level >=11 && level <=15)
+            return Math.round(price*1.5)/10.0;
+        if(level >=16 && level <=20)
+            return Math.round(price*2)/10.0;
+        return Math.round(price*2.5)/10.0;
     }
+
 }

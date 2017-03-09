@@ -2,10 +2,13 @@ package com.phoebe.controller;
 
 import com.phoebe.controller.common.DateFormater;
 import com.phoebe.controller.common.HandleError;
-import com.phoebe.model.Member;
+import com.phoebe.model.*;
+import com.phoebe.service.HotelService;
 import com.phoebe.service.MemberService;
+import com.phoebe.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -14,6 +17,10 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by phoebegl on 2017/3/3.
@@ -25,6 +32,12 @@ public class MemberController {
 
     @Autowired
     private MemberService member;
+
+    @Autowired
+    private HotelService hotel;
+
+    @Autowired
+    private OrderService order;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
@@ -140,6 +153,101 @@ public class MemberController {
         else HandleError.handle(request, response, "修改失败!");
 
         return new ModelAndView("customer/userinfo","member",m);
+    }
+
+    @RequestMapping(value = "/submitOrder",method = RequestMethod.POST)
+    public ModelAndView submitOrder(@RequestParam("hotelid") String hotelid,
+                                    @RequestParam("roomid") String roomid,
+                                    @RequestParam("phone") String phone,
+                                    HttpServletRequest request, HttpServletResponse response) {
+
+        String begin = (String)request.getSession().getAttribute("datein");
+        String end = (String)request.getSession().getAttribute("dateout");
+        Member m = (Member)request.getSession().getAttribute("member");
+        Room room = hotel.findRoom(roomid);
+        Roomtype type = hotel.getType(room.getType());
+        Membercard card = member.findMycard(m.getId());
+
+        Orderinfo o = new Orderinfo();
+        o.setHotelid(hotelid);
+        o.setType(room.getType());
+        o.setRoomname(room.getName());
+        o.setStatus("预定中");
+        o.setPhone(phone);
+        o.setBegintime(DateFormater.transfer(begin));
+        o.setEndtime(DateFormater.transfer(begin));
+        long day = DateFormater.getIntervals(DateFormater.transfer(begin),DateFormater.transfer(begin));
+        o.setPrice(type.getPrice()*day);
+        o.setMembercard(card.getId());
+
+        int res = order.addOrder(o);
+        if(res == 1) {
+            HandleError.handle(request, response, "下单成功!");
+            room.setStatus("预定中");
+            room.setOrderstart(DateFormater.transfer(begin));
+            room.setOrderend(DateFormater.transfer(end));
+            hotel.updateRoom(room);
+        } else {
+            HandleError.handle(request, response, "下单失败!");
+        }
+
+        Map<String, Object> map = getorderFunc(request.getSession());
+        return new ModelAndView("customer/userorder",map);
+    }
+
+    @RequestMapping(value = "/getorders",method = RequestMethod.GET)
+    public ModelAndView getOrders(HttpSession session) {
+        if(session.getAttribute("member") == null)
+            return new ModelAndView("customer/login");
+
+        Map<String, Object> map = getorderFunc(session);
+        return new ModelAndView("customer/userorder",map);
+
+    }
+
+    @RequestMapping(value = "/cancel/{orderid}",method = RequestMethod.GET)
+    public ModelAndView cancelOrder(@PathVariable String orderid,
+                                    HttpServletRequest request, HttpServletResponse response) {
+        if(request.getSession().getAttribute("member") == null)
+            return new ModelAndView("customer/login");
+
+        int res = order.cancelOrder(orderid);
+        if(res == 1) HandleError.handle(request, response, "取消成功!");
+        else HandleError.handle(request, response, "取消失败!");
+
+        Map<String, Object> map = getorderFunc(request.getSession());
+        return new ModelAndView("customer/userorder",map);
+
+    }
+
+    private Map getorderFunc(HttpSession session) {
+        Member m = (Member)session.getAttribute("member");
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        List<Orderinfo> all = order.getUserOrders(member.findMycard(m.getId()).getId());
+        List<Orderinfo> orders = order.getUnusedOrders(member.findMycard(m.getId()).getId());
+
+        map.put("all",all);
+        map.put("unuse",orders);
+
+        List<String> allName = new ArrayList<String>();
+        List<String> allType = new ArrayList<String>();
+        List<String> unName = new ArrayList<String>();
+        List<String> unType = new ArrayList<String>();
+
+        for(Orderinfo o :all) {
+            allName.add(hotel.getHotelName(o.getHotelid()));
+            allType.add(hotel.getTypename(o.getType()));
+        }
+        for(Orderinfo o :orders) {
+            unName.add(hotel.getHotelName(o.getHotelid()));
+            unType.add(hotel.getTypename(o.getType()));
+        }
+        map.put("allname",allName);
+        map.put("alltype",allType);
+        map.put("unname",unName);
+        map.put("untype",unType);
+        return map;
     }
 
 }

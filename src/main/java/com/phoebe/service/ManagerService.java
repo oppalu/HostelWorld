@@ -24,4 +24,8 @@ public interface ManagerService {
     Plan getPlanInfo(String id);
 
     int checkPlan(Plan p);
+
+    List getBalance();
+
+    int updateBalanceOrder(String hotelid);
 }

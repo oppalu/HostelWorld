@@ -2,14 +2,12 @@ package com.phoebe.service.impl;
 
 import com.phoebe.controller.common.DateFormater;
 import com.phoebe.dao.HotelDao;
-import com.phoebe.model.Hotel;
-import com.phoebe.model.Plan;
-import com.phoebe.model.Room;
-import com.phoebe.model.Roomtype;
+import com.phoebe.model.*;
 import com.phoebe.service.HotelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -101,5 +99,21 @@ public class HotelServiceImpl implements HotelService {
 
     public List<Plan> getPlans(String hotelid) {
         return hotel.getPlans(hotelid);
+    }
+
+    public List<Orderinfo> getFinishOrders(String hotelid) {
+        return hotel.getFinishOrders(hotelid);
+    }
+
+    public int getOrderNum(String hotelid,Date begin, Date end) {
+        return hotel.getOrderNum(hotelid,begin, end);
+    }
+
+    public int getSuccessNumByMonth(String hotelid,Date begin, Date end) {
+        return hotel.getSuccessNumByMonth(hotelid,begin, end);
+    }
+
+    public  double eachHotel(String hotelid) {
+        return hotel.eachHotel(hotelid);
     }
 }

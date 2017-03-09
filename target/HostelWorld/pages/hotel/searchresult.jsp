@@ -50,7 +50,7 @@
                                     <td>${l.endtime}</td>
                                     <td>${l.price}</td>
                                     <td>${l.phone}</td>
-                                    <span class="label label-primary">${l.status}</span>
+                                    <td><span class="label label-primary">${l.status}</span></td>
                                 </tr>
                             </c:forEach>
 

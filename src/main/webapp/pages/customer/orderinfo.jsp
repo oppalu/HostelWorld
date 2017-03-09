@@ -80,7 +80,7 @@
                         <br>
                     </p>
                     <p  style="margin-top: 10px;">
-                        <a href="/cancel/${order.id}">取消订单</a>
+                        <a href="/member/cancel/${order.id}">取消订单</a>
                     </p>
                 </div>
                 <!-- /.col -->

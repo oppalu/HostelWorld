@@ -49,6 +49,10 @@ public class MemberServiceImpl implements MemberService {
         return dao.findBank(ownerid);
     }
 
+    public int updateBankAccount(Bankaccount bankaccount) {
+        return dao.updateBankcard(bankaccount);
+    }
+
     public int addMembercard(String memberid) {
         Membercard card = new Membercard();
         card.setMemberid(memberid);
@@ -92,10 +96,14 @@ public class MemberServiceImpl implements MemberService {
 
     public int changePoint(String id, double point) {
         Membercard membercard = findMembercard(id);
-        double money = membercard.getBalance() + (point/100.0);
+        double money = membercard.getBalance() + (point/100);
         membercard.setBalance(money);
         membercard.setPoint(membercard.getPoint()-point);
         return updateMembercard(membercard);
+    }
+
+    public int findMemberNum() {
+        return dao.findAllMembers().size();
     }
 
     @Scheduled(cron = "0 0 12 * * ?")

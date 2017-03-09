@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
     <title>结算</title>
@@ -36,24 +38,18 @@
                                 <th>结算金额</th>
                                 <th>银行账户</th>
                             </tr>
-                            <tr>
-                                <td>如家</td>
-                                <td>20000</td>
-                                <td>4920174819374028175</td>
-                            </tr>
-                            <tr>
-                                <td>如家</td>
-                                <td>20000</td>
-                                <td>4920174819374028175</td>
-                            </tr>
-                            <tr>
-                                <td>如家</td>
-                                <td>20000</td>
-                                <td>4920174819374028175</td>
-                            </tr>
+                            <c:forEach items="${balance}" var="b">
+                                <tr>
+                                    <td>${b[1]}</td>
+                                    <td>${b[3]}</td>
+                                    <td>${b[2]}</td>
+                                </tr>
+                            </c:forEach>
                         </table>
                         <div class="box box-footer">
-                            <button class="col-sm-offset-4 col-sm-4 btn btn-primary" href="#">结算</button>
+                            <form method="post" action="/manage/dobalance">
+                                <button type="submit" class="col-sm-offset-4 col-sm-4 btn btn-primary">结算</button>
+                            </form>
                         </div>
 
                     </div>

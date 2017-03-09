@@ -1,10 +1,8 @@
 package com.phoebe.service;
 
-import com.phoebe.model.Hotel;
-import com.phoebe.model.Plan;
-import com.phoebe.model.Room;
-import com.phoebe.model.Roomtype;
+import com.phoebe.model.*;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -49,4 +47,12 @@ public interface HotelService {
     Plan getPlanInfo(String id);
 
     List<Plan> getPlans(String hotelid);
+
+    List<Orderinfo> getFinishOrders(String hotelid);
+
+    int getOrderNum(String hotelid,Date begin, Date end);
+
+    int getSuccessNumByMonth(String hotelid,Date begin, Date end);
+
+    double eachHotel(String hotel);
 }

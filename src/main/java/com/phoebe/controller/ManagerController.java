@@ -2,10 +2,13 @@ package com.phoebe.controller;
 
 import com.phoebe.controller.common.HandleError;
 import com.phoebe.controller.common.String2Arr;
+import com.phoebe.model.Bankaccount;
 import com.phoebe.model.Hotel;
 import com.phoebe.model.Manager;
 import com.phoebe.model.Plan;
 import com.phoebe.service.ManagerService;
+import com.phoebe.service.MemberService;
+import com.phoebe.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -15,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -26,6 +30,10 @@ public class ManagerController {
 
     @Autowired
     private ManagerService manager;
+    @Autowired
+    private MemberService member;
+    @Autowired
+    private OrderService order;
 
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login() {
@@ -164,6 +172,40 @@ public class ManagerController {
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("plans",manager.checkPlans());
         return new ModelAndView("manage/plan",map);
+    }
+
+    @RequestMapping(value = "/balance",method = RequestMethod.GET)
+    public ModelAndView balance(HttpSession session){
+        Manager m = (Manager)session.getAttribute("manager");
+        if(m == null)
+            return new ModelAndView("manage/login");
+
+
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("balance",manager.getBalance());
+        return new ModelAndView("manage/balance",map);
+    }
+
+    @RequestMapping(value = "/dobalance",method = RequestMethod.POST)
+    public ModelAndView dobalance(HttpSession session){
+        Manager m = (Manager)session.getAttribute("manager");
+        if(m == null)
+            return new ModelAndView("manage/login");
+
+        List<Object[]> list = manager.getBalance();
+        for(Object[] o : list) {
+            String hotelid = (String)o[0];
+            double money = (Double)o[3];
+            Bankaccount bankaccount = member.findBank(hotelid);
+            bankaccount.setBalance(bankaccount.getBalance()+money);
+            member.updateBankAccount(bankaccount);
+            manager.updateBalanceOrder(hotelid);
+        }
+
+        List<Object[]> newlist = manager.getBalance();
+        Map<String, Object> map = new HashMap<String, Object>();
+        map.put("balance",newlist);
+        return new ModelAndView("manage/balance",map);
     }
 
 }

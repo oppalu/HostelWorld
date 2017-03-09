@@ -42,7 +42,7 @@
             </li>
 
             <li class="treeview">
-                <a href="balance.html">
+                <a href="/manage/balance">
                     <i class="glyphicon glyphicon-file"></i>
                     <span>结算</span>
                     <span class="pull-right-container">
@@ -60,9 +60,9 @@
                         </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="each_hotel.html"><i class="fa fa-circle-o"></i>各店情况</a></li>
-                    <li><a href="member.html"><i class="fa fa-circle-o"></i> 会员消费情况</a></li>
-                    <li><a href="finance.html"><i class="fa fa-circle-o"></i> 财务情况</a></li>
+                    <li><a href="/eachhotel"><i class="fa fa-circle-o"></i>各店情况</a></li>
+                    <li><a href="/membersta"><i class="fa fa-circle-o"></i> 会员消费情况</a></li>
+                    <li><a href="/financesta"><i class="fa fa-circle-o"></i> 财务情况</a></li>
                 </ul>
             </li>
         </ul>

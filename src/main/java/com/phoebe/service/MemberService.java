@@ -23,6 +23,8 @@ public interface MemberService {
 
     Bankaccount findBank(String ownerid);
 
+    int updateBankAccount(Bankaccount bankaccount);
+
     int addMembercard(String memberid);
 
     int updateMembercard(Membercard card);
@@ -35,5 +37,5 @@ public interface MemberService {
 
     int changePoint(String id,double point);
 
-    void manageState();
+    int findMemberNum();
 }

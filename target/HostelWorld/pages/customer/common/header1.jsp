@@ -44,7 +44,7 @@
                         <li class="user-body">
                             <div class="row">
                                 <div class="col-xs-6 text-center">
-                                    <a href="/getorders">我的订单</a>
+                                    <a href="/member/getorders">我的订单</a>
                                 </div>
                                 <div class="col-xs-6 text-center">
                                     <a href="/card/mycard">我的会员卡</a>
@@ -101,8 +101,8 @@
                         </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li><a href="/getorders"><i class="fa fa-circle-o"></i> 所有订单</a></li>
-                    <li><a href="useranalyse.html"><i class="fa fa-circle-o"></i> 历史数据统计</a></li>
+                    <li><a href="/member/getorders"><i class="fa fa-circle-o"></i> 所有订单</a></li>
+                    <li><a href="/member/analyse"><i class="fa fa-circle-o"></i> 历史数据统计</a></li>
                 </ul>
             </li>
 

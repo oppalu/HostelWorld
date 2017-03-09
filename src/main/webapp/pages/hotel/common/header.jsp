@@ -105,7 +105,7 @@
             </li>
 
             <li class="treeview">
-                <a href="leave.html">
+                <a href="/hotel/leave">
                     <i class="glyphicon glyphicon-file"></i>
                     <span>离店登记</span>
                     <span class="pull-right-container">

@@ -26,8 +26,11 @@ public interface ManagerDao {
 
     int checkPlan(Plan p);
 
-    //这个是为了改plan导致的房间价格变动
     void planValid(Roomtype room);
 
     Roomtype findRoomType(String hotelid,String name);
+
+    List getBalance();
+
+    int updateBalanceOrder(String hotelid);
 }

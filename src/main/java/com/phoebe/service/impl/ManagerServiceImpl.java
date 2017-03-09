@@ -51,6 +51,14 @@ public class ManagerServiceImpl implements ManagerService {
         return dao.checkPlan(p);
     }
 
+    public List getBalance() {
+        return dao.getBalance();
+    }
+
+    public int updateBalanceOrder(String hotelid) {
+        return dao.updateBalanceOrder(hotelid);
+    }
+
     @Scheduled(cron = "0 0 12 * * ?")
     public void planvalid() {
         List<Plan> plans = dao.getAllPlans();

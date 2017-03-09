@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,21 +73,59 @@ public class OrderDaoImpl implements OrderDao {
         return baseDao.findAll(Orderinfo.class);
     }
 
-    public List<Orderinfo> getHotelOrders(String hotelid) {
+    public List<Orderinfo> getHotelOrders(String hotelid,String status) {
         Session session = baseDao.getSession();
-        String hql = "from Orderinfo where hotelid = '"+hotelid+"' and status = '预定中'";
+        String hql = "";
+        if(status.equals(""))
+            hql = "from Orderinfo where hotelid = '"+hotelid+"'";
+        else
+            hql = "from Orderinfo where hotelid = '"+hotelid+"' and status = '"+status+"'";
         return session.createQuery(hql).list();
     }
 
-    public List<Orderinfo> getHotelAllOrders(String hotelid) {
-        Session session = baseDao.getSession();
-        String hql = "from Orderinfo where hotelid = '"+hotelid+"'";
-        return session.createQuery(hql).list();
-    }
 
     public List<Orderinfo> SearchOrder(String hotelid,String phone) {
         Session session = baseDao.getSession();
         String hql = "from Orderinfo where hotelid = '"+hotelid+"' and phone = '"+phone+"'";
         return session.createQuery(hql).list();
+    }
+
+    public List<Orderinfo> getUserOrders() {
+        Session session = baseDao.getSession();
+        String hql = "from Orderinfo where membercard != '' and status in ('预定中','已完成','入住中','已结算')";
+        return session.createQuery(hql).list();
+    }
+
+    public int getOrderNum(Date begin, Date end) {
+        Session session = baseDao.getSession();
+        String hql = "from Orderinfo where membercard != '' and status in ('预定中','已完成','入住中','已结算')" +
+                "and createtime between ? and ?";
+        return session.createQuery(hql).setParameter(0, begin).setParameter(1,end).list().size();
+    }
+
+    public double getUserPay() {
+        Session session = baseDao.getSession();
+        String hql = "select sum(realprice) from Orderinfo where membercard != '' and status IN ('已完成','入住中','已结算')";
+        return (Double)session.createQuery(hql).uniqueResult();
+    }
+
+    public Object getPayNum(Date begin, Date end) {
+        Session session = baseDao.getSession();
+        String hql = "select sum(realprice) from Orderinfo where membercard != '' and status IN ('已完成','入住中','已结算')" +
+                "and createtime between ? and ?";
+        return session.createQuery(hql).setParameter(0, begin).setParameter(1,end).uniqueResult();
+    }
+
+    public double getProfit() {
+        Session session = baseDao.getSession();
+        String hql = "select sum(realprice) from Orderinfo where status IN ('已完成','入住中','已结算')";
+        return (Double)session.createQuery(hql).uniqueResult();
+    }
+
+    public Object getNonMemberPayNum(Date begin, Date end) {
+        Session session = baseDao.getSession();
+        String hql = "select sum(realprice) from Orderinfo where membercard = '' and status IN ('已完成','入住中','已结算')" +
+                "and createtime between ? and ?";
+        return session.createQuery(hql).setParameter(0, begin).setParameter(1,end).uniqueResult();
     }
 }

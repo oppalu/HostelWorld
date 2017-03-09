@@ -3,6 +3,7 @@ package com.phoebe.dao;
 import com.phoebe.model.Orderinfo;
 import com.phoebe.model.Room;
 
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -27,9 +28,17 @@ public interface OrderDao {
 
     List<Orderinfo> getAllOrder();
 
-    List<Orderinfo> getHotelOrders(String hotelid);
-
-    List<Orderinfo> getHotelAllOrders(String hotelid);
+    List<Orderinfo> getHotelOrders(String hotelid,String status);
 
     List<Orderinfo> SearchOrder(String hotelid,String phone);
+
+    //统计会员消费情况用到的方法
+    List<Orderinfo> getUserOrders();
+    int getOrderNum(Date begin, Date end);
+    //消费情况
+    double getUserPay();
+    Object getPayNum(Date begin, Date end);
+
+    double getProfit();
+    Object getNonMemberPayNum(Date begin, Date end);
 }
