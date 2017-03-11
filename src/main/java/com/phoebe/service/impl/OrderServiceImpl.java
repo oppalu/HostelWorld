@@ -58,7 +58,7 @@ public class OrderServiceImpl implements OrderService {
 
     public int cancelOrder(String orderid) {
         Orderinfo o = getOrderInfo(orderid);
-        if(o.getStatus().equals("预定中")) {
+        if(o.getStatus().equals("预定中") || o.getStatus().equals("已支付")) {
             o.setStatus("已取消");
             Room room = order.findRoom(o.getType(),o.getRoomname());
             room.setStatus("空闲");
@@ -85,7 +85,10 @@ public class OrderServiceImpl implements OrderService {
     }
 
     public List<Orderinfo> getHotelOrders(String hotelid) {
-        return order.getHotelOrders(hotelid,"预定中");
+        List<Orderinfo> list1 = order.getHotelOrders(hotelid,"预定中");
+        List<Orderinfo> list2 = order.getHotelOrders(hotelid,"已支付");
+        list2.addAll(list1);
+        return list2;
     }
 
     public List<Orderinfo> getHotelAllOrders(String hotelid) {
@@ -93,7 +96,10 @@ public class OrderServiceImpl implements OrderService {
     }
 
     public List<Orderinfo> getLiveOrders(String hotelid) {
-        return order.getHotelOrders(hotelid,"入住中");
+        List<Orderinfo> list1 = order.getHotelOrders(hotelid,"入住中");
+        List<Orderinfo> list2 = order.getHotelOrders(hotelid,"已支付");
+        list2.addAll(list1);
+        return list2;
     }
 
     public List<Orderinfo> SearchOrder(String hotelid, String phone) {

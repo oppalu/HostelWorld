@@ -1,7 +1,7 @@
 package com.phoebe.controller;
 
 import com.phoebe.controller.common.HandleError;
-import com.phoebe.controller.common.String2Arr;
+import com.phoebe.controller.common.Helper;
 import com.phoebe.model.Bankaccount;
 import com.phoebe.model.Hotel;
 import com.phoebe.model.Manager;
@@ -140,8 +140,8 @@ public class ManagerController {
         String type = plan.getRoomtype();
         String price = plan.getPrice();
         Map<String, Object> map = new HashMap<String, Object>();
-        map.put("type", String2Arr.transfer(type));
-        map.put("price", String2Arr.transfer(price));
+        map.put("type", Helper.transfer(type));
+        map.put("price", Helper.transfer(price));
         map.put("plan",plan);
         return new ModelAndView("manage/planinfo",map);
     }

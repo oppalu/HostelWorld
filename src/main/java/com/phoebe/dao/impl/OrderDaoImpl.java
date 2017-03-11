@@ -51,7 +51,7 @@ public class OrderDaoImpl implements OrderDao {
 
     public List<Orderinfo> getUnusedOrders(String membercardid) {
         Session session = baseDao.getSession();
-        String hql = "from Orderinfo where membercard = '"+membercardid+"' and status = '预定中'";
+        String hql = "from Orderinfo where membercard = '"+membercardid+"' and status in ('预定中','已支付')";
         return session.createQuery(hql).list();
     }
 

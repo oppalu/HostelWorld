@@ -69,6 +69,6 @@ public class DateFormater {
 
     public static long getIntervals(Date begin,Date end) {
         long temp = end.getTime() - begin.getTime();
-        return temp/(24 * 60 * 60 * 1000);
+        return temp/(24 * 60 * 60 * 1000) == 0 ? 1 : temp/(24 * 60 * 60 * 1000);
     }
 }

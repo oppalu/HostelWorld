@@ -2,6 +2,7 @@ package com.phoebe.controller;
 
 import com.phoebe.controller.common.DateFormater;
 import com.phoebe.controller.common.HandleError;
+import com.phoebe.controller.common.Helper;
 import com.phoebe.model.*;
 import com.phoebe.service.HotelService;
 import com.phoebe.service.MemberService;
@@ -211,9 +212,51 @@ public class MemberController {
         if(request.getSession().getAttribute("member") == null)
             return new ModelAndView("customer/login");
 
+        Orderinfo o = order.getOrderInfo(orderid);
+        if(o.getStatus().equals("已支付")) {
+            Membercard card = member.findMembercard(o.getMembercard());
+            card.setBalance(card.getBalance() + o.getRealprice());
+            card.setPoint(card.getPoint()-o.getRealprice());
+            card.setTotalpoint(card.getTotalpoint()-o.getRealprice());
+            card.setLevel(card.getTotalpoint().intValue()/500);
+            member.updateMembercard(card);
+        }
+
         int res = order.cancelOrder(orderid);
         if(res == 1) HandleError.handle(request, response, "取消成功!");
         else HandleError.handle(request, response, "取消失败!");
+
+        Map<String, Object> map = getorderFunc(request.getSession());
+        return new ModelAndView("customer/userorder",map);
+
+    }
+
+    @RequestMapping(value = "/prepay/{orderid}",method = RequestMethod.GET)
+    public ModelAndView prepay(@PathVariable String orderid,
+                                    HttpServletRequest request, HttpServletResponse response) {
+        if(request.getSession().getAttribute("member") == null)
+            return new ModelAndView("customer/login");
+
+        Orderinfo o = order.getOrderInfo(orderid);
+        Membercard card = member.findMembercard(o.getMembercard());
+        o.setDiscount(Helper.calculateDiscount(card.getLevel(),o.getPrice()));
+        o.setRealprice(o.getPrice()-o.getDiscount());
+        if(card.getBalance() < o.getRealprice()) {
+            HandleError.handle(request, response, "余额不足!");
+            Map<String, Object> map = getorderFunc(request.getSession());
+            return new ModelAndView("customer/userorder",map);
+        }
+        card.setBalance(card.getBalance() - o.getRealprice());
+        card.setPoint(card.getPoint()+o.getRealprice());
+        card.setTotalpoint(card.getTotalpoint()+o.getRealprice());
+        card.setLevel(card.getTotalpoint().intValue()/500);
+        member.updateMembercard(card);
+
+        o.setStatus("已支付");
+        o.setPaytype("会员卡");
+        int res = order.updateOrder(o);
+        if(res == 1) HandleError.handle(request, response, "支付成功!");
+        else HandleError.handle(request, response, "支付失败!");
 
         Map<String, Object> map = getorderFunc(request.getSession());
         return new ModelAndView("customer/userorder",map);

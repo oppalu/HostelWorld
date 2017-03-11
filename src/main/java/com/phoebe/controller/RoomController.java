@@ -2,7 +2,7 @@ package com.phoebe.controller;
 
 import com.phoebe.controller.common.DateFormater;
 import com.phoebe.controller.common.HandleError;
-import com.phoebe.controller.common.String2Arr;
+import com.phoebe.controller.common.Helper;
 import com.phoebe.model.Hotel;
 import com.phoebe.model.Plan;
 import com.phoebe.model.Room;
@@ -205,8 +205,8 @@ public class RoomController {
         String price = p.getPrice();
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("plan",p);
-        map.put("type",String2Arr.transfer(type));
-        map.put("price", String2Arr.transfer(price));
+        map.put("type", Helper.transfer(type));
+        map.put("price", Helper.transfer(price));
         return new ModelAndView("hotel/plandetail",map);
     }
 

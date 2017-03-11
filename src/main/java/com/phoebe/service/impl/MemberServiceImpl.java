@@ -84,7 +84,6 @@ public class MemberServiceImpl implements MemberService {
         bankaccount.setBalance(bankaccount.getBalance()-money);
         dao.updateBankcard(bankaccount);
 
-//        未激活充1000改成已激活,已暂停充值改成已激活;同时改到期时间（状态改变时）
         Membercard membercard = findMycard(memberid);
         if((membercard.getState().equals("未激活") && money>=1000) || membercard.getState().equals("已暂停")){
             membercard.setState("已激活");

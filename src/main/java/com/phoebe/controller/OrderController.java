@@ -2,6 +2,7 @@ package com.phoebe.controller;
 
 import com.phoebe.controller.common.DateFormater;
 import com.phoebe.controller.common.HandleError;
+import com.phoebe.controller.common.Helper;
 import com.phoebe.model.*;
 import com.phoebe.service.HotelService;
 import com.phoebe.service.MemberService;
@@ -229,19 +230,21 @@ public class OrderController {
             return new ModelAndView("hotel/login");
 
         Orderinfo o = order.getOrderInfo(id);
-        o.setStatus("入住中");
         o.setUser1(name1);
         o.setUser2(name2);
         o.setIdcard1(id1);
         o.setIdcard2(id2);
         o.setPhone(phone);
         o.setMembercard(vip);
-        if(!o.getMembercard().equals("")) {
-            Membercard card = member.findMembercard(o.getMembercard());
-            o.setDiscount(calculateDiscount(card.getLevel(),o.getPrice()));
-        } else
-            o.setDiscount(0.0);
-        o.setRealprice(o.getPrice()-o.getDiscount());
+        if(!o.getStatus().equals("已支付")) {
+            o.setStatus("入住中");
+            if(!o.getMembercard().equals("")) {
+                Membercard card = member.findMembercard(o.getMembercard());
+                o.setDiscount(Helper.calculateDiscount(card.getLevel(),o.getPrice()));
+            } else
+                o.setDiscount(0.0);
+            o.setRealprice(o.getPrice()-o.getDiscount());
+        }
         int res = order.updateOrder(o);
         if(res == 1) {
             Room room = order.findRoom(o.getType(),o.getRoomname());
@@ -280,27 +283,34 @@ public class OrderController {
             return new ModelAndView("hotel/login");
 
         Orderinfo o = order.getOrderInfo(id);
-        o.setPaytype(paytype);
-
-        if(paytype.equals("会员卡")) {
-            Membercard card = member.findMembercard(o.getMembercard());
-            if(card.getBalance() < o.getRealprice()) {
-                HandleError.handle(request, response, "余额不足!");
-                Map<String, Object> map = new HashMap<String, Object>();
-                map.put("order",o);
-                map.put("typename",hotel.getTypename(o.getType()));
-                return new ModelAndView("hotel/checkout",map);
+        if(!o.getStatus().equals("已支付")) {
+            o.setPaytype(paytype);
+            if(paytype.equals("会员卡")) {
+                Membercard card = member.findMembercard(o.getMembercard());
+                if(card.getBalance() < o.getRealprice()) {
+                    HandleError.handle(request, response, "余额不足!");
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    map.put("order",o);
+                    map.put("typename",hotel.getTypename(o.getType()));
+                    return new ModelAndView("hotel/checkout",map);
+                }
+                card.setBalance(card.getBalance() - o.getRealprice());
+                card.setPoint(card.getPoint()+o.getRealprice());
+                card.setTotalpoint(card.getTotalpoint()+o.getRealprice());
+                card.setLevel(card.getTotalpoint().intValue()/500);
+                member.updateMembercard(card);
+            } else {
+                if(!o.getMembercard().equals("")) {
+                    Membercard card = member.findMembercard(o.getMembercard());
+                    card.setPoint(card.getPoint()+o.getRealprice());
+                    card.setTotalpoint(card.getTotalpoint()+o.getRealprice());
+                    card.setLevel(card.getTotalpoint().intValue()/500);
+                    member.updateMembercard(card);
+                }
+                Bankaccount company = member.findBank(h.getId());
+                company.setBalance(company.getBalance()+o.getRealprice());
+                member.updateBankAccount(company);
             }
-            card.setBalance(card.getBalance() - o.getRealprice());
-            card.setPoint(card.getPoint()+o.getRealprice());
-            card.setTotalpoint(card.getTotalpoint()+o.getRealprice());
-            System.out.println(card.getTotalpoint().intValue());
-            card.setLevel(card.getTotalpoint().intValue()/500);
-            member.updateMembercard(card);
-        } else {
-            Bankaccount company = member.findBank(h.getId());
-            company.setBalance(company.getBalance()+o.getRealprice());
-            member.updateBankAccount(company);
         }
 
         int res = order.finishOrder(o);
@@ -352,18 +362,6 @@ public class OrderController {
         map.put("typename",type);
         return new ModelAndView("hotel/searchresult", map);
 
-    }
-
-    private double calculateDiscount(int level,double price) {
-        if(level >=0 && level <=5)
-            return Math.round(price*0.5)/10.0;
-        if(level >=6 && level <=10)
-            return Math.round(price)/10.0;
-        if(level >=11 && level <=15)
-            return Math.round(price*1.5)/10.0;
-        if(level >=16 && level <=20)
-            return Math.round(price*2)/10.0;
-        return Math.round(price*2.5)/10.0;
     }
 
 }

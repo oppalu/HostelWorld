@@ -1,7 +1,7 @@
 package com.phoebe.service.impl;
 
 import com.phoebe.controller.common.DateFormater;
-import com.phoebe.controller.common.String2Arr;
+import com.phoebe.controller.common.Helper;
 import com.phoebe.dao.ManagerDao;
 import com.phoebe.model.Hotel;
 import com.phoebe.model.Manager;
@@ -66,8 +66,8 @@ public class ManagerServiceImpl implements ManagerService {
             if(p.getBegintime().toString().equals(DateFormater.getCurrentDate().toString())) {
                 //使得plan生效,修改房间价格
                 String hotelid = p.getHotelid();
-                List<String> types =  String2Arr.transfer(p.getRoomtype());
-                List<String> price =  String2Arr.transfer(p.getPrice());
+                List<String> types =  Helper.transfer(p.getRoomtype());
+                List<String> price =  Helper.transfer(p.getPrice());
                 for(int i = 0;i<types.size();i++) {
                     Roomtype type = dao.findRoomType(hotelid,types.get(i));
                     type.setPrice(Double.parseDouble(price.get(i)));

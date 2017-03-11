@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.phoebe.model.Orderinfo" %><%--
   Created by IntelliJ IDEA.
   User: phoebegl
   Date: 2017/3/7
@@ -82,6 +82,12 @@
                     <p  style="margin-top: 10px;">
                         <a href="/member/cancel/${order.id}">取消订单</a>
                     </p>
+                    <c:if test="${order.status == '预定中'}">
+                        <p  style="margin-top: 10px;">
+                            <a href="/member/prepay/${order.id}">提前支付</a>
+                        </p>
+                    </c:if>
+
                 </div>
                 <!-- /.col -->
                 <div class="col-xs-6">
