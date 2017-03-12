@@ -76,7 +76,7 @@ public class AnalyseController {
         double member = 0.0;
         double nonmember = 0.0;
         for(Orderinfo o : success) {
-            if(o.getMembercard() != null)
+            if(!o.getMembercard().equals(""))
                 member +=o.getRealprice();
             else
                 nonmember += o.getRealprice();
@@ -193,13 +193,11 @@ public class AnalyseController {
         List<Integer> month = new ArrayList<Integer>();
         List<Double> count = new ArrayList<Double>();
         for(int i = 1;i<=temp;i++) {
-            System.out.println("ok");
             month.add(i);
             if(order.getPayNum(DateFormater.getBegin(i),DateFormater.getEnd(i)) != null)
                 count.add((Double)order.getPayNum(DateFormater.getBegin(i),DateFormater.getEnd(i)));
             else
                 count.add(0.0);
-            System.out.println("**"+order.getPayNum(DateFormater.getBegin(i),DateFormater.getEnd(i)));
         }
         Map<String, Object> result = new HashMap<String, Object>();
         result.put("month",month);
