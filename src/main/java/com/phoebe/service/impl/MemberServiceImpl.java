@@ -105,6 +105,10 @@ public class MemberServiceImpl implements MemberService {
         return dao.findAllMembers().size();
     }
 
+    public List analyseMember() {
+        return dao.analyseMember();
+    }
+
     @Scheduled(cron = "0 0 12 * * ?")
     public void manageState() {
         List<Membercard> members = dao.findAllMembers();

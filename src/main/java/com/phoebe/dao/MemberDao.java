@@ -38,4 +38,5 @@ public interface MemberDao {
 
     Membercard findMycard(String ownerid);
 
+    List analyseMember();
 }

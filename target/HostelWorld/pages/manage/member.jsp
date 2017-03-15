@@ -36,6 +36,21 @@
                         <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">Awesome inns一共有&nbsp;</span>
                         <span style="font-family:Microsoft YaHei;font-weight:500;font-size:24px;opacity:1">${member}</span>
                         <span style="font-family:Microsoft YaHei;font-weight:400;font-size:16px;opacity:0.8">位会员,</span>
+
+                        <table class="table table-hover">
+                            <tr>
+                                <th>会员编号</th>
+                                <th>订单数</th>
+                                <th>消费总金额</th>
+                            </tr>
+                            <c:forEach items="${tables}" var="t">
+                                <tr>
+                                    <td>${t[0]}</td>
+                                    <td>${t[1]}</td>
+                                    <td>${t[2]}</td>
+                                </tr>
+                            </c:forEach>
+                        </table>
                     </div>
                 </div>
             </div>

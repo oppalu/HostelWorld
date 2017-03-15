@@ -165,6 +165,7 @@ public class AnalyseController {
         map.put("allnum",order.getUserOrders().size());
         map.put("allmoney",order.getUserPay());
         map.put("member",member.findMemberNum());
+        map.put("tables",member.analyseMember());
 
         return new ModelAndView("manage/member",map);
 

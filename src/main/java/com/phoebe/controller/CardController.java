@@ -87,6 +87,23 @@ public class CardController {
         return new ModelAndView("customer/cardinfo","card",card);
     }
 
+    @RequestMapping(value = "/stop/{cardid}", method = RequestMethod.GET)
+    public ModelAndView stopCard(@PathVariable String cardid,
+                                 HttpServletRequest request, HttpServletResponse response) {
+        Member m = (Member)request.getSession().getAttribute("member");
+        if(m == null)
+            return new ModelAndView("customer/login");
+
+        Membercard card = member.findMembercard(cardid);
+        card.setState("已停止");
+        int res = member.updateMembercard(card);
+        if(res == 1)
+            HandleError.handle(request, response, "停用成功");
+        else
+            HandleError.handle(request, response, "停用失败");
+        return new ModelAndView("customer/cardinfo","card",card);
+    }
+
     @RequestMapping(value = "/charge",method = RequestMethod.POST)
     public ModelAndView charge(@RequestParam("money") String money,
                                HttpServletRequest request, HttpServletResponse response) {

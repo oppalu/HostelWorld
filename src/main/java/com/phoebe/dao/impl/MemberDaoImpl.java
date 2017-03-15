@@ -91,6 +91,11 @@ public class MemberDaoImpl implements MemberDao {
         Session session = baseDao.getSession();
         String hql = "from Membercard where memberid = '"+ownerid+"'";
         return (Membercard)session.createQuery(hql).uniqueResult();
+    }
 
+    public List analyseMember() {
+        Session session = baseDao.getSession();
+        String hql = "select membercard,count(*),sum(realprice) from orderinfo where membercard != '' group by membercard";
+        return session.createSQLQuery(hql).list();
     }
 }

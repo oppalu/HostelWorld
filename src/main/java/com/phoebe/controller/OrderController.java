@@ -267,6 +267,20 @@ public class OrderController {
             return new ModelAndView("hotel/login");
 
         Orderinfo orderinfo = order.getOrderInfo(orderid);
+        orderinfo.setEndtime(DateFormater.getCurrentDate());
+        long day = DateFormater.getIntervals(DateFormater.transfer(orderinfo.getBegintime().toString()),
+                DateFormater.transfer(orderinfo.getEndtime().toString()));
+        orderinfo.setPrice(hotel.getType(orderinfo.getType()).getPrice()*day);
+
+        if(!orderinfo.getStatus().equals("已支付")) {
+            if(!orderinfo.getMembercard().equals("")) {
+                Membercard card = member.findMembercard(orderinfo.getMembercard());
+                orderinfo.setDiscount(Helper.calculateDiscount(card.getLevel(),orderinfo.getPrice()));
+            } else
+                orderinfo.setDiscount(0.0);
+            orderinfo.setRealprice(orderinfo.getPrice()-orderinfo.getDiscount());
+        }
+        order.updateOrder(orderinfo);
         Map<String, Object> map = new HashMap<String, Object>();
         map.put("order",orderinfo);
         map.put("typename",hotel.getTypename(orderinfo.getType()));

@@ -40,6 +40,9 @@
                         <div class="form-group">
                             <label class="col-sm-offset-2 col-sm-2 control-label">状态:</label>
                             <span class="col-sm-offset-1 label label-success">${card.state}</span>
+                            <c:if test="${card.state != '已停止'}">
+                                <a href="/card/stop/${card.id}">停用会员卡</a>
+                            </c:if>
                         </div>
 
                         <div class="form-group">

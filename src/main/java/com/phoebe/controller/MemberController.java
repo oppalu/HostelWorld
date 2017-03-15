@@ -67,10 +67,14 @@ public class MemberController {
         }
 
         Member m = member.login(username);
+        Map<String,Object> map = new HashMap<String, Object>();
 
         if(m!= null && m.getPassword().equals(password)) {
             request.getSession().setAttribute("member",m);
-            return new ModelAndView("customer/main","member",m);
+            map.put("member",m);
+            List<Hotel> hotels = hotel.findHotels();
+            map.put("hotels",hotels);
+            return new ModelAndView("customer/main",map);
         }
         else {
             HandleError.handle(request,response,"用户名或密码错误!");
