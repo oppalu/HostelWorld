@@ -9,6 +9,6 @@ public class testJenkins {
     @Test
     public void mytest() {
         int res = 10;
-        Assert.assertEquals(2,res);
+        Assert.assertEquals(12,res);
     }
 }
