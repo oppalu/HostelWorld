@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8e9490a-7bb7-4c5f-a62f-03c895731a0e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/com.phoebe/testJenkins.java" afterPath="$PROJECT_DIR$/src/test/com.phoebe/testJenkins.java" />
     </list>
     <ignored path="HostelWorld.iws" />
@@ -1082,7 +1081,7 @@
       <workItem from="1490151151698" duration="4162000" />
       <workItem from="1490157029906" duration="97000" />
       <workItem from="1503560440857" duration="2801000" />
-      <workItem from="1503640645043" duration="65000" />
+      <workItem from="1503640645043" duration="634000" />
     </task>
     <servers />
   </component>
@@ -1101,10 +1100,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="245658000" />
+    <option name="totallyTimeSpent" value="246227000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
