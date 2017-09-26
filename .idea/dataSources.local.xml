@@ -2,27 +2,14 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="MySQL - j2ee@localhost" uuid="3e57fc0f-e385-4d31-8aae-8d7b06cc741f">
-      <database-info product="MySQL" version="5.7.13" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
-        <extra-name-characters>#@</extra-name-characters>
-        <identifier-quote-string>`</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper" />
       <secret-storage>master_key</secret-storage>
       <user-name>root</user-name>
-      <introspection-schemas>*:j2ee|j2ee:</introspection-schemas>
       <resolve-scope>j2ee:</resolve-scope>
-      <unqualified-resolve-schemas>j2ee:</unqualified-resolve-schemas>
     </data-source>
     <data-source name="sessionFactory/Hibernate" uuid="a3fbaa4e-aa20-4e37-b126-6c970e6b710d">
-      <database-info product="MySQL" version="5.7.13" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
-        <extra-name-characters>#@</extra-name-characters>
-        <identifier-quote-string>`</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper" />
       <user-name>root</user-name>
-      <introspection-schemas>*:j2ee|j2ee:</introspection-schemas>
+      <user-password>dfc0dfcedfc8dfc9df90dfc7dfd3dfd9dfdbdfc6df90df85df85dfc6dfc5dfc9dfcbdfc6dfc2dfc5dfd9dfdedf90df99df99df9adf9cdf85dfc0df98dfcfdfcf</user-password>
       <resolve-scope>j2ee:</resolve-scope>
-      <unqualified-resolve-schemas>j2ee:</unqualified-resolve-schemas>
     </data-source>
   </component>
 </project>
