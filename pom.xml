@@ -130,6 +130,7 @@
         <version>2.2</version>
         <configuration>
           <url>http://118.89.106.141:8080/manager/text</url>
+          <server>tomcat7</server>
           <username>admin</username>
           <password>admin</password>
           <path>/</path>
