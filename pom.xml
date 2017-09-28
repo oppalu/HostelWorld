@@ -123,6 +123,27 @@
   <build>
     <finalName>HostelWorld</finalName>
 
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+      </resource>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>src/main/webapp</directory>
+        <includes>
+          <include>**/*.css</include>
+          <include>**/*.js</include>
+          <include>**/*.jpg</include>
+          <include>**/*.jpeg</include>
+          <include>**/*.png</include>
+        </includes>
+        <!-- 是否替换资源中的属性-->
+        <filtering>false</filtering>
+      </resource>
+    </resources>
+
     <plugins>
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
