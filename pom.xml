@@ -133,7 +133,7 @@
           <server>tomcat7</server>
           <username>admin</username>
           <password>admin</password>
-          <path>/</path>
+          <path>/hw</path>
         </configuration>
       </plugin>
       <plugin>
